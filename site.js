@@ -95,6 +95,57 @@
     });
   }
 
+  /* Browser screenshot tour ------------------------------------------------ */
+
+  const shotButtons = $$('[data-shot-view]');
+  const shotImage = $('[data-shot-image]');
+  const shotCaption = $('[data-shot-caption]');
+  const shotPanel = $('#shot-panel');
+  if (shotButtons.length && shotImage) {
+    const selectShot = (button, index) => {
+      shotButtons.forEach((other, otherIndex) => {
+        const active = other === button;
+        other.setAttribute('aria-selected', String(active));
+        other.tabIndex = active ? 0 : -1;
+      });
+      const next = new Image();
+      next.onload = () => {
+        shotImage.src = next.src;
+        shotImage.alt = button.dataset.alt || '';
+        if (shotCaption) shotCaption.textContent = button.dataset.caption || '';
+        if (shotPanel && button.id) shotPanel.setAttribute('aria-labelledby', button.id);
+        requestAnimationFrame(() => shotImage.classList.remove('is-swapping'));
+      };
+      shotImage.classList.add('is-swapping');
+      next.src = button.dataset.src;
+    };
+    shotButtons.forEach((button, index) => {
+      button.addEventListener('click', () => selectShot(button, index));
+      button.addEventListener('keydown', (event) => {
+        const last = shotButtons.length - 1;
+        let next = -1;
+        if (event.key === 'ArrowRight') next = index === last ? 0 : index + 1;
+        else if (event.key === 'ArrowLeft') next = index === 0 ? last : index - 1;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = last;
+        if (next < 0) return;
+        event.preventDefault();
+        selectShot(shotButtons[next], next);
+        shotButtons[next].focus();
+      });
+    });
+    window.addEventListener(
+      'load',
+      () => {
+        for (const button of shotButtons.slice(1)) {
+          const image = new Image();
+          image.src = button.dataset.src;
+        }
+      },
+      { once: true },
+    );
+  }
+
   /* Rasha Shield demo ------------------------------------------------------ */
 
   const shield = $('[data-shield-demo]');

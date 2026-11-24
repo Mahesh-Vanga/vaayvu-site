@@ -113,17 +113,50 @@
           </div>
 
           <div class="hero-visual">
-            <figure class="real-browser">
+            <figure class="real-browser" id="shot-panel" role="tabpanel" aria-labelledby="shot-tab-start" tabindex="0">
               <img
                 src="assets/browser-current.png"
-                width="2880"
-                height="1800"
+                width="2160"
+                height="1350"
                 alt="The current Vaayvu Browser at 1440 by 900, showing the Observatory start page with Spaces, Favorites, Rasha Shield and the Reading shelf."
                 fetchpriority="high"
                 decoding="async"
+                data-shot-image
               />
             </figure>
-            <p class="demo-note">The current Vaayvu Browser at 1440 × 900. Not a mockup.</p>
+            <div class="shot-switcher" role="tablist" aria-label="Browser screens">
+              <button
+                type="button"
+                role="tab"
+                aria-selected="true"
+                tabindex="0"
+                id="shot-tab-start" aria-controls="shot-panel" data-shot-view="start"
+                data-src="assets/browser-current.png"
+                data-alt="The Vaayvu Browser start page at 1440 by 900"
+                data-caption="The Observatory start page at 1440 × 900. Not a mockup."
+              >Start page</button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                tabindex="-1"
+                id="shot-tab-spaces" aria-controls="shot-panel" data-shot-view="spaces"
+                data-src="assets/browser-spaces.png"
+                data-alt="Vaayvu Spaces, with a Work workspace and its tabs, favorites and start page"
+                data-caption="Spaces: Work, Study and Personal, each with its own tabs, pins and accent."
+              >Spaces</button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                tabindex="-1"
+                id="shot-tab-appearance" aria-controls="shot-panel" data-shot-view="appearance"
+                data-src="assets/browser-appearance.png"
+                data-alt="Vaayvu Appearance settings with theme, wallpaper, sidebar and tab alignment"
+                data-caption="Appearance settings: theme, wallpaper, sidebar, tab alignment and shortcuts."
+              >Appearance</button>
+            </div>
+            <p class="demo-note" data-shot-caption aria-live="polite">The Observatory start page at 1440 × 900. Not a mockup.</p>
           </div>
         </div>
       </section>
