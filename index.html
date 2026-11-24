@@ -66,19 +66,6 @@
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
       }
     </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "VideoObject",
-        "name": "Vaayvu Browser in motion",
-        "description": "A short recording of the running Vaayvu Browser switching spaces, opening Shield settings and changing its theme.",
-        "thumbnailUrl": "https://vaayvu.com/assets/browser-current.webp",
-        "uploadDate": "2026-11-25",
-        "duration": "PT14S",
-        "contentUrl": "https://vaayvu.com/assets/vaayvu-film.mp4",
-        "embedUrl": "https://vaayvu.com/#film"
-      }
-    </script>
   </head>
   <body>
     <div class="scroll-progress" data-progress aria-hidden="true"></div>
@@ -404,54 +391,6 @@
         </div>
       </section>
 
-      <section class="section section-ink section-film" id="film" aria-labelledby="film-title">
-        <div class="shell">
-          <div class="section-head section-head-split">
-            <div>
-              <p class="eyebrow">In motion</p>
-              <h2 id="film-title">The browser,<br />actually moving.</h2>
-            </div>
-            <p class="lede">
-              A short recording of the running build: spaces change the window, Shield settings
-              open in place, and the theme changes the whole surface. No mockups, no composited
-              screens.
-            </p>
-          </div>
-          <figure class="film" data-reveal>
-            <video
-              class="film-video"
-              data-film
-              muted
-              loop
-              playsinline
-              preload="none"
-              poster="assets/browser-current.webp"
-              aria-label="A recording of the running Vaayvu Browser switching spaces and opening its Shield and Appearance settings"
-            >
-              <source src="assets/vaayvu-film.webm" type="video/webm" />
-              <source src="assets/vaayvu-film.mp4" type="video/mp4" />
-            </video>
-            <div class="film-bar">
-              <button type="button" class="film-toggle" data-film-toggle aria-label="Pause the recording">
-                <svg class="film-pause" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
-                  <rect x="6.5" y="4.5" width="3.6" height="15" rx="1" />
-                  <rect x="13.9" y="4.5" width="3.6" height="15" rx="1" />
-                </svg>
-                <svg class="film-play" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
-                  <path d="M7 4.2v15.6L20 12Z" />
-                </svg>
-                <span data-film-label>Pause</span>
-              </button>
-              <p class="film-time" data-film-time>0:00 / 0:00</p>
-              <p class="film-live"><i aria-hidden="true"></i>Recorded from the running app</p>
-            </div>
-          </figure>
-          <p class="film-caption">
-            Vaayvu 0.0.23 at 1440 × 900. The same build you can download below.
-          </p>
-        </div>
-      </section>
-
       <section class="section section-paper" id="privacy" aria-labelledby="privacy-title">
         <div class="shell">
           <div class="section-head section-head-split">
@@ -495,27 +434,6 @@
               <span class="route-detail">the origin you entered</span>
             </div>
             <span class="route-stop" aria-hidden="true">No Vaayvu cloud in between</span>
-          </div>
-
-          <div class="receipt" data-receipt>
-            <div class="receipt-head">
-              <span class="receipt-dot" aria-hidden="true"></span>
-              <p>Receipt for this page <span>· measured here, just now</span></p>
-            </div>
-            <dl class="receipt-grid">
-              <div>
-                <dt>Third-party requests</dt>
-                <dd data-fact-third-party>—</dd>
-              </div>
-              <div>
-                <dt>Cookies readable here</dt>
-                <dd data-fact-cookies>—</dd>
-              </div>
-              <div>
-                <dt>Page transfer</dt>
-                <dd data-fact-size>—</dd>
-              </div>
-            </dl>
           </div>
         </div>
       </section>
@@ -627,80 +545,6 @@
               <h3>Local passwords</h3>
               <p>Save sign-ins in the browser's local store, or open your device's password manager.</p>
             </article>
-          </div>
-
-          <div class="split-feature" data-split-demo data-reveal>
-            <div class="split-copy">
-              <p class="eyebrow">Try split view</p>
-              <h3>Two pages.<br />One window.</h3>
-              <p>
-                On desktop, drag the divider or focus it and use the arrow keys. Each side keeps
-                its own scroll position, title and controls.
-              </p>
-              <p class="split-readout">
-                <span data-split-left>50</span>% <span aria-hidden="true">/</span>
-                <span data-split-right>50</span>%
-              </p>
-              <button type="button" class="text-link split-reset" data-split-reset>
-                Reset to half
-              </button>
-            </div>
-            <div class="split-stage" data-split-stage>
-              <div class="split-pane split-pane-left">
-                <div class="split-bar">
-                  <span class="split-dot" aria-hidden="true"></span>
-                  <span>Why the tide keeps time</span>
-                </div>
-                <article class="split-page">
-                  <p class="split-kicker">Field journal · 6 min read</p>
-                  <h4>Why the tide keeps time</h4>
-                  <p>
-                    The moon lifts the water twice a day, but the shore answers on its own schedule.
-                    Bays, river mouths and narrow channels each add their own delay.
-                  </p>
-                  <div class="split-rule" aria-hidden="true"></div>
-                  <p class="split-small">
-                    A tide is not a single wave. It is a standing pattern shaped by the basin it
-                    moves through, which is why two harbours a few miles apart can peak hours apart.
-                  </p>
-                </article>
-              </div>
-              <div
-                class="split-handle"
-                role="separator"
-                aria-label="Resize the split view"
-                aria-orientation="vertical"
-                aria-valuemin="25"
-                aria-valuemax="75"
-                aria-valuenow="50"
-                aria-valuetext="50 percent left, 50 percent right"
-                tabindex="0"
-                data-split-handle
-              >
-                <span aria-hidden="true"></span>
-              </div>
-              <div class="split-pane split-pane-right">
-                <div class="split-bar">
-                  <span class="split-dot split-dot-alt" aria-hidden="true"></span>
-                  <span>Field notes</span>
-                </div>
-                <div class="split-list">
-                  <p class="split-kicker">Reading shelf</p>
-                  <div class="split-row is-on">
-                    <span class="split-num">01</span>
-                    <span><strong>The moon pulls</strong><small>3 min · saved</small></span>
-                  </div>
-                  <div class="split-row">
-                    <span class="split-num">02</span>
-                    <span><strong>Tide tables, read slowly</strong><small>7 min</small></span>
-                  </div>
-                  <div class="split-row">
-                    <span class="split-num">03</span>
-                    <span><strong>Notes from the harbour</strong><small>4 min</small></span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -901,7 +745,6 @@
     <nav class="section-rail" aria-label="Page sections">
       <a href="#shield" data-section="shield"><span class="rail-label">Rasha Shield</span><span class="rail-dot" aria-hidden="true"></span></a>
       <a href="#spaces" data-section="spaces"><span class="rail-label">Spaces</span><span class="rail-dot" aria-hidden="true"></span></a>
-      <a href="#film" data-section="film"><span class="rail-label">In motion</span><span class="rail-dot" aria-hidden="true"></span></a>
       <a href="#privacy" data-section="privacy"><span class="rail-label">Privacy</span><span class="rail-dot" aria-hidden="true"></span></a>
       <a href="#features" data-section="features"><span class="rail-label">Everyday tools</span><span class="rail-dot" aria-hidden="true"></span></a>
       <a href="#download" data-section="download"><span class="rail-label">Download</span><span class="rail-dot" aria-hidden="true"></span></a>
@@ -921,7 +764,6 @@
           <a href="#shield">Shield</a>
           <a href="#privacy">Privacy</a>
           <a href="#download">Download</a>
-          <button type="button" class="footer-link-button" data-shortcuts-open aria-haspopup="dialog" aria-controls="shortcuts">Shortcuts</button>
           <a href="LICENSE.txt">Licensing</a>
         </nav>
         <p class="footer-note">© 2026 Vaayvu · Built with Chromium, WKWebView and Android WebView</p>
@@ -965,27 +807,6 @@
       </div>
     </div>
 
-    <div class="shortcuts" id="shortcuts" data-shortcuts hidden>
-      <div class="palette-scrim" data-shortcuts-close></div>
-      <div class="shortcuts-panel" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title" aria-describedby="shortcuts-note">
-        <header class="shortcuts-head">
-          <div>
-            <p class="eyebrow">Keyboard</p>
-            <h2 id="shortcuts-title">Move without the mouse.</h2>
-          </div>
-          <button type="button" class="shortcuts-close" data-shortcuts-close aria-label="Close keyboard shortcuts">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-              <path d="m6 6 12 12M18 6 6 18" />
-            </svg>
-          </button>
-        </header>
-        <div class="shortcut-grid" data-shortcut-grid></div>
-        <p class="shortcuts-note" id="shortcuts-note">
-          These are the shortcuts in the running browser. Press <kbd>?</kbd> any time to reopen this list.
-        </p>
-      </div>
-    </div>
-
-    <script src="site.js?v=20261125d" defer></script>
+    <script src="site.js?v=20261125c" defer></script>
   </body>
 </html>

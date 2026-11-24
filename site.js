@@ -29,38 +29,24 @@
     .map((link) => ({ link, section: document.getElementById(link.dataset.section) }))
     .filter((entry) => entry.section);
 
-  const applyTheme = (dusk, persist, animate = false) => {
-    const commit = () => {
-      if (dusk) rootElement.dataset.theme = 'dusk';
-      else delete rootElement.dataset.theme;
-      if (themeToggle) {
-        themeToggle.setAttribute('aria-pressed', String(dusk));
-        themeToggle.setAttribute('aria-label', dusk ? 'Switch to paper theme' : 'Switch to dusk theme');
-      }
-      if (themeColor) themeColor.setAttribute('content', dusk ? '#15120f' : '#f3f0e8');
-      if (persist) {
-        try {
-          localStorage.setItem('vaayvu.site.theme', dusk ? 'dusk' : 'paper');
-        } catch {}
-      }
-      window.dispatchEvent(new Event('themechange'));
-    };
-    if (animate && !reduceMotion && typeof document.startViewTransition === 'function') {
-      const rect = themeToggle?.getBoundingClientRect();
-      const x = rect ? rect.left + rect.width / 2 : window.innerWidth - 44;
-      const y = rect ? rect.top + rect.height / 2 : 44;
-      rootElement.style.setProperty('--theme-x', Math.round(x) + 'px');
-      rootElement.style.setProperty('--theme-y', Math.round(y) + 'px');
-      document.startViewTransition(commit);
-    } else {
-      commit();
+  const applyTheme = (dusk, persist) => {
+    if (dusk) rootElement.dataset.theme = 'dusk';
+    else delete rootElement.dataset.theme;
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(dusk));
+      themeToggle.setAttribute('aria-label', dusk ? 'Switch to paper theme' : 'Switch to dusk theme');
     }
+    if (themeColor) themeColor.setAttribute('content', dusk ? '#15120f' : '#f3f0e8');
+    if (persist) {
+      try {
+        localStorage.setItem('vaayvu.site.theme', dusk ? 'dusk' : 'paper');
+      } catch {}
+    }
+    window.dispatchEvent(new Event('themechange'));
   };
   if (themeToggle) {
     applyTheme(rootElement.dataset.theme === 'dusk', false);
-    themeToggle.addEventListener('click', () =>
-      applyTheme(rootElement.dataset.theme !== 'dusk', true, true),
-    );
+    themeToggle.addEventListener('click', () => applyTheme(rootElement.dataset.theme !== 'dusk', true));
   }
 
   const markSection = () => {
@@ -391,128 +377,6 @@
     browserFrame.addEventListener('blur', resetTilt);
   }
 
-  /* Keyboard shortcuts ----------------------------------------------------- */
-
-  const shortcutsDialog = $('[data-shortcuts]');
-  const shortcutsGrid = $('[data-shortcut-grid]');
-  const shortcutsTriggers = $$('[data-shortcuts-open]');
-  let shortcutsOpen = false;
-  let shortcutsLastFocus = null;
-
-  const openShortcuts = () => {
-    if (!shortcutsDialog || shortcutsOpen) return;
-    shortcutsOpen = true;
-    shortcutsLastFocus = document.activeElement;
-    shortcutsDialog.hidden = false;
-    document.body.classList.add('shortcuts-open');
-    shortcutsTriggers.forEach((trigger) => trigger.setAttribute('aria-expanded', 'true'));
-    const close = $('.shortcuts-close', shortcutsDialog);
-    requestAnimationFrame(() => (close || shortcutsDialog).focus());
-  };
-
-  const closeShortcuts = () => {
-    if (!shortcutsDialog || !shortcutsOpen) return;
-    shortcutsOpen = false;
-    shortcutsDialog.hidden = true;
-    document.body.classList.remove('shortcuts-open');
-    shortcutsTriggers.forEach((trigger) => trigger.setAttribute('aria-expanded', 'false'));
-    if (shortcutsLastFocus && document.contains(shortcutsLastFocus)) {
-      shortcutsLastFocus.focus({ preventScroll: true });
-    }
-  };
-
-  if (shortcutsDialog && shortcutsGrid) {
-    const mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
-    const mod = mac ? '⌘' : 'Ctrl';
-    const alt = mac ? '⌥' : 'Alt';
-    const shift = mac ? '⇧' : 'Shift';
-    const ctrl = mac ? '⌃' : 'Ctrl';
-    const groups = [
-      {
-        name: 'Tabs',
-        rows: [
-          ['New tab', [mod, 'T']],
-          ['Close tab', [mod, 'W']],
-          ['Next tab', [ctrl, 'Tab']],
-          ['Previous tab', [ctrl, shift, 'Tab']],
-          ['Select tab 1–9', [mod, '1', '…', '9']],
-        ],
-      },
-      {
-        name: 'Navigation',
-        rows: [
-          ['Address bar', [mod, 'L']],
-          ['Find in page', [mod, 'F']],
-          ['Reload page', [mod, 'R']],
-          ['Bookmark page', [mod, 'D']],
-          ['Go back', ['Esc']],
-        ],
-      },
-      {
-        name: 'Spaces & windows',
-        rows: [
-          ['Command bar', [mod, 'K']],
-          ['Space 1–9', [alt, '1', '…', '9']],
-          ['New window', [mod, 'N']],
-          ['Close window', [mod, shift, 'W']],
-          ['This list', ['?']],
-        ],
-      },
-    ];
-
-    for (const group of groups) {
-      const section = document.createElement('section');
-      section.className = 'shortcut-group';
-      const heading = document.createElement('h3');
-      heading.textContent = group.name;
-      const list = document.createElement('dl');
-      for (const [label, keys] of group.rows) {
-        const row = document.createElement('div');
-        row.className = 'shortcut-row';
-        const term = document.createElement('dt');
-        term.textContent = label;
-        const detail = document.createElement('dd');
-        for (const key of keys) {
-          const kbd = document.createElement('kbd');
-          kbd.textContent = key;
-          detail.append(kbd);
-        }
-        row.append(term, detail);
-        list.append(row);
-      }
-      section.append(heading, list);
-      shortcutsGrid.append(section);
-    }
-
-    shortcutsTriggers.forEach((trigger) => trigger.addEventListener('click', openShortcuts));
-    $$('[data-shortcuts-close]', shortcutsDialog).forEach((close) => close.addEventListener('click', closeShortcuts));
-    const panel = $('.shortcuts-panel', shortcutsDialog);
-    panel?.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        event.preventDefault();
-        closeShortcuts();
-      } else if (event.key === 'Tab') {
-        event.preventDefault();
-        $('.shortcuts-close', shortcutsDialog)?.focus();
-      }
-    });
-
-    window.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && shortcutsOpen) {
-        event.preventDefault();
-        closeShortcuts();
-        return;
-      }
-      const question = event.key === '?' || (event.key === '/' && event.shiftKey);
-      if (!question || event.metaKey || event.ctrlKey || event.altKey) return;
-      if (event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
-      if (palette && !palette.hidden) return;
-      if (shortcutsOpen) return;
-      event.preventDefault();
-      openShortcuts();
-    });
-  }
-
   /* Command palette -------------------------------------------------------- */
 
   const palette = $('[data-palette]');
@@ -544,7 +408,6 @@
     const commands = [
       { label: 'Rasha Shield', hint: 'Section', terms: 'ads trackers blocking ads', run: () => goTo('shield') },
       { label: 'Spaces', hint: 'Section', terms: 'work study personal workspaces', run: () => goTo('spaces') },
-      { label: 'In motion', hint: 'Section', terms: 'video film recording demo', run: () => goTo('film') },
       { label: 'Privacy route', hint: 'Section', terms: 'sync server cloud device', run: () => goTo('privacy') },
       { label: 'Everyday tools', hint: 'Section', terms: 'features split view tab groups passwords reader', run: () => goTo('features') },
       { label: 'Download Vaayvu', hint: 'Section', terms: 'mac windows android dmg pkg zip apk', run: () => goTo('download') },
@@ -556,15 +419,6 @@
         run: () => {
           applyTheme(rootElement.dataset.theme !== 'dusk', true);
           closePalette();
-        },
-      },
-      {
-        label: 'Keyboard shortcuts',
-        hint: 'Keys',
-        terms: 'hotkeys keyboard help command',
-        run: () => {
-          closePalette();
-          openShortcuts();
         },
       },
       { label: 'Source on GitHub', hint: 'GitHub', terms: 'code repository public', run: () => openLink('https://github.com/Mahesh-Vanga/vaayvu-site') },
@@ -753,7 +607,7 @@
   /* Reveal ----------------------------------------------------------------- */
 
   const revealTargets = $$(
-    '.hero-copy, .hero-visual, .section-head, .section-copy, .shield-panel, .shield-flow, .spaces-demo, .film, .privacy-card, .route, .receipt, .feature, .split-feature, .download-card, .faq-list',
+    '.hero-copy, .hero-visual, .section-head, .section-copy, .shield-panel, .shield-flow, .spaces-demo, .privacy-card, .route, .feature, .download-card, .faq-list',
   );
   if (!reduceMotion && 'IntersectionObserver' in window && revealTargets.length) {
     const observer = new IntersectionObserver(
@@ -804,170 +658,6 @@
     currentCard.classList.add('is-current');
     const chip = $('[data-platform-chip]', currentCard);
     if (chip) chip.hidden = false;
-  }
-
-  /* Split view demo -------------------------------------------------------- */
-
-  const splitDemo = $('[data-split-demo]');
-  if (splitDemo) {
-    const stage = $('[data-split-stage]', splitDemo);
-    const handle = $('[data-split-handle]', splitDemo);
-    const leftOut = $('[data-split-left]', splitDemo);
-    const rightOut = $('[data-split-right]', splitDemo);
-    const reset = $('[data-split-reset]', splitDemo);
-    let splitValue = 50;
-    let dragging = false;
-
-    const renderSplit = (next) => {
-      splitValue = Math.min(75, Math.max(25, Math.round(next)));
-      stage.style.setProperty('--split', splitValue + '%');
-      handle.setAttribute('aria-valuenow', String(splitValue));
-      handle.setAttribute(
-        'aria-valuetext',
-        splitValue + ' percent left, ' + (100 - splitValue) + ' percent right',
-      );
-      if (leftOut) leftOut.textContent = String(splitValue);
-      if (rightOut) rightOut.textContent = String(100 - splitValue);
-    };
-
-    const positionSplit = (clientX) => {
-      const rect = stage.getBoundingClientRect();
-      if (!rect.width) return;
-      renderSplit(((clientX - rect.left) / rect.width) * 100);
-    };
-
-    handle.addEventListener('pointerdown', (event) => {
-      dragging = true;
-      handle.classList.add('is-dragging');
-      handle.setPointerCapture(event.pointerId);
-      positionSplit(event.clientX);
-      event.preventDefault();
-    });
-    handle.addEventListener('pointermove', (event) => {
-      if (dragging) positionSplit(event.clientX);
-    });
-    const endDrag = () => {
-      dragging = false;
-      handle.classList.remove('is-dragging');
-    };
-    handle.addEventListener('pointerup', endDrag);
-    handle.addEventListener('pointercancel', endDrag);
-    handle.addEventListener('lostpointercapture', endDrag);
-
-    handle.addEventListener('keydown', (event) => {
-      const step = event.shiftKey ? 1 : 5;
-      if (event.key === 'ArrowLeft') {
-        event.preventDefault();
-        renderSplit(splitValue - step);
-      } else if (event.key === 'ArrowRight') {
-        event.preventDefault();
-        renderSplit(splitValue + step);
-      } else if (event.key === 'Home') {
-        event.preventDefault();
-        renderSplit(25);
-      } else if (event.key === 'End') {
-        event.preventDefault();
-        renderSplit(75);
-      }
-    });
-
-    reset?.addEventListener('click', () => renderSplit(50));
-    renderSplit(50);
-  }
-
-  /* Film ------------------------------------------------------------------- */
-
-  const film = $('[data-film]');
-  if (film) {
-    const toggle = $('[data-film-toggle]', film.closest('.film'));
-    const label = $('[data-film-label]', film.closest('.film'));
-    const time = $('[data-film-time]', film.closest('.film'));
-    let userPaused = false;
-
-    const clock = (value) => {
-      if (!Number.isFinite(value) || value < 0) return '0:00';
-      const minutes = Math.floor(value / 60);
-      const seconds = Math.floor(value % 60);
-      return minutes + ':' + String(seconds).padStart(2, '0');
-    };
-    const updateTime = () => {
-      if (!time) return;
-      time.textContent = clock(film.currentTime) + ' / ' + clock(film.duration);
-    };
-    const update = () => {
-      const playing = !film.paused && !film.ended;
-      toggle?.classList.toggle('is-playing', playing);
-      toggle?.setAttribute(
-        'aria-label',
-        playing ? 'Pause the recording' : 'Play the recording',
-      );
-      if (label) label.textContent = playing ? 'Pause' : 'Play';
-      updateTime();
-    };
-
-    toggle?.addEventListener('click', () => {
-      if (film.paused) {
-        userPaused = false;
-        film.play().catch(() => update());
-      } else {
-        userPaused = true;
-        film.pause();
-      }
-    });
-    film.addEventListener('play', update);
-    film.addEventListener('pause', update);
-    film.addEventListener('loadedmetadata', updateTime);
-    film.addEventListener('timeupdate', updateTime);
-    film.addEventListener('ended', update);
-    update();
-
-    if (!reduceMotion && 'IntersectionObserver' in window) {
-      new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            if (!userPaused) film.play().catch(() => update());
-          } else {
-            film.pause();
-          }
-        },
-        { threshold: 0.35 },
-      ).observe(film);
-    }
-  }
-
-  /* Live page receipt ------------------------------------------------------ */
-
-  const receipt = $('[data-receipt]');
-  if (receipt) {
-    const thirdPartyValue = $('[data-fact-third-party]', receipt);
-    const cookiesValue = $('[data-fact-cookies]', receipt);
-    const sizeValue = $('[data-fact-size]', receipt);
-    const fill = (element, value) => {
-      if (!element) return;
-      element.textContent = value;
-      element.classList.add('is-live');
-    };
-    const measure = () => {
-      const resources = performance.getEntriesByType('resource');
-      let thirdParty = 0;
-      let bytes = 0;
-      for (const entry of resources) {
-        try {
-          if (new URL(entry.name).origin !== location.origin) thirdParty += 1;
-        } catch {}
-        bytes += entry.transferSize || 0;
-      }
-      const navigation = performance.getEntriesByType('navigation')[0];
-      if (navigation) bytes += navigation.transferSize || 0;
-      const cookies = document.cookie ? document.cookie.split(';').filter((part) => part.trim()).length : 0;
-      fill(thirdPartyValue, String(thirdParty));
-      fill(cookiesValue, String(cookies));
-      if (bytes === 0) fill(sizeValue, 'Cached');
-      else if (bytes < 1024) fill(sizeValue, '<1 KB');
-      else fill(sizeValue, Math.round(bytes / 1024) + ' KB');
-    };
-    if (document.readyState === 'complete') setTimeout(measure, 500);
-    else window.addEventListener('load', () => setTimeout(measure, 500), { once: true });
   }
 
   /* Download availability -------------------------------------------------- */

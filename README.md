@@ -1,9 +1,8 @@
 # vaayvu.com
 
 Static landing page for Vaayvu. No build step, no framework, no third-party
-scripts, no analytics and no cookies set by the page. The page uses the
-browser's own HTML, one stylesheet, one script, two self-hosted fonts, local
-screenshots and one locally recorded film.
+scripts. The page uses the browser's own HTML, one stylesheet, one script, two
+self-hosted fonts and four local images.
 
 ## Preview
 
@@ -38,9 +37,8 @@ It copies `website/` into `website/cloudflare/public` and runs
 `wrangler deploy` against the `vaayvu-secure` Worker. The Cloudflare login is
 stored by Wrangler; the source never needs to be public.
 
-This folder is the live source. `bash website/deploy.sh` mirrors it to the
-public `vaayvu-site` repository on GitHub; that repository is an archive, not
-the deployment target. The Worker assets are what visitors receive.
+The private GitHub repository `vaayvu-site` is no longer the live source. Do
+not use it to publish the site; keep it only as an archive if you want.
 
 ### `www` record
 
@@ -53,23 +51,6 @@ CNAME no longer has a certificate:
 
 Once that record is saved, the edge Worker sends `www` to `vaayvu.com` with the
 valid apex certificate. Until then, use `https://vaayvu.com`.
-
-### Media
-
-The three browser screenshots and the film are captured from the running
-build, not drawn or composited:
-
-| File | Use |
-|---|---|
-| `assets/browser-current.webp` | Hero start page, film poster |
-| `assets/browser-spaces.webp` | Hero Spaces tab |
-| `assets/browser-appearance.webp` | Hero Appearance tab |
-| `assets/vaayvu-film.webm` | 14-second film, VP9, 640 KB |
-| `assets/vaayvu-film.mp4` | 14-second film, H.264 fallback, 832 KB |
-
-The film is recorded at 1440 × 900 with Playwright driving the Electron build.
-The page loads it only when the film section enters the viewport, pauses it
-off-screen, and never autoplays it under `prefers-reduced-motion`.
 
 ### Installers
 
