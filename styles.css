@@ -223,6 +223,9 @@ ul {
   background: var(--paper-2);
   color: var(--ink);
 }
+.search-trigger kbd::before {
+  content: "⌘K";
+}
 .search-trigger kbd {
   padding: 2px 5px;
   border: 1px solid var(--line);
