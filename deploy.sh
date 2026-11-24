@@ -30,4 +30,4 @@ fi
 git -c user.name="Mahesh Vanga" -c user.email="maheshvanga52@gmail.com" \
   commit -m "Update vaayvu.com"
 git push origin main
-echo "Published. GitHub Pages will rebuild in a minute."
+echo "Source updated on GitHub. Run deploy-cloudflare.sh for the live site."

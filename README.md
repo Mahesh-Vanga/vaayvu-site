@@ -54,10 +54,11 @@ valid apex certificate. Until then, use `https://vaayvu.com`.
 
 ### Installers
 
-The installer files are not hosted with the website. The GitHub release links
-are private and must not be used. Enable **R2** in the Cloudflare dashboard,
-then run `bash website/sync-downloads.sh` and point the four download buttons at
-the R2 public URLs (or a `downloads.vaayvu.com` custom domain).
+The four installers are public assets on the `v0.0.23` GitHub release in the
+public `vaayvu-site` repository, and the site links directly to them. R2 is
+optional for a future release if you prefer to keep installers on Cloudflare;
+if you use it, run `bash website/sync-downloads.sh` and point the buttons at the
+R2 public URLs.
 
 ## Editing rules
 
