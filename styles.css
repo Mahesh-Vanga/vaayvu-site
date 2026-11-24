@@ -1658,6 +1658,7 @@ h3 {
   font: 400 12.5px/1 var(--sans);
 }
 .split-stage {
+  --split: 50%;
   display: grid;
   grid-template-columns: calc(var(--split) - 5px) 10px minmax(0, 1fr);
   height: 348px;
