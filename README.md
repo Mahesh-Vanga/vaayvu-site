@@ -15,22 +15,52 @@ python3 -m http.server 4173 -d website
 Open <http://localhost:4173>. The page deliberately skips the download
 availability check on `localhost` and `file:`, so the preview stays complete.
 
-## Deploying to vaayvu.com (domain bought at Wix)
+## Deployment
 
-The domain and the site can live in different places. Two paths:
+The site is live on GitHub Pages:
 
-1. **Host the folder, point the domain at it.** Upload the `website/` folder to
-   Cloudflare Pages, Netlify or GitHub Pages. In the Wix dashboard open
-   **Domains → vaayvu.com → Connect to an existing site** (Wix wording changes
-   from time to time) and follow the DNS records Wix shows for that provider.
-   Usually that is an `A`/`AAAA` pair for the apex and a `CNAME` for `www`.
-2. **Keep Wix hosting.** Wix does not serve arbitrary static folders from its
-   editor. Either rebuild the page in Wix (not recommended; it loses this code)
-   or use path 1 and leave the Wix editor unused.
+- Repository: <https://github.com/Mahesh-Vanga/vaayvu-site>
+- Preview: <https://mahesh-vanga.github.io/vaayvu-site/>
+- Custom domain configured in Pages: `vaayvu.com` (`CNAME` file included)
 
-Before pointing DNS, confirm the host gives you HTTPS for both `vaayvu.com`
-and `www.vaayvu.com`, and pick one canonical host (the page uses
-`https://vaayvu.com/` as canonical).
+Publish changes with:
+
+```sh
+bash website/deploy.sh
+```
+
+The script clones the site repository to `~/.cache/vaayvu-site`, copies
+`website/` over it (keeping `CNAME`, `.nojekyll` and the release-only
+`downloads/` folder), commits and pushes. Run `bash website/sync-downloads.sh`
+only if you switch back to self-hosted build files.
+
+### DNS at Wix
+
+The domain is still on Wix nameservers, so the last step has to happen in the
+Wix dashboard. Open **Domains → vaayvu.com → DNS records** and replace the Wix
+records with:
+
+| Type | Host | Value |
+|---|---|---|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `mahesh-vanga.github.io` |
+
+Remove the old Wix A records (`185.230.63.171`, `.107`, `.186`) and the
+`www` CNAME to `cdn3.wixdns.net`. Optional IPv6 AAAA records:
+`2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`,
+`2606:50c0:8003::153`.
+
+If Wix locks the records because the domain is attached to an unpublished Wix
+site, disconnect the domain from that site first. If the DNS editor is not
+available, change the domain's nameservers at Wix to Cloudflare (free) and add
+the same A/CNAME records there.
+
+After DNS resolves, GitHub provisions the certificate for `vaayvu.com`. Until
+it does, use the preview URL above. Do not enable “Enforce HTTPS” in Pages
+before the certificate exists.
 
 ## Downloads
 
