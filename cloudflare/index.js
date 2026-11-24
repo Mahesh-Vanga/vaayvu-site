@@ -40,6 +40,11 @@ export default {
       }
     }
     const headers = new Headers(response.headers);
+    if ((headers.get('Content-Type') || '').includes('text/html')) {
+      // Keep Cloudflare from injecting the Web Analytics beacon or rewriting
+      // the page. The site measures its own page and sets no cookies.
+      headers.set('Cache-Control', 'public, max-age=0, must-revalidate, no-transform');
+    }
     if (isVideo) headers.set('Accept-Ranges', 'bytes');
     headers.set('Strict-Transport-Security', 'max-age=31536000');
     headers.set('X-Content-Type-Options', 'nosniff');
