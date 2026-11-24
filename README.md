@@ -17,89 +17,47 @@ availability check on `localhost` and `file:`, so the preview stays complete.
 
 ## Deployment
 
-The site is live on GitHub Pages:
+Live at **https://vaayvu.com**, served by the Cloudflare Worker
+`vaayvu-secure`:
 
-- Repository: <https://github.com/Mahesh-Vanga/vaayvu-site>
-- Preview: <https://mahesh-vanga.github.io/vaayvu-site/>
-- Custom domain configured in Pages: `vaayvu.com` (`CNAME` file included)
+- static assets are uploaded from this folder
+- Worker routes cover `vaayvu.com/*` and `www.vaayvu.com/*`
+- the Worker redirects HTTP to HTTPS, sends `www` to the apex, and adds HSTS,
+  CSP, `nosniff`, frame, referrer and permissions headers
+- the DNS zone is on Cloudflare (`aaden`/`irma` nameservers); the old Wix and
+  GitHub Pages setup is retired
 
 Publish changes with:
 
 ```sh
-bash website/deploy.sh
+bash website/deploy-cloudflare.sh
 ```
 
-The script clones the site repository to `~/.cache/vaayvu-site`, copies
-`website/` over it (keeping `CNAME`, `.nojekyll` and the release-only
-`downloads/` folder), commits and pushes. Run `bash website/sync-downloads.sh`
-only if you switch back to self-hosted build files.
+It copies `website/` into `website/cloudflare/public` and runs
+`wrangler deploy` against the `vaayvu-secure` Worker. The Cloudflare login is
+stored by Wrangler; the source never needs to be public.
 
-### DNS at Wix
+The private GitHub repository `vaayvu-site` is no longer the live source. Do
+not use it to publish the site; keep it only as an archive if you want.
 
-The domain is still on Wix nameservers, so the last step has to happen in the
-Wix dashboard. Open **Domains → vaayvu.com → DNS records** and replace the Wix
-records with:
+### `www` record
 
-| Type | Host | Value |
-|---|---|---|
-| A | `@` | `185.199.108.153` |
-| A | `@` | `185.199.109.153` |
-| A | `@` | `185.199.110.153` |
-| A | `@` | `185.199.111.153` |
-| CNAME | `www` | `mahesh-vanga.github.io` |
+`www.vaayvu.com` needs one DNS record in Cloudflare, because its old Pages
+CNAME no longer has a certificate:
 
-Remove the old Wix A records (`185.230.63.171`, `.107`, `.186`) and the
-`www` CNAME to `cdn3.wixdns.net`. Optional IPv6 AAAA records:
-`2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`,
-`2606:50c0:8003::153`.
+| Type | Name | Target | Proxy |
+|---|---|---|---|
+| CNAME | `www` | `vaayvu.com` | Proxied |
 
-If Wix locks the records because the domain is attached to an unpublished Wix
-site, disconnect the domain from that site first. If the DNS editor is not
-available, change the domain's nameservers at Wix to Cloudflare (free) and add
-the same A/CNAME records there.
+Once that record is saved, the edge Worker sends `www` to `vaayvu.com` with the
+valid apex certificate. Until then, use `https://vaayvu.com`.
 
-After DNS resolves, GitHub provisions the certificate for `vaayvu.com`. Until
-it does, use the preview URL above. Do not enable “Enforce HTTPS” in Pages
-before the certificate exists.
+### Installers
 
-## Downloads
-
-On vaayvu.com the download buttons point at the GitHub release assets in
-`Mahesh-Vanga/vaayvu-site` (tag `v0.0.23`), because GitHub Pages cannot serve
-files above 100 MB. The page skips its availability check for those external
-URLs.
-
-For a self-hosted copy, `downloads/<artifact>` is still supported: change the
-four hrefs back to the relative paths and the page will `HEAD`-check each file,
-showing “Not uploaded yet” instead of a dead link. On `localhost` that check is
-skipped.
-
-Copy the current release into the folder (it stays out of git):
-
-```sh
-bash website/sync-downloads.sh 0.0.23
-```
-
-That copies the four published artifacts (macOS DMG/PKG, Windows ZIP, Android APK) from `tests/test/0.0.23/`, writes
-`downloads/SHA256SUMS.txt`, and leaves the page's hard-coded checksums as the
-source of truth for what is displayed. When you ship a new build, update:
-
-- `softwareVersion` in `index.html`'s JSON-LD
-- the version line in the hero and download section
-- the artifact file names, sizes and SHA-256 values in the four download cards
-- the `--version` argument above
-
-## Design
-
-The page is built around the browser's own Observatory start page: a warm paper
-surface, ink type, one sea-blue accent, and the harbor photograph as the single
-rich moment. Fraunces carries the large headings; IBM Plex Sans carries the
-interface and body. Both fonts and all images are local.
-
-The signature is the small wind contour ahead of each section label and the
-live local clock inside the browser preview. Motion is limited to a short reveal
-and the state changes that explain something (tabs, shield, spaces); reduced
-motion turns it off.
+The installer files are not hosted with the website. The GitHub release links
+are private and must not be used. Enable **R2** in the Cloudflare dashboard,
+then run `bash website/sync-downloads.sh` and point the four download buttons at
+the R2 public URLs (or a `downloads.vaayvu.com` custom domain).
 
 ## Editing rules
 

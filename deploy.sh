@@ -14,6 +14,7 @@ fi
 rsync -a --delete \
   --exclude '.git' \
   --exclude 'downloads' \
+  --exclude 'cloudflare/public' \
   --exclude '.DS_Store' \
   "$ROOT/website/" "$WORK/"
 
