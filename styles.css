@@ -2521,6 +2521,10 @@ body.palette-open {
   .split-page {
     padding: 18px;
   }
+  .split-readout,
+  .split-reset {
+    display: none;
+  }
   .search-trigger {
     width: 36px;
     padding: 0;
