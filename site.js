@@ -575,6 +575,7 @@
     const status = $('[data-shield-status]', shield);
     const apply = (on) => {
       toggle.setAttribute('aria-checked', String(on));
+      toggle.setAttribute('aria-label', 'Rasha Shield for this site, ' + (on ? 'On' : 'Off'));
       shield.dataset.shields = on ? 'up' : 'down';
       if (label) label.textContent = on ? 'On' : 'Off';
       if (status) {
