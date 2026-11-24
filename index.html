@@ -41,6 +41,13 @@
     <meta name="twitter:description" content="Ads and trackers blocked by Rasha Shield. Tabs kept in spaces. Sync only through a server you choose." />
     <meta name="twitter:image" content="https://vaayvu.com/assets/og.jpg" />
 
+    <script>
+      try {
+        if (localStorage.getItem('vaayvu.site.theme') === 'dusk') {
+          document.documentElement.dataset.theme = 'dusk';
+        }
+      } catch {}
+    </script>
     <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/plex-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="styles.css?v=20261125d" />
@@ -79,6 +86,21 @@
         </nav>
 
         <div class="masthead-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to dusk theme"
+            aria-pressed="false"
+            data-theme-toggle
+          >
+            <svg class="theme-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.2" />
+              <path d="M12 2.8v2.2M12 19v2.2M4.8 12H2.6M21.4 12h-2.2M6.3 6.3 4.7 4.7M19.3 19.3l-1.6-1.6M6.3 17.7l-1.6 1.6M19.3 4.7l-1.6 1.6" />
+            </svg>
+            <svg class="theme-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M19.5 15.2A7.8 7.8 0 0 1 8.8 4.5 7.8 7.8 0 1 0 19.5 15.2Z" />
+            </svg>
+          </button>
           <a class="button button-small" href="#download">Download</a>
           <button
             class="menu-toggle"
@@ -703,6 +725,15 @@
         </div>
       </section>
     </main>
+
+    <nav class="section-rail" aria-label="Page sections">
+      <a href="#shield" data-section="shield"><span class="rail-label">Rasha Shield</span><span class="rail-dot" aria-hidden="true"></span></a>
+      <a href="#spaces" data-section="spaces"><span class="rail-label">Spaces</span><span class="rail-dot" aria-hidden="true"></span></a>
+      <a href="#privacy" data-section="privacy"><span class="rail-label">Privacy</span><span class="rail-dot" aria-hidden="true"></span></a>
+      <a href="#features" data-section="features"><span class="rail-label">Everyday tools</span><span class="rail-dot" aria-hidden="true"></span></a>
+      <a href="#download" data-section="download"><span class="rail-label">Download</span><span class="rail-dot" aria-hidden="true"></span></a>
+      <a href="#faq" data-section="faq"><span class="rail-label">Questions</span><span class="rail-dot" aria-hidden="true"></span></a>
+    </nav>
 
     <footer class="site-footer">
       <div class="shell footer-inner">

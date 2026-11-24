@@ -40,7 +40,26 @@
   --radius-l: 16px;
   --shadow: 0 30px 70px -38px rgba(23, 22, 20, 0.45), 0 8px 24px -18px rgba(23, 22, 20, 0.2);
   --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ink-hover: #000;
   --wind: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='10' viewBox='0 0 22 10'%3E%3Cpath d='M0 7.5c3.4 0 3.4-4.6 7-4.6s3.6 4.6 7 4.6 5.2-4.2 8-4.2' fill='none' stroke='%231f5b73' stroke-width='1.1' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+:root[data-theme='dusk'] {
+  color-scheme: dark;
+  --paper: #15120f;
+  --paper-2: #1c1814;
+  --paper-3: #262019;
+  --ink: #f4ede1;
+  --ink-soft: #d8cfc1;
+  --muted: #ab9f8e;
+  --muted-2: #918675;
+  --line: rgba(244, 237, 225, 0.15);
+  --line-soft: rgba(244, 237, 225, 0.08);
+  --accent: #8fc0a4;
+  --accent-soft: #223229;
+  --ember: #e08a55;
+  --ember-ink: #edaa7a;
+  --ink-hover: #fff;
+  --shadow: 0 30px 70px -38px rgba(0, 0, 0, 0.85), 0 8px 24px -18px rgba(0, 0, 0, 0.5);
 }
 
 *,
@@ -146,6 +165,11 @@ ul {
   width: 30px;
   height: 30px;
 }
+:root[data-theme='dusk'] .brand img,
+:root[data-theme='dusk'] .footer-brand img {
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(244, 237, 225, 0.2);
+}
 .nav {
   display: flex;
   gap: 28px;
@@ -167,6 +191,33 @@ ul {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.18s var(--ease), background 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+.theme-toggle:hover {
+  border-color: var(--ink);
+  background: var(--paper-2);
+  color: var(--ink);
+}
+.theme-toggle .theme-moon {
+  display: none;
+}
+:root[data-theme='dusk'] .theme-toggle .theme-sun {
+  display: none;
+}
+:root[data-theme='dusk'] .theme-toggle .theme-moon {
+  display: block;
 }
 .menu-toggle {
   display: none;
@@ -213,7 +264,7 @@ ul {
   transition: background 0.18s var(--ease), border-color 0.18s var(--ease), transform 0.18s var(--ease);
 }
 .button:hover {
-  background: #000;
+  background: var(--ink-hover);
   transform: translateY(-1px);
 }
 .button:active {
@@ -392,6 +443,9 @@ h3 {
   border-radius: var(--radius-l);
   background: var(--paper-2);
   box-shadow: var(--shadow);
+  transform: perspective(1400px) rotateX(0) rotateY(0);
+  transition: transform 0.35s var(--ease);
+  transform-style: preserve-3d;
 }
 .real-browser img {
   display: block;
@@ -831,7 +885,7 @@ h3 {
   background: var(--paper-2);
 }
 .section-download {
-  background: #ece7db;
+  background: var(--paper-3);
 }
 .section-head {
   max-width: 760px;
@@ -1546,6 +1600,65 @@ h3 {
 
 /* Footer -------------------------------------------------------------------- */
 
+.section-rail {
+  position: fixed;
+  right: 26px;
+  top: 50%;
+  z-index: 20;
+  display: grid;
+  gap: 6px;
+  transform: translateY(-50%);
+}
+.section-rail a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  padding: 3px 0;
+  color: var(--muted);
+  font-size: 11px;
+  text-decoration: none;
+}
+.section-rail .rail-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.18s var(--ease), border-color 0.18s var(--ease), transform 0.18s var(--ease);
+}
+.section-rail .rail-label {
+  padding: 3px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--paper);
+  opacity: 0;
+  transform: translateX(4px);
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease), border-color 0.18s var(--ease);
+  white-space: nowrap;
+}
+.section-rail a:hover .rail-label,
+.section-rail a.is-active .rail-label {
+  opacity: 1;
+  transform: none;
+  border-color: var(--line);
+}
+.section-rail a.is-active .rail-dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  transform: scale(1.25);
+}
+.section-rail a:focus-visible .rail-label {
+  opacity: 1;
+  transform: none;
+  border-color: var(--line);
+}
+@media (max-width: 1100px) {
+  .section-rail {
+    display: none;
+  }
+}
 .site-footer {
   padding: 40px 0;
   border-top: 1px solid var(--line);

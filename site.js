@@ -21,6 +21,50 @@
 
   const masthead = $('.masthead');
   const progress = $('[data-progress]');
+  const rootElement = document.documentElement;
+  const themeToggle = $('[data-theme-toggle]');
+  const themeColor = $('meta[name="theme-color"]');
+  const railLinks = $$('[data-section]');
+  const railSections = railLinks
+    .map((link) => ({ link, section: document.getElementById(link.dataset.section) }))
+    .filter((entry) => entry.section);
+
+  const applyTheme = (dusk, persist) => {
+    if (dusk) rootElement.dataset.theme = 'dusk';
+    else delete rootElement.dataset.theme;
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(dusk));
+      themeToggle.setAttribute('aria-label', dusk ? 'Switch to paper theme' : 'Switch to dusk theme');
+    }
+    if (themeColor) themeColor.setAttribute('content', dusk ? '#15120f' : '#f3f0e8');
+    if (persist) {
+      try {
+        localStorage.setItem('vaayvu.site.theme', dusk ? 'dusk' : 'paper');
+      } catch {}
+    }
+    window.dispatchEvent(new Event('themechange'));
+  };
+  if (themeToggle) {
+    applyTheme(rootElement.dataset.theme === 'dusk', false);
+    themeToggle.addEventListener('click', () => applyTheme(rootElement.dataset.theme !== 'dusk', true));
+  }
+
+  const markSection = () => {
+    if (!railSections.length) return;
+    const marker = window.innerHeight * 0.34;
+    let active = null;
+    for (const entry of railSections) {
+      const rect = entry.section.getBoundingClientRect();
+      if (rect.top <= marker && rect.bottom > marker) active = entry;
+    }
+    railLinks.forEach((link) => {
+      const on = !!active && link === active.link;
+      link.classList.toggle('is-active', on);
+      if (on) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
   const onScroll = () => {
     masthead?.classList.toggle('is-scrolled', window.scrollY > 8);
     if (progress) {
@@ -28,6 +72,7 @@
       const ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
       progress.style.transform = 'scaleX(' + ratio + ')';
     }
+    markSection();
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -70,6 +115,12 @@
       let visible = true;
       let last = 0;
 
+      const isDusk = () => document.documentElement.dataset.theme === 'dusk';
+      const bandColor = (alpha) =>
+        isDusk() ? 'rgba(143, 192, 164, ' + alpha + ')' : 'rgba(31, 91, 115, ' + alpha + ')';
+      const emberColor = (alpha) =>
+        isDusk() ? 'rgba(224, 138, 85, ' + alpha + ')' : 'rgba(201, 98, 42, ' + alpha + ')';
+
       const seed = () => {
         particles.length = 0;
         const count = width < 720 ? 46 : 96;
@@ -98,7 +149,7 @@
             if (x === 0) ctx.moveTo(x, y);
             else ctx.lineTo(x, y);
           }
-          ctx.strokeStyle = 'rgba(31, 91, 115, ' + alpha + ')';
+          ctx.strokeStyle = bandColor(alpha);
           ctx.stroke();
         }
       };
@@ -111,7 +162,7 @@
           const x = Math.random() * width;
           const y = Math.random() * height;
           const angle = Math.sin(x * 0.0035 + y * 0.0028) * Math.PI;
-          ctx.strokeStyle = i % 11 === 0 ? 'rgba(201, 98, 42, 0.10)' : 'rgba(31, 91, 115, 0.13)';
+          ctx.strokeStyle = i % 11 === 0 ? emberColor(0.10) : bandColor(0.13);
           ctx.beginPath();
           ctx.moveTo(x, y);
           ctx.lineTo(x + Math.cos(angle) * 14, y + Math.sin(angle) * 14);
@@ -164,8 +215,8 @@
           }
           const fade = Math.sin((Math.PI * particle.life) / particle.span);
           ctx.strokeStyle = particle.accent
-            ? 'rgba(201, 98, 42, ' + 0.10 * fade + ')'
-            : 'rgba(31, 91, 115, ' + 0.18 * fade + ')';
+            ? emberColor(0.10 * fade)
+            : bandColor(0.18 * fade);
           ctx.lineWidth = 0.7;
           ctx.beginPath();
           ctx.moveTo(particle.x, particle.y);
@@ -186,6 +237,9 @@
       };
 
       resize();
+      window.addEventListener('themechange', () => {
+        if (reduceMotion) drawStatic();
+      });
       if (reduceMotion) {
         drawStatic();
       } else {
@@ -303,6 +357,24 @@
       },
       { once: true },
     );
+  }
+
+  /* Tilt the real screenshot under the pointer ------------------------------ */
+
+  const browserFrame = $('.real-browser');
+  if (browserFrame && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    const resetTilt = () => {
+      browserFrame.style.transform = 'perspective(1400px) rotateX(0) rotateY(0)';
+    };
+    browserFrame.addEventListener('pointermove', (event) => {
+      const rect = browserFrame.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      browserFrame.style.transform =
+        'perspective(1400px) rotateX(' + (-y * 1.4).toFixed(2) + 'deg) rotateY(' + (x * 1.8).toFixed(2) + 'deg)';
+    });
+    browserFrame.addEventListener('pointerleave', resetTilt);
+    browserFrame.addEventListener('blur', resetTilt);
   }
 
   /* Rasha Shield demo ------------------------------------------------------ */
