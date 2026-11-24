@@ -377,6 +377,195 @@
     browserFrame.addEventListener('blur', resetTilt);
   }
 
+  /* Command palette -------------------------------------------------------- */
+
+  const palette = $('[data-palette]');
+  const paletteInput = $('[data-palette-input]');
+  const paletteList = $('[data-palette-list]');
+  const paletteEmpty = $('[data-palette-empty]');
+  const paletteTriggers = $$('[data-palette-open]');
+  if (palette && paletteInput && paletteList) {
+    let paletteOpen = false;
+    let selected = 0;
+    let matches = [];
+    let lastFocus = null;
+
+    const goTo = (id) => {
+      const target = document.getElementById(id);
+      if (!target) return;
+      closePalette();
+      target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+      target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
+    };
+
+    const openLink = (url) => {
+      closePalette();
+      window.open(url, '_blank', 'noopener');
+    };
+
+    const commands = [
+      { label: 'Rasha Shield', hint: 'Section', terms: 'ads trackers blocking ads', run: () => goTo('shield') },
+      { label: 'Spaces', hint: 'Section', terms: 'work study personal workspaces', run: () => goTo('spaces') },
+      { label: 'Privacy route', hint: 'Section', terms: 'sync server cloud device', run: () => goTo('privacy') },
+      { label: 'Everyday tools', hint: 'Section', terms: 'features split view tab groups passwords reader', run: () => goTo('features') },
+      { label: 'Download Vaayvu', hint: 'Section', terms: 'mac windows android dmg pkg zip apk', run: () => goTo('download') },
+      { label: 'Questions', hint: 'Section', terms: 'faq help answers', run: () => goTo('faq') },
+      {
+        label: () => (rootElement.dataset.theme === 'dusk' ? 'Switch to paper theme' : 'Switch to dusk theme'),
+        hint: 'Appearance',
+        terms: 'dark light mode theme colour color',
+        run: () => {
+          applyTheme(rootElement.dataset.theme !== 'dusk', true);
+          closePalette();
+        },
+      },
+      { label: 'Source on GitHub', hint: 'GitHub', terms: 'code repository public', run: () => openLink('https://github.com/Mahesh-Vanga/vaayvu-site') },
+      { label: 'Release notes', hint: 'v0.0.23', terms: 'changelog versions downloads', run: () => openLink('https://github.com/Mahesh-Vanga/vaayvu-site/releases') },
+    ];
+
+    const labelOf = (command) => (typeof command.label === 'function' ? command.label() : command.label);
+
+    const paintSelection = () => {
+      [...paletteList.children].forEach((item, index) => {
+        const on = index === selected;
+        item.classList.toggle('is-active', on);
+        item.setAttribute('aria-selected', String(on));
+        if (on) item.scrollIntoView({ block: 'nearest' });
+      });
+      const active = paletteList.children[selected];
+      if (active) paletteInput.setAttribute('aria-activedescendant', active.id);
+      else paletteInput.removeAttribute('aria-activedescendant');
+    };
+
+    const render = () => {
+      const query = paletteInput.value.trim().toLowerCase();
+      const rank = (command) => {
+        if (!query) return 0;
+        const label = labelOf(command).toLowerCase();
+        if (label.startsWith(query)) return 0;
+        if (label.includes(query)) return 1;
+        if ((command.hint + ' ' + command.terms).toLowerCase().includes(query)) return 2;
+        return -1;
+      };
+      matches = commands
+        .map((command, index) => ({ command, index, score: rank(command) }))
+        .filter((entry) => entry.score >= 0)
+        .sort((a, b) => a.score - b.score || a.index - b.index)
+        .map((entry) => entry.command);
+      selected = Math.min(selected, Math.max(0, matches.length - 1));
+      paletteList.replaceChildren();
+      matches.forEach((command, index) => {
+        const item = document.createElement('li');
+        item.id = 'palette-opt-' + index;
+        item.setAttribute('role', 'option');
+        item.setAttribute('aria-selected', 'false');
+        const label = document.createElement('span');
+        label.textContent = labelOf(command);
+        const hint = document.createElement('span');
+        hint.className = 'cmd-hint';
+        hint.textContent = command.hint;
+        item.append(label, hint);
+        item.addEventListener('pointerenter', () => {
+          selected = index;
+          paintSelection();
+        });
+        item.addEventListener('click', () => command.run());
+        paletteList.append(item);
+      });
+      if (paletteEmpty) paletteEmpty.hidden = matches.length > 0;
+      paintSelection();
+    };
+
+    const openPalette = (opener) => {
+      if (paletteOpen) return;
+      paletteOpen = true;
+      lastFocus = opener || document.activeElement;
+      palette.hidden = false;
+      document.body.classList.add('palette-open');
+      paletteTriggers.forEach((trigger) => trigger.setAttribute('aria-expanded', 'true'));
+      paletteInput.value = '';
+      selected = 0;
+      render();
+      requestAnimationFrame(() => paletteInput.focus());
+    };
+
+    const closePalette = () => {
+      if (!paletteOpen) return;
+      paletteOpen = false;
+      palette.hidden = true;
+      document.body.classList.remove('palette-open');
+      paletteTriggers.forEach((trigger) => trigger.setAttribute('aria-expanded', 'false'));
+      if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+    };
+
+    paletteTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => openPalette(trigger));
+    });
+
+    $$('[data-palette-close]', palette).forEach((close) => close.addEventListener('click', closePalette));
+
+    paletteInput.addEventListener('input', () => {
+      selected = 0;
+      render();
+    });
+
+    paletteInput.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        if (matches.length) {
+          selected = selected === matches.length - 1 ? 0 : selected + 1;
+          paintSelection();
+        }
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (matches.length) {
+          selected = selected === 0 ? matches.length - 1 : selected - 1;
+          paintSelection();
+        }
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        selected = 0;
+        paintSelection();
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        selected = Math.max(0, matches.length - 1);
+        paintSelection();
+      } else if (event.key === 'Enter') {
+        event.preventDefault();
+        matches[selected]?.run();
+      } else if (event.key === 'Tab') {
+        event.preventDefault();
+      } else if (event.key === 'Escape') {
+        event.preventDefault();
+        closePalette();
+      }
+    });
+
+    palette.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closePalette();
+      }
+    });
+
+    window.addEventListener('keydown', (event) => {
+      const key = event.key.toLowerCase();
+      if ((event.metaKey || event.ctrlKey) && key === 'k') {
+        event.preventDefault();
+        if (paletteOpen) closePalette();
+        else openPalette(document.activeElement);
+      } else if (event.key === 'Escape' && paletteOpen) {
+        closePalette();
+      }
+    });
+
+    window.addEventListener('themechange', () => {
+      if (paletteOpen) render();
+    });
+  }
+
   /* Rasha Shield demo ------------------------------------------------------ */
 
   const shield = $('[data-shield-demo]');
