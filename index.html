@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      // The domain is served through Cloudflare; switch any plain-HTTP visit to
+      // HTTPS immediately so the browser never keeps the site on an insecure
+      // origin. Server-side Always Use HTTPS remains the preferred setting.
+      if (location.protocol === 'http:') {
+        location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+      }
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vaayvu — a quieter browser</title>
