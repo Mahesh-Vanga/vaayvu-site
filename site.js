@@ -20,9 +20,18 @@
   /* Header ----------------------------------------------------------------- */
 
   const masthead = $('.masthead');
-  const onScroll = () => masthead?.classList.toggle('is-scrolled', window.scrollY > 8);
+  const progress = $('[data-progress]');
+  const onScroll = () => {
+    masthead?.classList.toggle('is-scrolled', window.scrollY > 8);
+    if (progress) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      progress.style.transform = 'scaleX(' + ratio + ')';
+    }
+  };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
 
   const nav = $('#primary-nav');
   const menu = $('.menu-toggle');
@@ -44,6 +53,156 @@
     window.addEventListener('resize', () => {
       if (window.innerWidth > 820) close();
     });
+  }
+
+  /* Wind field behind the hero --------------------------------------------- */
+
+  const windCanvas = $('[data-wind]');
+  if (windCanvas && typeof windCanvas.getContext === 'function') {
+    const ctx = windCanvas.getContext('2d');
+    if (ctx) {
+      const hero = windCanvas.closest('.hero') || windCanvas.parentElement;
+      const particles = [];
+      let width = 0;
+      let height = 0;
+      let raf = 0;
+      let running = false;
+      let visible = true;
+      let last = 0;
+
+      const seed = () => {
+        particles.length = 0;
+        const count = width < 720 ? 46 : 96;
+        for (let i = 0; i < count; i += 1) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            life: Math.random() * 500,
+            span: 420 + Math.random() * 760,
+            accent: Math.random() < 0.08,
+          });
+        }
+      };
+
+      const drawBands = (phase, alpha) => {
+        const bands = 6;
+        ctx.lineWidth = 0.8;
+        for (let band = 0; band < bands; band += 1) {
+          const base = (height * (band + 1)) / (bands + 1);
+          ctx.beginPath();
+          for (let x = 0; x <= width; x += 22) {
+            const y =
+              base +
+              Math.sin(x * 0.002 + phase + band * 0.8) * 16 +
+              Math.cos(x * 0.0013 - phase * 0.6 + band * 0.5) * 9;
+            if (x === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.strokeStyle = 'rgba(31, 91, 115, ' + alpha + ')';
+          ctx.stroke();
+        }
+      };
+
+      const drawStatic = () => {
+        ctx.clearRect(0, 0, width, height);
+        drawBands(0, 0.08);
+        ctx.lineWidth = 0.7;
+        for (let i = 0; i < 140; i += 1) {
+          const x = Math.random() * width;
+          const y = Math.random() * height;
+          const angle = Math.sin(x * 0.0035 + y * 0.0028) * Math.PI;
+          ctx.strokeStyle = i % 11 === 0 ? 'rgba(201, 98, 42, 0.10)' : 'rgba(31, 91, 115, 0.13)';
+          ctx.beginPath();
+          ctx.moveTo(x, y);
+          ctx.lineTo(x + Math.cos(angle) * 14, y + Math.sin(angle) * 14);
+          ctx.stroke();
+        }
+      };
+
+      const resize = () => {
+        const rect = windCanvas.getBoundingClientRect();
+        width = Math.max(1, Math.round(rect.width));
+        height = Math.max(1, Math.round(rect.height));
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        windCanvas.width = Math.round(width * dpr);
+        windCanvas.height = Math.round(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        seed();
+        if (reduceMotion) drawStatic();
+      };
+
+      const step = (time) => {
+        if (!running) return;
+        raf = requestAnimationFrame(step);
+        if (document.hidden || !visible) return;
+        if (time - last < 33) return;
+        last = time;
+        ctx.clearRect(0, 0, width, height);
+        const t = time * 0.00012;
+        drawBands(time * 0.00035, 0.09);
+        for (const particle of particles) {
+          const angle =
+            (Math.sin(particle.x * 0.0032 + t) +
+              Math.cos(particle.y * 0.0026 - t * 0.8) +
+              Math.sin((particle.x + particle.y) * 0.0014 + t * 0.4)) *
+            Math.PI;
+          const speed = 0.55 + (particle.span % 5) * 0.05;
+          particle.x += Math.cos(angle) * speed;
+          particle.y += Math.sin(angle) * speed;
+          particle.life += 1;
+          if (
+            particle.life > particle.span ||
+            particle.x < -24 ||
+            particle.x > width + 24 ||
+            particle.y < -24 ||
+            particle.y > height + 24
+          ) {
+            particle.x = Math.random() * width;
+            particle.y = Math.random() * height;
+            particle.life = 0;
+            continue;
+          }
+          const fade = Math.sin((Math.PI * particle.life) / particle.span);
+          ctx.strokeStyle = particle.accent
+            ? 'rgba(201, 98, 42, ' + 0.10 * fade + ')'
+            : 'rgba(31, 91, 115, ' + 0.18 * fade + ')';
+          ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(particle.x, particle.y);
+          ctx.lineTo(particle.x - Math.cos(angle) * 18, particle.y - Math.sin(angle) * 18);
+          ctx.stroke();
+        }
+      };
+
+      const start = () => {
+        if (reduceMotion || running) return;
+        running = true;
+        last = 0;
+        raf = requestAnimationFrame(step);
+      };
+      const stop = () => {
+        running = false;
+        cancelAnimationFrame(raf);
+      };
+
+      resize();
+      if (reduceMotion) {
+        drawStatic();
+      } else {
+        start();
+        new IntersectionObserver(
+          (entries) => {
+            visible = entries[0].isIntersecting;
+          },
+          { threshold: 0 },
+        ).observe(hero);
+        window.addEventListener('resize', resize);
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) stop();
+          else start();
+        });
+      }
+    }
   }
 
   /* Observatory clock ------------------------------------------------------ */
@@ -186,7 +345,7 @@
   /* Reveal ----------------------------------------------------------------- */
 
   const revealTargets = $$(
-    '.hero-copy, .hero-visual, .section-head, .section-copy, .shield-panel, .spaces-demo, .privacy-card, .route, .feature, .download-card, .faq-list',
+    '.hero-copy, .hero-visual, .section-head, .section-copy, .shield-panel, .shield-flow, .spaces-demo, .privacy-card, .route, .feature, .download-card, .faq-list',
   );
   if (!reduceMotion && 'IntersectionObserver' in window && revealTargets.length) {
     const observer = new IntersectionObserver(
