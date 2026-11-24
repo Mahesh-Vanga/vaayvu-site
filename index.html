@@ -5,7 +5,10 @@
       // The domain is served through Cloudflare; switch any plain-HTTP visit to
       // HTTPS immediately so the browser never keeps the site on an insecure
       // origin. Server-side Always Use HTTPS remains the preferred setting.
-      if (location.protocol === 'http:') {
+      if (
+        location.protocol === 'http:' &&
+        !['localhost', '127.0.0.1', '::1'].includes(location.hostname)
+      ) {
         location.replace('https://' + location.host + location.pathname + location.search + location.hash);
       }
     </script>
@@ -110,122 +113,17 @@
           </div>
 
           <div class="hero-visual">
-            <div class="browser" aria-label="Preview of the Vaayvu browser with the Observatory start page">
-              <div class="browser-chrome">
-                <div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div>
-                <div class="chrome-tabs">
-                  <div class="chrome-tablist" role="tablist" aria-label="Preview tabs">
-                    <button class="chrome-tab" type="button" role="tab" aria-selected="true" tabindex="0" id="preview-tab-start" aria-controls="preview-pane-start" data-demo-tab="start">
-                      Observatory
-                    </button>
-                    <button class="chrome-tab" type="button" role="tab" aria-selected="false" tabindex="-1" id="preview-tab-reader" aria-controls="preview-pane-reader" data-demo-tab="reader">
-                      Field notes
-                    </button>
-                  </div>
-                  <span class="chrome-tab chrome-tab-quiet" aria-hidden="true">GitHub</span>
-                </div>
-                <div class="chrome-tools" aria-hidden="true">
-                  <span class="chrome-shield">
-                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6">
-                      <path d="M12 3.5 19 6v5.2c0 4.3-2.8 7.2-7 8.8-4.2-1.6-7-4.5-7-8.8V6l7-2.5Z" />
-                      <path d="m9.2 12.1 2 2 3.6-3.9" />
-                    </svg>
-                  </span>
-                  <span class="chrome-menu"></span>
-                </div>
-              </div>
-
-              <div class="addressbar" aria-hidden="true">
-                <span class="address-lock">
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7">
-                    <rect x="5" y="10.5" width="14" height="9" rx="2.2" />
-                    <path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" />
-                  </svg>
-                </span>
-                <span class="address-url">vaayvu://start</span>
-                <span class="address-hint">⌘L</span>
-              </div>
-
-              <div class="browser-body">
-                <aside class="demo-rail" aria-label="Preview tabs">
-                  <p class="rail-label">This space</p>
-                  <div class="rail-tabs">
-                    <span class="rail-tab is-active">Observatory</span>
-                    <span class="rail-tab">Wikipedia</span>
-                    <span class="rail-tab">GitHub</span>
-                  </div>
-                  <p class="rail-label rail-label-gap">Pinned</p>
-                  <div class="rail-pinned">
-                    <span class="rail-pin">Notes</span>
-                    <span class="rail-pin">Sync server</span>
-                  </div>
-                </aside>
-
-                <div class="browser-panes">
-                  <div class="pane pane-observatory" role="tabpanel" id="preview-pane-start" aria-labelledby="preview-tab-start" data-demo-pane="start">
-                    <div class="obs-top">
-                      <span class="obs-brand">
-                        <img src="assets/vaayvu-wind.svg" width="24" height="24" alt="" />
-                        <span>Vaayvu</span>
-                      </span>
-                      <span class="obs-when">
-                        <time id="demo-time" datetime="">8:41 PM</time>
-                        <span id="demo-date">Tuesday, Nov 25</span>
-                      </span>
-                    </div>
-
-                    <div class="obs-main">
-                      <p class="obs-title">The Observatory</p>
-                      <div class="obs-search" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7">
-                          <circle cx="11" cy="11" r="6.2" />
-                          <path d="m15.6 15.6 4 4" />
-                        </svg>
-                        <span>Search DuckDuckGo or enter an address</span>
-                        <kbd>↵</kbd>
-                      </div>
-                    </div>
-
-                    <div class="obs-cards" aria-hidden="true">
-                      <article class="obs-card obs-journal">
-                        <span class="obs-kicker">Field journal · Offline edition</span>
-                        <strong>Why the tide keeps time</strong>
-                        <span class="obs-source">NASA Science · 3 min read</span>
-                      </article>
-                      <article class="obs-card obs-favorites">
-                        <span class="obs-kicker">Favorites</span>
-                        <div class="obs-tiles">
-                          <span class="obs-tile"><i>G</i>GitHub</span>
-                          <span class="obs-tile"><i>Y</i>YouTube</span>
-                          <span class="obs-tile"><i>W</i>Wikipedia</span>
-                          <span class="obs-tile"><i>F</i>Figma</span>
-                        </div>
-                      </article>
-                      <article class="obs-card obs-shield">
-                        <span class="obs-kicker">Rasha Shield</span>
-                        <strong>On</strong>
-                        <span class="obs-source">Ads, trackers and popups</span>
-                      </article>
-                    </div>
-                  </div>
-
-                  <div class="pane pane-reader" role="tabpanel" id="preview-pane-reader" aria-labelledby="preview-tab-reader" data-demo-pane="reader" hidden>
-                    <p class="reader-meta">Wikipedia · Reader view · 4 min read</p>
-                    <p class="reader-title">Great-circle navigation</p>
-                    <p>
-                      Stretch a thread between two points on a globe and pull it tight. Its path
-                      follows part of a great circle. On a flat map, that same path can look
-                      surprisingly bowed — a clue to what the projection changes.
-                    </p>
-                    <p>
-                      Vaayvu's reader keeps the article, the byline and the reading time, and drops
-                      the rest of the page.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="demo-note">A working preview of the start page and reader. Favorites are sample data.</p>
+            <figure class="real-browser">
+              <img
+                src="assets/browser-current.png"
+                width="2880"
+                height="1800"
+                alt="The current Vaayvu Browser at 1440 by 900, showing the Observatory start page with Spaces, Favorites, Rasha Shield and the Reading shelf."
+                fetchpriority="high"
+                decoding="async"
+              />
+            </figure>
+            <p class="demo-note">The current Vaayvu Browser at 1440 × 900. Not a mockup.</p>
           </div>
         </div>
       </section>
