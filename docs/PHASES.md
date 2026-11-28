@@ -115,9 +115,9 @@ remotely in run 46121708263, so P01 is verified.
 - **Dependency:** P01
 - **Status:** **Verified locally** — 2026-11-28
 - **Implementation status:** Implemented; Chromium, WebKit and GeckoView spikes executed
-- **Owner:** —
+- **Owner:** Mahesh Vanga
 - **Origin:** V25 baseline (22 Nov 2026)
-- **Verification:** Verified locally on 2026-11-28
+- **Verification:** Verified locally on 2026-11-28; Chromium spike re-run and GeckoView runtime re-checked on the `vaayvu-gecko` AVD
 - **Evidence:** `docs/ENGINE-LAB.md`, `docs/ENGINE-LAB.csv`, `docs/VFD-ENGINE.md`
 
 ### Exit gate audit

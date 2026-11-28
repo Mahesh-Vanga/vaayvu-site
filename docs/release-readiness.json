@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T06:27:37.823Z",
+  "generatedAt": "2026-11-28T08:04:04.380Z",
   "product": "Vaayvu",
   "version": "0.0.23",
   "decision": "no-go",
@@ -16,19 +16,19 @@
       "id": "P00",
       "title": "Product charter and audit",
       "status": "Verified — owner-signed 2026-11-28",
-      "verification": "Verified; owner attestation recorded"
+      "verification": "Verified; owner attestation recorded; p00-verify returns true"
     },
     {
       "id": "P01",
       "title": "Engineering workstation and repository",
-      "status": "Implemented / local checks green; remote CI pending",
-      "verification": "Verified locally; remote GitHub Actions run not observed"
+      "status": "Verified — remote CI green 2026-11-28",
+      "verification": "Verified locally and remotely"
     },
     {
       "id": "P02",
       "title": "Engine feasibility lab",
       "status": "Implemented / verified locally",
-      "verification": "Verified locally; three engine spikes executed"
+      "verification": "Verified locally on 2026-11-28; Chromium spike re-run and GeckoView runtime re-checked on the vaayvu-gecko AVD"
     },
     {
       "id": "P03",

@@ -56,8 +56,10 @@ The spike module is `android/geckoview-spike`:
   project uses AGP 9.1 / SDK 36 — a real blocker;
 - pinned `145.0.20251124145406` compiles against SDK 36;
 - `:geckoview-spike:assembleDebug` **BUILD SUCCESSFUL**;
-- installed on an Android 35 arm64 emulator and launched;
-- log: `I/GeckoViewSpike: SPIKE_TITLE=Example Domain`.
+- installed on the `vaayvu-gecko` AVD and launched;
+- log: `I/GeckoViewSpike: SPIKE_TITLE=Example Domain`;
+- re-checked 2026-11-28 on the `vaayvu-gecko` AVD: install succeeded, the
+  activity started, and logcat printed `SPIKE_TITLE=Example Domain`.
 
 Blockers still unmeasured: request interception parity with VFD, extension
 support, media/DRM and packaging size.
@@ -79,16 +81,6 @@ support, media/DRM and packaging size.
 | Extension model | Chromium extensions on desktop | No Chromium extension model | Unmeasured |
 | DRM / media | Platform-dependent | Platform-dependent | Unmeasured |
 | Packaging | Electron + Gradle | Xcode | Unmeasured |
-
-## Go/no-go
-
-- **Chromium:** go for the shipping desktop and Android product. A standalone
-  spike is still required if the gate is interpreted as “raw engine embedding”.
-- **WebKit:** go for the shipping Apple product, with documented content-blocker
-  reporting limits.
-- **GeckoView:** **no-go**. Building a spike would require a new Gradle module,
-  a pinned GeckoView artifact, a blocking harness and runtime measurements.
-  None of that can be claimed from this repository.
 
 ## Exit gate
 
