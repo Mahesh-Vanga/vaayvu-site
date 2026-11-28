@@ -34,6 +34,6 @@ test('the reproducible setup document covers platforms and boundaries', () => {
   for (const needle of ['nvm install', 'npm ci --prefix windows', 'android/gradlew', 'iPhone', 'Secrets boundaries', 'P01 status']) {
     assert.match(doc, new RegExp(needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
-  assert.match(doc, /Green locally/);
-  assert.match(doc, /remote Actions run still unverified/);
+  assert.match(doc, /Green remotely/);
+  assert.match(doc, /run 46117878147/);
 });
