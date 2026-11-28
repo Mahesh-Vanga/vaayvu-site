@@ -85,7 +85,7 @@ sign on the owner's behalf.
 - **Exit gate:** Green minimal CI; reproducible developer setup
 - **Dependency:** P00
 - **Status:** **Verified** — remote CI green 2026-11-28
-- **Implementation status:** Verified in GitHub Actions run 46119790946
+- **Implementation status:** Verified in GitHub Actions run 46121708263
 - **Owner:** Mahesh Vanga
 - **Origin:** V25 baseline (22 Nov 2026)
 - **Verification:** Verified locally and remotely
@@ -101,10 +101,10 @@ sign on the owner's behalf.
 | Minimal CI | checks job: doctor, syntax, shared tests, UI probes | Implemented |
 | Reproducible setup | `docs/DEVELOPMENT.md` and `scripts/doctor.cjs` | Implemented |
 | Secrets boundaries | read-only workflow, no secrets, `.gitignore` rules | Recorded |
-| Green CI observed | Build Vaayvu run 46119790946 | **Green** (checks, Windows, Apple, Android) |
+| Green CI observed | Build Vaayvu run 46121708263 on `ac642dc` | **Green** (checks, Windows, Apple, Android) |
 
 `node scripts/doctor.cjs` is the local gate, and the minimal CI job ran green
-remotely in run 46119790946, so P01 is verified.
+remotely in run 46121708263, so P01 is verified.
 
 ## P02 — Engine feasibility lab
 
