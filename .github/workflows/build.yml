@@ -71,18 +71,18 @@ jobs:
       - name: Read the Xcode version
         id: xcode
         run: echo "version=$(xcodebuild -version | head -1 | tr -d ' .')" >> "$GITHUB_OUTPUT"
-      - name: Cache the Xcode test products
-        uses: actions/cache@v4
+      - name: Restore the Xcode test products
+        id: xcode-cache
+        uses: actions/cache/restore@v4
         with:
           path: ${{ runner.temp }}/DerivedData/Build/Products
           key: xcode-products-${{ steps.xcode.outputs.version }}-${{ hashFiles('apple/**', 'chrome/**') }}
           restore-keys: |
             xcode-products-${{ steps.xcode.outputs.version }}-
-      - name: Boot the iPhone simulator while the build runs
+      - name: Pick the iPhone simulator
         id: simulator
         run: |
           udid=$(xcrun simctl list devices available --json | python3 -c 'import json, sys; devices = json.load(sys.stdin)["devices"]; print(next(d["udid"] for runtime, group in devices.items() if ".iOS-" in runtime for d in group if d["name"].startswith("iPhone")))')
-          nohup xcrun simctl bootstatus "$udid" -b > "$RUNNER_TEMP/simulator-boot.log" 2>&1 &
           echo "udid=$udid" >> "$GITHUB_OUTPUT"
       - name: Test the iPhone browser
         run: |
@@ -98,6 +98,12 @@ jobs:
           xcodebuild test-without-building -xctestrun "$runfile" \
             -destination "id=${{ steps.simulator.outputs.udid }}" \
             -parallel-testing-enabled NO
+      - name: Save the Xcode test products
+        if: always() && steps.xcode-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/DerivedData/Build/Products
+          key: ${{ steps.xcode-cache.outputs.cache-primary-key }}
       - name: Package the iPhone simulator app
         run: bash apple/scripts/package.sh ios
       - uses: actions/upload-artifact@v7

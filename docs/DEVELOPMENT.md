@@ -103,5 +103,6 @@ The checks job is the minimal CI gate. Platform jobs depend on it.
 The Apple job caches the built test products under
 `$RUNNER_TEMP/DerivedData/Build/Products` and runs
 `xcodebuild test-without-building`, so a warm run skips compilation entirely.
-It also caches Electron under `$RUNNER_TEMP/electron` and boots the iPhone
-simulator in parallel. A cold run still compiles from scratch.
+It also caches Electron under `$RUNNER_TEMP/electron` and saves the test
+products even when a test fails, so the next run is warm. A cold run still
+compiles from scratch.
