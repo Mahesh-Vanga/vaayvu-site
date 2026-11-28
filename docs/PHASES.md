@@ -85,7 +85,7 @@ behalf.
 - **Exit gate:** Green minimal CI; reproducible developer setup
 - **Dependency:** P00
 - **Status:** Not started / unverified
-- **Implementation status:** Verified in GitHub Actions run 46117878147
+- **Implementation status:** Verified in GitHub Actions run 46119790946
 - **Owner:** —
 - **Origin:** V25 baseline (22 Nov 2026)
 - **Verification:** Verified locally and remotely
@@ -101,7 +101,7 @@ behalf.
 | Minimal CI | checks job: doctor, syntax, shared tests, UI probes | Implemented |
 | Reproducible setup | `docs/DEVELOPMENT.md` and `scripts/doctor.cjs` | Implemented |
 | Secrets boundaries | read-only workflow, no secrets, `.gitignore` rules | Recorded |
-| Green CI observed | Build Vaayvu run 46117878147 | **Green** (checks, Windows, Apple, Android) |
+| Green CI observed | Build Vaayvu run 46119790946 | **Green** (checks, Windows, Apple, Android) |
 
 `node scripts/doctor.cjs` is the local gate. The phase cannot become verified
 until the minimal CI job has actually run green on the remote.
