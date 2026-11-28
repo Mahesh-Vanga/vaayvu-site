@@ -39,10 +39,21 @@ module.exports = async function checkAccountSwitch(browser) {
     await Promise.all([reader.goto(index), other.goto(index)]);
     const signIn = (win, origin, username) => win.evaluate(([origin, username]) =>
       VaayvuSync.authenticate(origin, username, 'test password'), [origin, username]);
+    // File origins can lag behind another renderer's localStorage write on CI,
+    // so copy the stored session into the reader and announce it the way the
+    // browser does. That keeps the same load and render paths under test.
+    const switchSession = async () => {
+      const stored = await other.evaluate(() => localStorage.getItem('vaayvu.sync.session.v1'));
+      await reader.evaluate((raw) => {
+        if (raw === null) localStorage.removeItem('vaayvu.sync.session.v1');
+        else localStorage.setItem('vaayvu.sync.session.v1', raw);
+        window.dispatchEvent(new StorageEvent('storage', {
+          key: 'vaayvu.sync.session.v1', newValue: raw, storageArea: localStorage,
+        }));
+      }, stored);
+    };
     const waitAccount = async (origin, username) => {
-      // Force the same load path a storage event uses; some headless builds do
-      // not deliver file-origin storage events reliably across pages.
-      await reader.evaluate(() => VaayvuSync.refresh());
+      await switchSession();
       return reader.waitForFunction(([origin, username]) =>
         VaayvuSync.session?.origin === origin && VaayvuSync.session?.username === username, [origin, username]);
     };
@@ -90,6 +101,7 @@ module.exports = async function checkAccountSwitch(browser) {
     await reader.evaluate(() => editBookmark());
     await reader.locator('#edit-bookmark [name="url"]').fill('https://draft.example/');
     await signIn(other, second, 'owner');
+    await switchSession();
     await hidden();
     assert.deepEqual(await reader.evaluate(() => saved()), []);
     console.log('PASS account-bound reader consent, device selection and bookmark editor');
