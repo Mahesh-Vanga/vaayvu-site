@@ -42,7 +42,7 @@ module.exports = async function checkAccountSwitch(browser) {
     const waitAccount = async (origin, username) => {
       // Force the same load path a storage event uses; some headless builds do
       // not deliver file-origin storage events reliably across pages.
-      await reader.evaluate(() => window.dispatchEvent(new StorageEvent('storage', { key: 'vaayvu.sync.session.v1' })));
+      await reader.evaluate(() => VaayvuSync.refresh());
       return reader.waitForFunction(([origin, username]) =>
         VaayvuSync.session?.origin === origin && VaayvuSync.session?.username === username, [origin, username]);
     };

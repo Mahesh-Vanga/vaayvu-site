@@ -121,6 +121,7 @@ window.VaayvuSync = (() => {
   }
 
   return {
+    refresh: loadSession,
     get session() {
       return session;
     },
