@@ -142,7 +142,7 @@ until blocker parity and media/DRM are measured.
 - **Dependency:** P02
 - **Status:** **Verified locally** — 2026-11-28
 - **Implementation status:** Implemented; token package and all interactive probes pass locally
-- **Owner:** —
+- **Owner:** Mahesh Vanga
 - **Origin:** V25 baseline (22 Nov 2026)
 - **Verification:** Verified locally on 2026-11-28
 - **Evidence:** `design/tokens.json`, `scripts/check-tokens.cjs`,
@@ -161,7 +161,8 @@ until blocker parity and media/DRM are measured.
 | Tested interactive prototypes | **All Playwright probes passed locally** |
 | Gate met | **Yes, locally** |
 
-P03's local gate is met. Remote CI should reproduce the same run.
+P03's local gate is met, and the `checks` job of Build Vaayvu reproduces the
+token guard and probe results remotely.
 
 ## P04 — Browser domain model and durable data
 
