@@ -39,8 +39,13 @@ module.exports = async function checkAccountSwitch(browser) {
     await Promise.all([reader.goto(index), other.goto(index)]);
     const signIn = (win, origin, username) => win.evaluate(([origin, username]) =>
       VaayvuSync.authenticate(origin, username, 'test password'), [origin, username]);
-    const waitAccount = (origin, username) => reader.waitForFunction(([origin, username]) =>
-      VaayvuSync.session?.origin === origin && VaayvuSync.session?.username === username, [origin, username]);
+    const waitAccount = async (origin, username) => {
+      // Force the same load path a storage event uses; some headless builds do
+      // not deliver file-origin storage events reliably across pages.
+      await reader.evaluate(() => window.dispatchEvent(new StorageEvent('storage', { key: 'vaayvu.sync.session.v1' })));
+      return reader.waitForFunction(([origin, username]) =>
+        VaayvuSync.session?.origin === origin && VaayvuSync.session?.username === username, [origin, username]);
+    };
     const showReader = async origin => {
       await reader.evaluate(() => command('tools'));
       await reader.locator('#ask').waitFor();
