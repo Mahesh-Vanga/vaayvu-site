@@ -105,6 +105,7 @@ const out = process.env.VAAYVU_TEST_SCREENSHOTS;
       assert.ok(await page.getByRole('heading', { name: 'The Observatory', exact: true }).isVisible());
       assert.match(await page.locator('#desk-time').getAttribute('datetime'), /^\d{4}-\d\d-\d\dT/);
       await page.locator('[data-landscape="dusk"]').click();
+      await page.waitForFunction(() => JSON.parse(localStorage.getItem('vaayvu.settings') || '{}').wallpaper === 'dusk');
       await page.reload();
       assert.equal(await page.locator('[data-landscape="dusk"]').getAttribute('aria-pressed'), 'true');
       await page.locator('[data-landscape="ridge"]').click();
