@@ -173,9 +173,9 @@ token guard and probe results remotely.
 - **Dependency:** P03
 - **Status:** **Verified locally** — contracts tested
 - **Implementation status:** Implemented; SQLite contracts tested (shipping renderer still uses `localStorage`)
-- **Owner:** —
+- **Owner:** Mahesh Vanga
 - **Origin:** V25 baseline (22 Nov 2026)
-- **Verification:** Verified locally; domain-store and shared suites pass
+- **Verification:** Verified locally on 2026-11-28; `tests/domain-store.test.cjs` passes 4/4 (migrations 1→2, illegal transitions, unclean recovery, container isolation)
 - **Evidence:** `windows/domain/store.cjs`, `tests/domain-store.test.cjs`,
   `docs/DOMAIN-MODEL.md`
 

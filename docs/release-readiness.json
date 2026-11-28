@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T08:04:04.380Z",
+  "generatedAt": "2026-11-28T08:32:39.173Z",
   "product": "Vaayvu",
   "version": "0.0.23",
   "decision": "no-go",
@@ -34,13 +34,13 @@
       "id": "P03",
       "title": "Design tokens and navigation prototypes",
       "status": "Implemented / verified locally",
-      "verification": "Verified locally; token guard and interactive probes green"
+      "verification": "Verified locally on 2026-11-28; token check passes and CI checks job reproduces the probes"
     },
     {
       "id": "P04",
       "title": "Browser domain model and durable data",
       "status": "Implemented / verified locally",
-      "verification": "Verified locally; four domain-store tests and the shared suite pass"
+      "verification": "Verified locally; domain-store and shared suites pass"
     },
     {
       "id": "P05",
