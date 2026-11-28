@@ -98,4 +98,4 @@ The checks job is the minimal CI gate. Platform jobs depend on it.
 | Monorepo initialized | `chrome/ windows/ apple/ android/ sync/ tests/` | Already present; recorded |
 | CI defined and minimal gate wired | `.github/workflows/build.yml` | Implemented |
 | Reproducible developer setup | this document, `scripts/doctor.cjs`, `README.md` | Implemented |
-| Green CI observed | local doctor, shared tests and Playwright probes | **Green locally**; remote Actions run still unverified |
+| Green CI observed | Build Vaayvu run 46117878147 | **Green remotely** (checks, Windows, Apple, Android) |

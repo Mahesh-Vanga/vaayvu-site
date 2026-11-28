@@ -51,15 +51,37 @@ try {
 } catch {}
 check('local:p01-tests', p01Tests, p01Tests ? '3 tests passed' : 'tests failed');
 
+let remoteCi = 'unverified';
+let remoteRun = null;
+if (process.argv.includes('--remote')) {
+  try {
+    const head = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
+    const branch = execFileSync('git', ['branch', '--show-current'], { cwd: root, encoding: 'utf8' }).trim();
+    const runs = JSON.parse(execFileSync('gh', ['run', 'list', '--repo', 'Mahesh-Vanga/vaayvu-site', '--branch', branch, '--limit', '30', '--json', 'headSha,conclusion,status,url'], { encoding: 'utf8' }));
+    const green = runs.find((run) => run.headSha === head && run.status === 'completed' && run.conclusion === 'success');
+    if (green) {
+      remoteCi = 'green';
+      remoteRun = green.url;
+      check('remote:ci-green', true, green.url);
+    } else {
+      check('remote:ci-green', false, 'No successful run for HEAD ' + head.slice(0, 7));
+    }
+  } catch (error) {
+    check('remote:ci-green', false, error.message.split('\n')[0]);
+  }
+}
 const payload = {
   phase: 'P01',
   toolchainPinned: checks.filter((c) => c.name.startsWith('toolchain:')).every((c) => c.ok),
   ciConfigured: checks.filter((c) => c.name.startsWith('ci:')).every((c) => c.ok),
   reproducibleSetup: checks.filter((c) => c.name.startsWith('setup:')).every((c) => c.ok),
   localChecks: checks.filter((c) => c.name.startsWith('local:')).every((c) => c.ok),
-  remoteCi: 'unverified',
-  verified: false,
-  reason: 'The minimal CI is configured and local checks pass, but no green remote run exists for the current tree.',
+  remoteCi,
+  remoteRun,
+  verified: checks.every((entry) => entry.ok) && remoteCi === 'green',
+  reason: remoteCi === 'green'
+    ? 'Local checks pass and a green remote run exists for HEAD.'
+    : 'The minimal CI is configured and local checks pass, but no green remote run exists for the current tree.',
   checks,
 };
 console.log(JSON.stringify(payload, null, 2));

@@ -9,7 +9,7 @@ one at a time; unsubmitted rows stay explicitly blank rather than invented.
 | ID | Title | Order | Status |
 |---|---|---|---|
 | P00 | Product charter and audit | 0 | **Verified** — owner-signed 2026-11-28 |
-| P01 | Engineering workstation and repository | 1 | **Green locally** — remote CI run pending |
+| P01 | Engineering workstation and repository | 1 | **Verified** — remote CI green 2026-11-28 |
 | P02 | Engine feasibility lab | 2 | **Verified locally** — three engine spikes executed |
 | P03 | Design tokens and navigation prototypes | 3 | **Verified locally** — token guard and probes green |
 | P04 | Browser domain model and durable data | 4 | **Verified locally** — contracts tested; shipping uses localStorage |
@@ -85,10 +85,10 @@ behalf.
 - **Exit gate:** Green minimal CI; reproducible developer setup
 - **Dependency:** P00
 - **Status:** Not started / unverified
-- **Implementation status:** Implemented; local doctor, shared tests and UI probes green
+- **Implementation status:** Verified in GitHub Actions run 46117878147
 - **Owner:** —
 - **Origin:** V25 baseline (22 Nov 2026)
-- **Verification:** Verified locally; remote CI run not observed
+- **Verification:** Verified locally and remotely
 - **Evidence:** `.nvmrc`, `windows/package.json`, `scripts/doctor.cjs`,
   `docs/DEVELOPMENT.md`, `.github/workflows/build.yml`
 
@@ -101,7 +101,7 @@ behalf.
 | Minimal CI | checks job: doctor, syntax, shared tests, UI probes | Implemented |
 | Reproducible setup | `docs/DEVELOPMENT.md` and `scripts/doctor.cjs` | Implemented |
 | Secrets boundaries | read-only workflow, no secrets, `.gitignore` rules | Recorded |
-| Green CI observed | local doctor, shared tests and UI probes | **Green locally**; remote run pending |
+| Green CI observed | Build Vaayvu run 46117878147 | **Green** (checks, Windows, Apple, Android) |
 
 `node scripts/doctor.cjs` is the local gate. The phase cannot become verified
 until the minimal CI job has actually run green on the remote.
