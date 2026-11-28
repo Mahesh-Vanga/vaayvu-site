@@ -32,7 +32,7 @@ it is not a handwritten or cryptographic signature.
 
 ## Ownership
 
-- Repository owner and release signer: **unassigned in this audit** (`Owner: —`).
+- Repository owner and release signer: **Mahesh Vanga** (typed attestation, 2026-11-28).
 - Screen owners remain the owners recorded per row in `docs/SCREENS.csv`
   (`CampaignService`, `RewardsService`, `Browser user`, `Operator`, etc.).
 - A phase exit gate cannot be signed by the agent producing the evidence.

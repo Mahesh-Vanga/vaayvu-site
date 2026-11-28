@@ -92,3 +92,4 @@ D-090,2026-11-28,No revenue impression or payout economics are published while u
 D-091,2026-11-28,"P00 charter signed by owner attestation on 2026-11-28 for product, engineering and evidence roles",The owner explicitly authorized the typed attestation,docs/CHARTER.md,accepted
 D-092,2026-11-28,P01 is verified by green Build Vaayvu run 46119790946 on branch vaayvu-browser,All jobs checks windows apple and android succeeded,https://github.com/Mahesh-Vanga/vaayvu-site/actions/runs/46119790946,accepted
 D-093,2026-11-28,P01 remains verified after documentation-only commits,Re-verified against HEAD 44d4b00 with all four jobs green including the iPhone simulator suite,https://github.com/Mahesh-Vanga/vaayvu-site/actions/runs/46119790946,accepted
+D-094,2026-11-28,Repository owner and release signer is Mahesh Vanga,The charter signature table assigns the product engineering and evidence roles to the same owner so P00 can be verified,owner attestation 2026-11-28,accepted

@@ -61,7 +61,7 @@ const p00 = phases.find((row) => row[0] === 'P00');
 check('phases:40', phases.length - 1 === 40, String(phases.length - 1) + ' phases');
 check('phases:P00 title', p00?.[1] === 'Product charter and audit', p00?.[1] || '');
 check('phases:P00 dependency', p00?.[5] === 'None', p00?.[5] || '');
-check('phases:P00 owner', p00?.[8] === '—', p00?.[8] || '');
+check('phases:P00 owner', p00?.[8] === 'Mahesh Vanga', p00?.[8] || 'missing');
 
 const screens = csvRows(read('docs/SCREENS.csv'));
 const ids = new Set(screens.slice(1).map((row) => row[0]));

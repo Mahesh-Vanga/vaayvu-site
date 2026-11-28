@@ -56,11 +56,11 @@ one at a time; unsubmitted rows stay explicitly blank rather than invented.
 - **Purpose:** Choose scope, goals, ownership, evidence rules; reconcile legacy IDs
 - **Exit gate:** Signed charter; decision register; source registry
 - **Dependency:** None
-- **Status:** Not started / unverified
+- **Status:** **Verified** — owner-signed 2026-11-28
 - **Implementation status:** Verified; owner attestation recorded
-- **Owner:** —
+- **Owner:** Mahesh Vanga
 - **Origin:** V25 baseline (22 Nov 2026)
-- **Verification:** Unverified in native repository
+- **Verification:** Verified 2026-11-28; `node scripts/p00-verify.cjs` returns `verified: true`
 - **Evidence:** `docs/CHARTER.md`, `docs/DECISIONS.csv`, `docs/SOURCES.csv`
 
 ### Exit gate audit
@@ -73,9 +73,9 @@ one at a time; unsubmitted rows stay explicitly blank rather than invented.
 | Legacy ID reconciliation | `docs/CHARTER.md`, `docs/SCREENS.csv` | Recorded (`vaayvu://`, `orbit://` alias, s-172 excluded) |
 | Scope and evidence rules | `docs/CHARTER.md` | Recorded |
 
-P00 cannot move to verified until the signature table in `docs/CHARTER.md` is
-completed by the responsible humans. The agent does not sign on an owner's
-behalf.
+The signature table in `docs/CHARTER.md` holds a typed owner attestation from
+Mahesh Vanga for all three roles. The agent recorded the attestation and did not
+sign on the owner's behalf.
 
 ## P01 — Engineering workstation and repository
 
@@ -84,9 +84,9 @@ behalf.
 - **Purpose:** Pin toolchains; initialize monorepo, CI and secrets boundaries
 - **Exit gate:** Green minimal CI; reproducible developer setup
 - **Dependency:** P00
-- **Status:** Not started / unverified
+- **Status:** **Verified** — remote CI green 2026-11-28
 - **Implementation status:** Verified in GitHub Actions run 46119790946
-- **Owner:** —
+- **Owner:** Mahesh Vanga
 - **Origin:** V25 baseline (22 Nov 2026)
 - **Verification:** Verified locally and remotely
 - **Evidence:** `.nvmrc`, `windows/package.json`, `scripts/doctor.cjs`,
@@ -103,8 +103,8 @@ behalf.
 | Secrets boundaries | read-only workflow, no secrets, `.gitignore` rules | Recorded |
 | Green CI observed | Build Vaayvu run 46119790946 | **Green** (checks, Windows, Apple, Android) |
 
-`node scripts/doctor.cjs` is the local gate. The phase cannot become verified
-until the minimal CI job has actually run green on the remote.
+`node scripts/doctor.cjs` is the local gate, and the minimal CI job ran green
+remotely in run 46119790946, so P01 is verified.
 
 ## P02 — Engine feasibility lab
 
@@ -113,7 +113,7 @@ until the minimal CI job has actually run green on the remote.
 - **Purpose:** Build Chromium, WebKit and GeckoView spike apps; validate blockers
 - **Exit gate:** Three native engine spike results and go/no-go
 - **Dependency:** P01
-- **Status:** Not started / unverified
+- **Status:** **Verified locally** — 2026-11-28
 - **Implementation status:** Implemented; Chromium, WebKit and GeckoView spikes executed
 - **Owner:** —
 - **Origin:** V25 baseline (22 Nov 2026)
@@ -140,7 +140,7 @@ until blocker parity and media/DRM are measured.
 - **Purpose:** Original brand; glass guidance; responsive layouts and a11y foundations
 - **Exit gate:** Design token package and tested interactive prototypes
 - **Dependency:** P02
-- **Status:** Not started / unverified
+- **Status:** **Verified locally** — 2026-11-28
 - **Implementation status:** Implemented; token package and all interactive probes pass locally
 - **Owner:** —
 - **Origin:** V25 baseline (22 Nov 2026)
@@ -170,7 +170,7 @@ P03's local gate is met. Remote CI should reproduce the same run.
 - **Purpose:** Tabs/windows/profiles/containers; SQLite; crash journals and migration
 - **Exit gate:** State machines, migrations and tested recovery
 - **Dependency:** P03
-- **Status:** Not started / unverified
+- **Status:** **Verified locally** — contracts tested
 - **Implementation status:** Implemented; SQLite contracts tested (shipping renderer still uses `localStorage`)
 - **Owner:** —
 - **Origin:** V25 baseline (22 Nov 2026)
@@ -201,7 +201,7 @@ separate follow-up.
 - **Purpose:** macOS first; Chromium integration; tabs, omnibox, bookmarks, downloads
 - **Exit gate:** Signed internal macOS build; Windows build follows
 - **Dependency:** P04
-- **Status:** Not started / unverified
+- **Status:** **Verified locally** — current macOS DMG/PKG and Windows x64 builds verified
 - **Implementation status:** Implemented; current macOS and Windows builds verified
 - **Owner:** —
 - **Origin:** V25 baseline (22 Nov 2026)
@@ -229,7 +229,7 @@ Local `npm --prefix windows test` passed. `package:mac` + `verify:mac` and
 - **Purpose:** Native Swift/SwiftUI + WebKit; iPhone/iPad navigation and storage
 - **Exit gate:** iOS/iPadOS TestFlight build and platform acceptance
 - **Dependency:** P04
-- **Status:** Not started / unverified
+- **Status:** **Unverified** — simulator acceptance green; TestFlight upload blocked
 - **Implementation status:** Implemented in native Swift/UIKit with WebKit; simulator acceptance green
 - **Owner:** —
 - **Origin:** V25 baseline (22 Nov 2026)

@@ -59,7 +59,7 @@ test('the phase inventory has 40 rows and does not invent unsubmitted phases', (
   assert.equal(p00[1], 'Product charter and audit');
   assert.equal(p00[2], '0');
   assert.equal(p00[5], 'None');
-  assert.equal(p00[8], '—');
+  assert.equal(p00[8], 'Mahesh Vanga');
   const p01 = rows.find((r) => r[0] === 'P01');
   assert.equal(p01[1], 'Engineering workstation and repository');
   assert.equal(p01[2], '1');
