@@ -209,8 +209,8 @@ bridge.
 - **Implementation status:** Implemented; current macOS and Windows builds verified
 - **Owner:** —
 - **Origin:** V25 baseline (22 Nov 2026)
-- **Verification:** Verified locally on 2026-11-28; macOS DMG/PKG rebuilt at 14:46 with Developer ID Application and Installer identities; `windows/test/downloads.cjs` asserted 3 real downloads (1 completed, 2 cancelled)
-- **Evidence:** `docs/DESKTOP-MVP.md`, `windows/test/`, `windows/test/downloads.cjs`, `tests/test/0.0.23/`
+- **Verification:** Verified locally on 2026-11-28; macOS 0.0.24 DMG/PKG rebuilt with Developer ID Application and Installer identities; `windows/test/downloads.cjs` asserted 3 real downloads (1 completed, 2 cancelled)
+- **Evidence:** `docs/DESKTOP-MVP.md`, `windows/test/`, `windows/test/downloads.cjs`, `tests/test/0.0.24/`
 
 ### Exit gate audit
 

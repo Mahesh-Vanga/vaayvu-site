@@ -1,0 +1,20 @@
+{
+  "version": "0.0.24",
+  "product": "Vaayvu",
+  "packageVersion": "0.0.24",
+  "buildNumber": 61,
+  "generatedAt": "2026-11-28T09:38:51.838Z",
+  "artifacts": [
+    {
+      "name": "Vaayvu-0.0.24-macOS.dmg",
+      "bytes": 139416086,
+      "sha256": "39fc7377b51834464922da214dccbe2f925058ae03fa22e506b3cbfdc7627771"
+    },
+    {
+      "name": "Vaayvu-0.0.24-macOS.pkg",
+      "bytes": 125388907,
+      "sha256": "bafb474d176fba98dd879bb54bb723e7f5014e2b73a1a8df313726301d0c3deb"
+    }
+  ],
+  "directory": "tests/test/0.0.24"
+}

@@ -1,8 +1,8 @@
 {
   "name": "vaayvu-browser",
   "productName": "Vaayvu",
-  "version": "0.0.23",
-  "buildNumber": 60,
+  "version": "0.0.24",
+  "buildNumber": 61,
   "license": "MIT",
   "private": true,
   "description": "Vaayvu desktop browser",

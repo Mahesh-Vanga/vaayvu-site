@@ -26,7 +26,7 @@ independent windows, private-safe window restore and the download lifecycle.
 
 ## Signed macOS build
 
-The current source was rebuilt and signed on 2026-11-28 (14:46 local):
+The current source was rebuilt and signed as 0.0.24 on 2026-11-28:
 
 ```sh
 npm --prefix windows run package:mac
@@ -99,5 +99,5 @@ Result: 3 real downloads — 1 completed, 2 cancelled — save dialog
 | Gate met | **Yes, locally** |
 
 P05's exit gate is met locally: the native suite now asserts real downloads, and
-the macOS DMG/PKG were rebuilt from the current source with the Developer ID
+the 0.0.24 macOS DMG/PKG were rebuilt from the current source with the Developer ID
 Application and Installer identities.

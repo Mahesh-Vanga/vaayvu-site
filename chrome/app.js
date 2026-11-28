@@ -1,5 +1,5 @@
 'use strict';
-const BROWSER_VERSION = '0.0.23';
+const BROWSER_VERSION = '0.0.24';
 const $ = (selector) => document.querySelector(selector);
 const { webURL, destination, escapeHTML: e, mergeBookmarks, publicTabs, stripTrackingParams } = VaayvuCore;
 const adBlock = typeof VaayvuVFD !== 'undefined' ? VaayvuVFD : null; // VAAYVU's own native engine (docs/VFD-FORMAT.md)
