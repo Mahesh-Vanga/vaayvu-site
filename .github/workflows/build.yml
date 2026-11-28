@@ -55,16 +55,41 @@ jobs:
           node-version: '22'
           cache: npm
           cache-dependency-path: windows/package-lock.json
+      - name: Cache the Electron download
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/electron
+          key: electron-45.4.1-${{ runner.os }}
       - name: Test the Electron Mac browser
         working-directory: windows
+        env:
+          ELECTRON_CACHE: ${{ runner.temp }}/electron
         run: |
           npm ci
           npx --no-install install-electron
           npm test
+      - name: Read the Xcode version
+        id: xcode
+        run: echo "version=$(xcodebuild -version | head -1 | tr -d ' .')" >> "$GITHUB_OUTPUT"
+      - name: Cache the Xcode build
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/DerivedData
+          key: xcode-${{ steps.xcode.outputs.version }}-${{ hashFiles('apple/**', 'chrome/**') }}
+          restore-keys: |
+            xcode-${{ steps.xcode.outputs.version }}-
+      - name: Boot the iPhone simulator while the build runs
+        id: simulator
+        run: |
+          udid=$(xcrun simctl list devices available --json | python3 -c 'import json, sys; devices = json.load(sys.stdin)["devices"]; print(next(d["udid"] for runtime, group in devices.items() if ".iOS-" in runtime for d in group if d["name"].startswith("iPhone")))')
+          nohup xcrun simctl bootstatus "$udid" -b > "$RUNNER_TEMP/simulator-boot.log" 2>&1 &
+          echo "udid=$udid" >> "$GITHUB_OUTPUT"
       - name: Test the iPhone browser
         run: |
-          simulator=$(xcrun simctl list devices available --json | python3 -c 'import json, sys; devices = json.load(sys.stdin)["devices"]; print(next(d["udid"] for runtime, group in devices.items() if ".iOS-" in runtime for d in group if d["name"].startswith("iPhone")))')
-          xcodebuild -project apple/Vaayvu.xcodeproj -scheme 'Vaayvu iPhone' -destination "id=$simulator" -parallel-testing-enabled NO test
+          xcodebuild -project apple/Vaayvu.xcodeproj -scheme 'Vaayvu iPhone' \
+            -destination "id=${{ steps.simulator.outputs.udid }}" \
+            -derivedDataPath "${{ runner.temp }}/DerivedData" \
+            -parallel-testing-enabled NO COMPILER_INDEX_STORE_ENABLE=NO test
       - name: Package the iPhone simulator app
         run: bash apple/scripts/package.sh ios
       - uses: actions/upload-artifact@v7

@@ -99,3 +99,7 @@ The checks job is the minimal CI gate. Platform jobs depend on it.
 | CI defined and minimal gate wired | `.github/workflows/build.yml` | Implemented |
 | Reproducible developer setup | this document, `scripts/doctor.cjs`, `README.md` | Implemented |
 | Green CI observed | Build Vaayvu run 46119790946 | **Green remotely** (checks, Windows, Apple, Android) |
+
+The Apple job caches Xcode DerivedData under `$RUNNER_TEMP/DerivedData` and
+Electron under `$RUNNER_TEMP/electron`, and boots the iPhone simulator while the
+build runs. A cold run still compiles from scratch; later runs reuse the cache.

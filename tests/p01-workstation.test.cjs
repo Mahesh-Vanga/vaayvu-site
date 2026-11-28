@@ -24,6 +24,9 @@ test('CI wires the minimal gate and keeps secrets read-only', () => {
   assert.match(workflow, /node scripts\/doctor\.cjs/);
   assert.match(workflow, /node --test tests\/\*\.test\.cjs sync\/\*\.test\.mjs/);
   assert.match(workflow, /permissions:\n  contents: read/);
+  assert.match(workflow, /Cache the Xcode build/);
+  assert.match(workflow, /-derivedDataPath "\$\{\{ runner\.temp \}\}\/DerivedData"/);
+  assert.match(workflow, /COMPILER_INDEX_STORE_ENABLE=NO/);
   assert.doesNotMatch(workflow, /secrets\./);
   assert.match(read('.gitignore'), /^\.env$/m);
 });
