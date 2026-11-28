@@ -3,7 +3,7 @@
   "product": "Vaayvu",
   "packageVersion": "0.0.23",
   "buildNumber": 60,
-  "generatedAt": "2026-11-28T08:51:16.345Z",
+  "generatedAt": "2026-11-28T09:16:16.827Z",
   "artifacts": [
     {
       "name": "Vaayvu-0.0.23-Android.apk",
@@ -27,13 +27,13 @@
     },
     {
       "name": "Vaayvu-0.0.23-macOS.dmg",
-      "bytes": 138498350,
-      "sha256": "f918b9b1c9a33a8fe94b235830c72fce28b7e87fa333f9a2fe96314b2ecbf511"
+      "bytes": 138499215,
+      "sha256": "8f9e332ed69b63044854bf74cc0d780a00de0b1dc78e5bee4528ef3bd2143ed6"
     },
     {
       "name": "Vaayvu-0.0.23-macOS.pkg",
-      "bytes": 125390974,
-      "sha256": "148862feef543c81f435151b6271a83b4800fc5d805709a3c2504b399b828de0"
+      "bytes": 125381925,
+      "sha256": "2b13d4e0974949c1ab41730c57c2f949acb8951136a6debdefcbbcfe1f741e70"
     }
   ],
   "directory": "tests/test/0.0.23"

@@ -9,12 +9,14 @@ const require = createRequire(import.meta.url);
 const metadata = require('./package.json');
 
 // Only runtime modules belong in the signed app, never packaging tools or tests.
-export const runtimeFiles = ['main.cjs', 'preload.cjs', 'host.cjs', 'policy.cjs', 'india-search.cjs', 'desktop-windows.cjs'];
+export const runtimeFiles = ['main.cjs', 'preload.cjs', 'host.cjs', 'policy.cjs', 'india-search.cjs', 'desktop-windows.cjs', 'domain/store.cjs'];
 
 export async function stageDesktopSource(destination) {
   await fs.mkdir(destination);
   for (const file of runtimeFiles) {
-    await fs.copyFile(path.join(here, file), path.join(destination, file));
+    const target = path.join(destination, file);
+    await fs.mkdir(path.dirname(target), { recursive: true });
+    await fs.copyFile(path.join(here, file), target);
   }
   let region;
   try {

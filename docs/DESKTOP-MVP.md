@@ -26,7 +26,7 @@ independent windows, private-safe window restore and the download lifecycle.
 
 ## Signed macOS build
 
-The current source was rebuilt and signed on 2026-11-28 (14:19 local):
+The current source was rebuilt and signed on 2026-11-28 (14:46 local):
 
 ```sh
 npm --prefix windows run package:mac
