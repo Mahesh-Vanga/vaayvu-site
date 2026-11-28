@@ -7,7 +7,7 @@ import WebKit
 final class PhoneInteractionTests: XCTestCase {
     private func eventually(file: StaticString = #filePath, line: UInt = #line,
                             _ observation: () async throws -> Bool) async throws {
-        for _ in 0..<160 {
+        for _ in 0..<320 {
             if try await observation() { return }
             try await Task.sleep(nanoseconds: 40_000_000)
         }

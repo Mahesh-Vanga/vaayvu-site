@@ -55,6 +55,12 @@ jobs:
           node-version: '22'
           cache: npm
           cache-dependency-path: windows/package-lock.json
+      - name: Boot the iPhone simulator while the build runs
+        id: simulator
+        run: |
+          udid=$(xcrun simctl list devices available --json | python3 -c 'import json, sys; devices = json.load(sys.stdin)["devices"]; print(next(d["udid"] for runtime, group in devices.items() if ".iOS-" in runtime for d in group if d["name"].startswith("iPhone")))')
+          nohup xcrun simctl bootstatus "$udid" -b > "$RUNNER_TEMP/simulator-boot.log" 2>&1 &
+          echo "udid=$udid" >> "$GITHUB_OUTPUT"
       - name: Cache the Electron download
         uses: actions/cache@v4
         with:
@@ -78,12 +84,6 @@ jobs:
           key: xcode-products-${{ steps.xcode.outputs.version }}-${{ hashFiles('apple/**', 'chrome/**') }}
           restore-keys: |
             xcode-products-${{ steps.xcode.outputs.version }}-
-      - name: Boot the iPhone simulator while the build runs
-        id: simulator
-        run: |
-          udid=$(xcrun simctl list devices available --json | python3 -c 'import json, sys; devices = json.load(sys.stdin)["devices"]; print(next(d["udid"] for runtime, group in devices.items() if ".iOS-" in runtime for d in group if d["name"].startswith("iPhone")))')
-          nohup xcrun simctl bootstatus "$udid" -b > "$RUNNER_TEMP/simulator-boot.log" 2>&1 &
-          echo "udid=$udid" >> "$GITHUB_OUTPUT"
       - name: Test the iPhone browser
         run: |
           products="$RUNNER_TEMP/DerivedData/Build/Products"
