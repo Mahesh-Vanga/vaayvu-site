@@ -116,13 +116,13 @@ PASS native Inspect routing on mac, windows, android and ios
 | Gate item | State |
 |---|---|
 | Design token package | Implemented: `design/tokens.json` + `scripts/check-tokens.cjs` |
-| Token consistency guard | Passing locally |
+| Token consistency guard | Passing locally and in CI `checks` |
 | Original brand assets | Present under `branding/` |
 | Glass guidance | Documented, sourced from `chrome/liquid.css` |
 | Responsive layouts | Implemented; breakpoints documented |
 | A11y foundations | focus-visible, reduced motion, dark and high-contrast paths |
-| Tested interactive prototypes | **Executed locally: all Playwright probes passed** |
+| Tested interactive prototypes | **Executed locally and in CI: all Playwright probes passed** |
 | Gate met | **Yes, locally** — token guard and interactive probes are green |
 
-P03 is verified locally. Remote CI still needs the same run, but the local
-token guard and interactive probes are green.
+P03 is verified locally, and the CI `checks` job reproduces the token guard and
+interactive probes on the same commit.
