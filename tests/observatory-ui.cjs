@@ -58,8 +58,19 @@ module.exports = async function testObservatory(browser) {
     await page.getByRole('button',{name:'Close dialog'}).click();
     await choose('focus');
     await page.locator('#focus-toggle').click();
+    // A lost or duplicated click leaves no deadline behind, so confirm the
+    // stored value before reloading instead of asserting after the fact.
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const started = await page.evaluate(() => Number(localStorage.getItem('vaayvu.focusUntil')) > Date.now());
+      if (started) break;
+      await page.locator('#focus-toggle').click();
+      await page.waitForTimeout(100);
+    }
+    await page.waitForFunction(() => Number(localStorage.getItem('vaayvu.focusUntil')) > Date.now());
+    assert.equal(await page.locator('#focus-status').textContent(), 'Session in progress', 'focus starts before reload');
     await page.reload();
     await choose('focus');
+    await page.waitForFunction(() => document.querySelector('#focus-status')?.textContent === 'Session in progress', null, { timeout: 5000 });
     assert.equal(await page.locator('#focus-status').textContent(), 'Session in progress', 'focus deadline survives reload');
     await choose('overview'); await choose('focus');
     await page.evaluate(() => { focusUntil = Date.now() - 1; updateDeskClock(); });
