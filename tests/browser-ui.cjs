@@ -64,9 +64,8 @@ const out = process.env.VAAYVU_TEST_SCREENSHOTS;
               );
           },
         };
-        if (!localStorage.getItem('setup')) {
+        if (!localStorage.getItem('vaayvu.settings')) {
           localStorage.setItem('vaayvu.settings', JSON.stringify({ ordinaryWeb: true, sidebarMode: 'off', theme: 'light' }));
-          localStorage.setItem('setup', 'done');
         }
       }, platform);
       await page.goto(pathToFileURL(path.resolve('chrome/index.html')).href);
