@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "status": "draft",
+  "inventory": {
+    "ownedOnly": true,
+    "thirdPartyPublisherInventory": false,
+    "resale": false,
+    "placements": ["sp-01"],
+    "status": "draft"
+  },
+  "advertiserTerms": {
+    "version": "v1-draft",
+    "directAdvertisersOnly": true,
+    "disclosureRequired": true,
+    "contractVersionRecorded": true,
+    "status": "pending-approval"
+  },
+  "privacy": {
+    "adsConsentSeparateFromRewards": true,
+    "rewardsConsentSeparateFromAds": true,
+    "personalizationWithoutConsent": false,
+    "sensitiveTraits": false,
+    "historyOrProfileTargeting": false,
+    "privatePagesExcluded": true,
+    "status": "draft"
+  },
+  "rewards": {
+    "identityRequiredToBrowse": false,
+    "identityRequiredForRasha": false,
+    "payoutRequiresSupportedRegion": true,
+    "status": "draft"
+  },
+  "jurisdiction": {
+    "decision": null,
+    "approvedRegions": [],
+    "payoutRails": [],
+    "status": "pending"
+  },
+  "approvals": {
+    "productOwner": null,
+    "legal": null,
+    "security": null,
+    "privacy": null
+  }
+}

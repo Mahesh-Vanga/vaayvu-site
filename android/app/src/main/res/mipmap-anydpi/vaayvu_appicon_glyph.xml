@@ -1,0 +1,3 @@
+<!-- The V and wind sit inside the launcher's 72dp safe area. -->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@mipmap/vaayvu_appicon_glyph_img" android:gravity="fill" android:filter="true" />

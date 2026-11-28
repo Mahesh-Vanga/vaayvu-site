@@ -1,0 +1,65 @@
+name: Vaayvu
+options:
+  minimumXcodeGenVersion: 2.35.0
+settings:
+  base:
+    PRODUCT_NAME: Vaayvu
+    PRODUCT_BUNDLE_IDENTIFIER: dev.vaayvu.app
+    MARKETING_VERSION: 0.0.23
+    CURRENT_PROJECT_VERSION: 60
+    SWIFT_VERSION: 5.0
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    GENERATE_INFOPLIST_FILE: NO
+    CODE_SIGN_STYLE: Automatic
+targets:
+  Vaayvu iPhone:
+    type: application
+    productName: Vaayvu
+    platform: iOS
+    deploymentTarget: "16.0"
+    preBuildScripts:
+      - name: Prepare search trust settings
+        script: /usr/bin/python3 "$SRCROOT/scripts/search-plist.py"
+        inputFiles:
+          - "$(SRCROOT)/scripts/search-plist.py"
+          - "$(SRCROOT)/$(VAAYVU_BASE_INFO_PLIST)"
+          - "$(SRCROOT)/../search"
+        outputFiles:
+          - "$(DERIVED_FILE_DIR)/VaayvuSearch-Info.plist"
+        basedOnDependencyAnalysis: false
+    sources:
+      - Sources
+      - path: ../chrome
+        type: folder
+        buildPhase: resources
+      - Assets.xcassets
+    settings:
+      INFOPLIST_FILE: "$(DERIVED_FILE_DIR)/VaayvuSearch-Info.plist"
+      VAAYVU_BASE_INFO_PLIST: iOS-Info.plist
+      TARGETED_DEVICE_FAMILY: "1,2"
+      SUPPORTS_MACCATALYST: NO
+      PRODUCT_MODULE_NAME: VaayvuPhone
+  Vaayvu iOS Tests:
+    productName: VaayvuPhoneTests
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - Tests
+      - path: ../examples/Wikipedia-Reading-Type.zip
+        buildPhase: resources
+    dependencies:
+      - target: Vaayvu iPhone
+    settings:
+      PRODUCT_NAME: VaayvuPhoneTests
+      PRODUCT_BUNDLE_IDENTIFIER: dev.vaayvu.phonetests
+      GENERATE_INFOPLIST_FILE: YES
+      TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Vaayvu.app/Vaayvu"
+      BUNDLE_LOADER: "$(TEST_HOST)"
+schemes:
+  Vaayvu iPhone:
+    build:
+      targets:
+        Vaayvu iPhone: all
+    test:
+      targets: [Vaayvu iOS Tests]

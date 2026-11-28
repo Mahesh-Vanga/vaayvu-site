@@ -1,0 +1,115 @@
+.india-results { max-width: 780px; margin: 8px auto; }
+.search-desk { padding: clamp(4px, 2vw, 30px) 0 24px; }
+.search-brand, .directory-form, .result-status { display: flex; align-items: center; gap: 10px; }
+.search-brand img { width: 34px; height: 34px; object-fit: contain; }
+.search-brand h1 { font-size: clamp(23px, 3vw, 32px); letter-spacing: -.045em; font-weight: 650; }
+.directory-form { margin: 20px 0 9px; border: 1px solid var(--line); border-radius: 15px; background: var(--surface); padding: 6px 7px 6px 15px; box-shadow: var(--shadow-sm); }
+.directory-form:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
+.directory-form input { border: 0; outline: none; background: transparent; flex: 1; min-width: 0; padding: 7px 1px; font-size: 17px; }
+.directory-form button { background: var(--accent-soft); color: var(--text); width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; }
+.result-status { color: var(--text-secondary); font-size: 13px; line-height: 1.45; }
+.result-status svg { flex-shrink: 0; width: 16px; height: 16px; }
+.result-group, .result-empty { margin: 28px 0 12px; }
+.result-group h2 { font-size: 16px; font-weight: 650; margin: 0 0 7px; }
+.india-result { display: flex; align-items: center; gap: 12px; width: 100%; padding: 13px 7px; text-align: start; border-bottom: 1px solid var(--line-soft); }
+.india-result:hover, .india-result:focus-visible { background: var(--tint); border-radius: 9px; }
+.result-icon { align-self: flex-start; width: 33px; height: 33px; display: grid; place-items: center; border-radius: 10px; background: var(--accent-soft); color: var(--text-secondary); flex-shrink: 0; }
+.result-icon svg, .result-arrow svg { width: 17px; height: 17px; }
+.result-copy { display: grid; gap: 3px; min-width: 0; overflow-wrap: anywhere; }
+.result-copy strong { color: var(--text); font-size: 17px; font-weight: 600; }
+.result-copy small, .result-copy > span, .search-sources, .result-empty p { color: var(--text-secondary); }
+.result-arrow { margin-inline-start: auto; color: var(--text-secondary); }
+.result-empty { border: 1px solid var(--line); border-radius: 15px; padding: 22px; }
+.result-empty h2 { font-size: 20px; overflow-wrap: anywhere; }
+.result-empty p { margin: 8px 0 12px; }
+.search-sources { margin-top: 26px; font-size: 12px; line-height: 1.55; }
+.search-sources summary { cursor: pointer; }
+.search-sources button { color: inherit; text-decoration: underline; padding: 2px; }
+@media (max-width: 760px), (max-width: 1024px) and (max-height: 540px) and (pointer: coarse) {
+  :root {
+    --glass-fill: rgba(248, 249, 255, .76);
+    --glass-rim: rgba(255, 255, 255, .9);
+    --glass-edge: rgba(55, 55, 99, .15);
+    --glass-glint: rgba(255,255,255,.68);
+    --glass-depth: rgba(39, 42, 77, .12);
+    --glass-shadow: inset 0 1px 1px var(--glass-rim), inset 0 -1px 1px var(--glass-edge), 0 5px 16px -5px var(--glass-depth);
+  }
+  :root[data-theme="dark"] {
+    --glass-fill: rgba(41, 43, 56, .84);
+    --glass-rim: rgba(217, 224, 255, .31);
+    --glass-edge: rgba(16, 17, 26, .76);
+    --glass-glint: rgba(184, 193, 237, .13);
+    --glass-depth: rgba(0, 0, 0, .5);
+  }
+  #shell main {
+    background: radial-gradient(ellipse at 94% 0%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 52%), var(--bg);
+  }
+  #toolbar { border: 0; background: transparent; padding-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right)); }
+  #toolbar .address, #mobilebar, #compact-site, .phone-segments,
+  #dialog:is([data-layout="phoneSheet"], [data-layout="settings"], [data-layout="menu"]) {
+    border: 1px solid var(--glass-edge);
+    background: linear-gradient(140deg, var(--glass-glint), transparent 48%), var(--glass-fill);
+    -webkit-backdrop-filter: saturate(1.32) blur(18px);
+    backdrop-filter: saturate(1.32) blur(18px);
+    box-shadow: var(--glass-shadow);
+  }
+  #toolbar .address { height: 44px; border-radius: 24px; padding-inline-start: 14px; }
+  #toolbar .address:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
+  #toolbar > .icon, #mobilebar button { border-radius: 50%; }
+  #mobilebar {
+    flex: none;
+    align-self: center;
+    width: min(calc(100% - 24px), 480px);
+    margin: 4px 0 max(7px, env(safe-area-inset-bottom));
+    padding: 3px 6px;
+    border-radius: 40px;
+    min-height: 54px;
+  }
+  main:has(#viewport[hidden]) #mobilebar {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+  }
+  main:has(#viewport[hidden]) #content { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
+  #toolbar .address input::placeholder { color: var(--text-secondary); opacity: 1; }
+  #mobilebar > button { min-width: 0; flex: 1; min-height: 44px; max-width: 58px; }
+  #mobilebar .mobile-new {
+    border-radius: 50px; color: #fff;
+    background: linear-gradient(155deg, #7872dd, #454291 80%);
+    box-shadow: inset 0 1px 1px #e0ddffb3, 0 2px 5px #302f6a33;
+  }
+  .phone-cards button { border-radius: 18px; }
+  #dialog[data-layout="phoneSheet"] { border-radius: 30px 30px 0 0; }
+  #dialog[data-layout="phoneSheet"]::before {
+    content: ''; display: block; width: 34px; height: 4px; margin: -8px auto 13px; border-radius: 4px;
+    background: var(--line);
+  }
+  .phone-segments { border-radius: 24px; gap: 0; isolation: isolate; }
+  .phone-segments button { position: relative; border-radius: 20px; min-height: 44px; }
+  .phone-segments [aria-pressed="true"] { color: var(--text); background: transparent; box-shadow: none; }
+  .segment-lens {
+    position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+    background: var(--surface); box-shadow: var(--glass-shadow);
+  }
+  .ov-bottom { border-radius: 24px; }
+  #compact-site { min-height: 44px; border-radius: 22px; margin: 3px 10px; }
+  #mobilebar button, .ov-tile {
+    transition: transform 260ms cubic-bezier(.2,.82,.3,1.16), background-color 160ms ease;
+  }
+  #mobilebar button:active { transform: scale(.94, .90); }
+  .ov-tile:active { transform: scale(.985); }
+  #dialog[open][data-layout="phoneSheet"] { animation: liquid-sheet 260ms cubic-bezier(.22,.8,.28,1); }
+  @keyframes liquid-sheet { from { opacity: .5; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  body:is(.high-contrast, .reduce-transparency) :is(#toolbar .address, #mobilebar, #compact-site, .phone-segments, #dialog) {
+    background: var(--surface); color: var(--text); backdrop-filter: none; -webkit-backdrop-filter: none; border-color: var(--muted); box-shadow: none;
+  }
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more), (forced-colors: active) {
+    :is(#toolbar .address, #mobilebar, #compact-site, .phone-segments, #dialog) {
+      background: var(--surface); color: var(--text); backdrop-filter: none; -webkit-backdrop-filter: none; border-color: var(--muted); box-shadow: none;
+    }
+  }
+  body.reduce-motion :is(#dialog[open], #mobilebar button, .ov-tile) { animation: none; transition: none; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    :is(#dialog[open], #mobilebar button, .ov-tile) { animation: none !important; transition: none; transform: none !important; }
+  }
+}

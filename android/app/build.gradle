@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application' version '9.1.0'
+}
+
+// Only this operator-supplied, build-time manifest can choose a search host.
+def manifestText = providers.fileContents(rootProject.layout.projectDirectory.file('../search/client-deployment.json')).asText.orElse('{}').get()
+def deployment = new groovy.json.JsonSlurper().parseText(manifestText)
+def allowedFields = ['country', 'region', 'origin', 'spkiPins', 'expiresAt'] as Set
+if (!(deployment instanceof Map) || !(deployment.keySet() - allowedFields).isEmpty())
+    throw new GradleException('Unexpected search deployment manifest fields.')
+if (deployment.origin && !(deployment.origin ==~ /https:\/\/[a-z0-9.-]+/))
+    throw new GradleException('The search origin must be a canonical HTTPS hostname.')
+
+android {
+    namespace 'dev.vaayvu.app'
+    compileSdk 36
+    def keystoreProps = new Properties()
+    def propsFile = rootProject.file('local.properties')
+    if (propsFile.exists()) { propsFile.withInputStream { keystoreProps.load(it) } }
+    signingConfigs {
+        release {
+            if (System.getenv('VAAYVU_KEYSTORE') != null) {
+                storeFile file(System.getenv('VAAYVU_KEYSTORE'))
+                storePassword System.getenv('VAAYVU_KEYSTORE_PASSWORD') ?: ''
+                keyAlias System.getenv('VAAYVU_KEY_ALIAS') ?: 'vaayvu'
+                keyPassword System.getenv('VAAYVU_KEY_PASSWORD') ?: ''
+            } else if (keystoreProps.getProperty('vaayvu.storeFile')) {
+                storeFile rootProject.file(keystoreProps.getProperty('vaayvu.storeFile'))
+                storePassword keystoreProps.getProperty('vaayvu.storePassword', '')
+                keyAlias keystoreProps.getProperty('vaayvu.keyAlias', 'vaayvu')
+                keyPassword keystoreProps.getProperty('vaayvu.keyPassword', '')
+            }
+            // Without either source the release build is unsigned and still
+            // assembles, so development snapshots never need a keystore.
+        }
+    }
+    defaultConfig {
+        applicationId 'dev.vaayvu.app'
+        minSdk 29
+        targetSdk 36
+        versionCode 60
+        versionName '0.0.23'
+        buildConfigField 'String', 'INDIA_SEARCH_DEPLOYMENT', groovy.json.JsonOutput.toJson(groovy.json.JsonOutput.toJson(deployment))
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    sourceSets.main.assets.srcDirs = ['../../chrome']
+    buildFeatures {
+        buildConfig true
+        aidl true
+    }
+
+    buildTypes {
+        release {
+            if (signingConfigs.release.storeFile != null) signingConfig signingConfigs.release
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.14.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'com.squareup.okhttp3:okhttp-tls:4.12.0'
+    androidTestImplementation 'com.squareup.okhttp3:mockwebserver:4.12.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.3.0'
+    androidTestImplementation 'androidx.test:runner:1.7.0'
+}

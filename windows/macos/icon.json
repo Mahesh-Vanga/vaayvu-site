@@ -1,0 +1,9 @@
+{
+  "groups": [{
+    "layers": [{ "image-name": "Window.png", "name": "Browser window" }],
+    "shadow": { "kind": "neutral", "opacity": 0 },
+    "specular": false,
+    "translucency": { "enabled": false, "value": 0 }
+  }],
+  "supported-platforms": { "squares": ["macOS"] }
+}

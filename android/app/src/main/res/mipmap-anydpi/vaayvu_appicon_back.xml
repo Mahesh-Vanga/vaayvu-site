@@ -1,0 +1,3 @@
+<!-- The full-bleed tile gradient behind the V. -->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@mipmap/vaayvu_appicon_back_img" android:gravity="fill" android:filter="true" />

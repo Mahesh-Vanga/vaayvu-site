@@ -1,0 +1,42 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <queries>
+        <intent><action android:name="android.intent.action.TTS_SERVICE" /></intent>
+    </queries>
+    <application android:label="@string/app_name" android:icon="@drawable/vaayvu_appicon" android:roundIcon="@drawable/vaayvu_appicon"
+        android:theme="@style/VaayvuTheme" android:allowBackup="false" android:dataExtractionRules="@xml/privacy_backup" android:usesCleartextTraffic="true">
+        <receiver android:name=".PageReminders" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <activity android:name=".BrowserActivity" android:exported="true" android:launchMode="singleTask" android:theme="@style/VaayvuLaunchTheme"
+            android:windowSoftInputMode="adjustResize" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ChromiumInspectionActivity" android:exported="false"
+            android:process=":inspection" android:noHistory="true"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|uiMode" />
+        <activity-alias android:name=".ReminderLink" android:exported="false" android:targetActivity=".BrowserActivity" />
+    </application>
+</manifest>

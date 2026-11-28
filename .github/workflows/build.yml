@@ -1,0 +1,123 @@
+name: Build Vaayvu
+
+on:
+  push:
+    branches: ['**']
+    paths-ignore:
+      - '**.md'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Check the pinned toolchain and repository layout
+        run: node scripts/doctor.cjs
+      - name: Check design tokens against the stylesheet
+        run: node scripts/check-tokens.cjs
+      - name: Check the security gate and hostile URL corpus
+        run: node scripts/security-gate.cjs
+      - name: Audit first-party VFD rules and enforcement
+        run: node scripts/vfd-ownership-audit.cjs
+      - name: Check accessibility and locale primitives
+        run: node scripts/a11y-audit.cjs
+      - name: Check the shared browser and account sync
+        run: |
+          for script in chrome/*.js; do node --check "$script"; done
+          node --test tests/*.test.cjs sync/*.test.mjs
+      - name: Exercise tab controls, extensions and settings at desktop and phone sizes
+        run: |
+          npm install --prefix "$RUNNER_TEMP/vaayvu-ui" --no-save --no-package-lock playwright@1.62.1
+          "$RUNNER_TEMP/vaayvu-ui/node_modules/.bin/playwright" install --with-deps chromium
+          NODE_PATH="$RUNNER_TEMP/vaayvu-ui/node_modules" node tests/browser-ui.cjs
+          NODE_PATH="$RUNNER_TEMP/vaayvu-ui/node_modules" node tests/desktop-tab-strip-ui.cjs
+          NODE_PATH="$RUNNER_TEMP/vaayvu-ui/node_modules" node tests/inspector-ui.cjs
+      - name: Validate the personal server configuration
+        env:
+          VAAYVU_DOMAIN: sync.example.com
+        run: docker compose -f sync/deploy/compose.yaml config --quiet
+
+  apple:
+    needs: checks
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: windows/package-lock.json
+      - name: Test the Electron Mac browser
+        working-directory: windows
+        run: |
+          npm ci
+          npx --no-install install-electron
+          npm test
+      - name: Test the iPhone browser
+        run: |
+          simulator=$(xcrun simctl list devices available --json | python3 -c 'import json, sys; devices = json.load(sys.stdin)["devices"]; print(next(d["udid"] for runtime, group in devices.items() if ".iOS-" in runtime for d in group if d["name"].startswith("iPhone")))')
+          xcodebuild -project apple/Vaayvu.xcodeproj -scheme 'Vaayvu iPhone' -destination "id=$simulator" -parallel-testing-enabled NO test
+      - name: Package the iPhone simulator app
+        run: bash apple/scripts/package.sh ios
+      - uses: actions/upload-artifact@v7
+        with:
+          name: Vaayvu-iPhone-Simulator
+          path: tests/test/*/Vaayvu-*-iPhoneSimulator.zip
+          if-no-files-found: error
+
+  android:
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: android-actions/setup-android@v4
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
+      - name: Assemble the debug APK
+        run: android/gradlew -p android :app:testDebugUnitTest :app:assembleDebug
+      - uses: actions/upload-artifact@v7
+        with:
+          name: Vaayvu-Android-debug
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+
+  windows:
+    needs: checks
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: windows
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: windows/package-lock.json
+      - name: Install the pinned desktop runtime
+        run: |
+          npm ci
+          npx --no-install install-electron
+      - name: Test Windows browsing, account sync and private tabs
+        run: npm test
+      - name: Package and verify the x64 portable browser
+        run: |
+          npm run package
+          npm run verify
+      - uses: actions/upload-artifact@v7
+        with:
+          name: Vaayvu-Windows-x64
+          path: tests/test/*/Vaayvu-*-Windows-x64.zip
+          if-no-files-found: error

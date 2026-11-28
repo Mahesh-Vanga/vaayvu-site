@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https: http://localhost:* http://127.0.0.1:*; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'"
+    />
+    <title>Vaayvu Browser</title>
+    <link rel="icon" type="image/svg+xml" href="assets/vaayvu.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="spaces.css" />
+    <link rel="stylesheet" href="menus.css" />
+    <link rel="stylesheet" href="preferences.css" />
+    <link rel="stylesheet" href="tab-manager.css" />
+    <link rel="stylesheet" href="mobile.css" />
+    <link rel="stylesheet" href="liquid.css" />
+    <link rel="stylesheet" href="observatory.css" />
+    <script src="boot.js"></script>
+    <script defer src="core.js"></script>
+    <script defer src="spaces.js"></script>
+    <script defer src="vfd-rules.js"></script>
+    <script defer src="vfd.js"></script>
+    <script defer src="icons.js"></script>
+    <script defer src="sync.js"></script>
+    <script defer src="vendor/qrcode.js"></script>
+    <script defer src="preferences.js"></script>
+    <script defer src="tab-manager.js"></script>
+    <script defer src="omnibox.js"></script>
+    <script defer src="vendor/zip-native.min.js"></script>
+    <script defer src="extensions.js"></script>
+    <script defer src="workbench.js"></script>
+    <script defer src="mobile.js"></script>
+    <script defer src="site-directory.js"></script>
+    <script defer src="topic-directory.js"></script>
+    <script defer src="offline-search.js"></script>
+    <script defer src="india-search.js"></script>
+    <script defer src="observatory.js"></script>
+    <script defer src="storage.js"></script>
+    <script defer src="i18n.js"></script>
+    <script defer src="ai-guard.js"></script>
+    <script defer src="app.js"></script>
+    <script defer src="onboarding.js"></script>
+  </head>
+  <body>
+    <div id="onboarding" class="onboarding" data-onboarding-splash>
+      <div class="onboarding-card">
+        <img class="onboarding-logo" src="assets/vaayvu.svg" width="88" height="88" alt="" />
+        <h1 class="onboarding-title" id="onboarding-title">Welcome to Vaayvu</h1>
+        <p class="onboarding-sub" id="onboarding-sub">Private, fast browsing with Rasha Shield built in.</p>
+        <div id="onboarding-step"></div>
+      </div>
+    </div>
+    <div id="loading-bar" class="loading-bar"></div>
+    <div id="shell">
+      <aside id="rail" aria-label="Workspace">
+        <div class="brand">
+          <button id="compact-space-menu" data-act="spaceSheet" title="Switch space" aria-label="Switch space" hidden>
+            <img src="assets/vaayvu.svg" width="27" height="27" alt="" />
+          </button>
+          <img src="assets/vaayvu.svg" width="33" height="33" alt="" /><span>Vaayvu</span
+          ><button
+            data-act="drawer"
+            class="icon rail-out"
+            aria-controls="rail"
+            aria-label="Close sidebar"
+            title="Close sidebar"
+          >
+            <i data-i="panel"></i>
+          </button>
+        </div>
+        <div id="space-bar" role="tablist" aria-label="Spaces"></div>
+        <nav aria-label="Library">
+          <button data-view="home" title="Start page" aria-label="Start page"><i data-i="home"></i><span>Start page</span></button>
+          <button data-view="bookmarks" title="Bookmarks" aria-label="Bookmarks"><i data-i="bookmark"></i><span>Bookmarks</span></button>
+          <button data-view="history" title="History" aria-label="History"><i data-i="history"></i><span>History</span></button>
+          <button data-view="devices" title="Other devices" aria-label="Other devices"><i data-i="devices"></i><span>Other devices</span></button>
+        </nav>
+        <section id="side-tabs" aria-label="Vertical tabs">
+          <div class="tabhead">
+            <span id="tabhead-label">Open tabs</span>
+            <button id="vertical-tab-actions" class="icon" data-act="tabBarMenu" aria-haspopup="menu" aria-label="Tab bar actions" title="Tab bar actions" hidden><i data-i="panel"></i></button>
+            <button class="icon" data-act="newTab" aria-label="New tab" title="New tab"><i data-i="plus"></i></button>
+          </div>
+          <div id="tabs"></div>
+        </section>
+        <div class="railfoot">
+          <button id="account" data-act="account"></button
+          ><button class="icon" data-act="settings" aria-label="Settings" title="Settings"><i data-i="settings"></i></button>
+        </div>
+      </aside>
+      <button id="scrim" data-act="drawer" aria-label="Close sidebar" hidden></button>
+      <button id="sidebar-peek" aria-label="Reveal sidebar" title="Reveal sidebar" hidden></button>
+      <main>
+        <div id="top-tabs" aria-label="Tab strip" hidden>
+          <div id="strip-items" role="group" aria-label="Open tabs"></div>
+          <button class="strip-new" data-act="newTab" aria-label="New tab" title="New tab"><i data-i="plus"></i><span>New tab</span></button>
+          <button class="icon strip-placement" data-act="tabBarMenu" aria-haspopup="menu" aria-label="Tab bar actions" title="Tab bar actions"><i data-i="panel"></i></button>
+        </div>
+        <header id="toolbar">
+          <button
+            class="icon sidebar-open"
+            data-act="drawer"
+            aria-controls="rail"
+            aria-label="Open sidebar"
+            title="Open sidebar"
+          >
+            <i data-i="panel"></i>
+          </button>
+          <div class="travel">
+            <button class="icon" data-act="back" aria-label="Back"><i data-i="back"></i></button
+            ><button class="icon" data-act="forward" aria-label="Forward"><i data-i="forward"></i></button>
+          </div>
+          <button class="icon refresh" data-act="reload" aria-label="Reload"><i data-i="reload"></i></button>
+          <button class="icon toolbar-home" data-act="openHome" aria-label="Home" title="Home" hidden>
+            <i data-i="home"></i>
+          </button>
+          <form id="address-form" class="address">
+            <i id="address-icon" data-i="compass"></i
+            ><button id="address-shield" class="icon" type="button" data-act="adBlockSettings" aria-label="Rasha Shield" title="Rasha Shield" hidden>
+              <i data-i="shield"></i>
+            </button><input
+              id="address"
+              autocorrect="off"
+              writingsuggestions="false"
+              role="combobox"
+              aria-expanded="false"
+              aria-controls="address-matches"
+              aria-autocomplete="list"
+              aria-label="Address or search"
+              autocomplete="off"
+              autocapitalize="none"
+              spellcheck="false"
+              enterkeyhint="go"
+              placeholder="Search or enter an address"
+            /><button type="button" class="icon" data-act="bookmark" aria-label="Bookmark this page">
+              <i data-i="star"></i>
+            </button><button id="phone-mic" type="button" class="icon phone-only" data-act="phoneVoice" aria-label="Dictate search" hidden><i data-i="mic"></i></button>
+            <button id="phone-reload" type="button" class="icon phone-only" data-act="reload" aria-label="Reload page" hidden><i data-i="reload"></i></button>
+          </form>
+          <button class="icon desktop-tab-new" data-act="newTab" title="New tab" aria-label="New tab">
+            <i data-i="plus"></i>
+          </button>
+          <button
+            class="icon desktop-split"
+            data-act="splitView"
+            title="Split view"
+            aria-label="Split view"
+          >
+            <i data-i="split"></i>
+          </button>
+          <button
+            class="tab-count desktop-tab-count"
+            data-act="manageTabs"
+            title="Manage tabs"
+            aria-label="Manage tabs"
+          >
+            <span>1</span>
+          </button>
+          <button id="pinned-tab-search" class="icon" data-act="tabSearch" aria-label="Search open tabs" title="Search open tabs" hidden><i data-i="search"></i></button>
+          <button class="icon desktop-shield" type="button" data-act="adBlockSettings" aria-label="Rasha Shield" title="Rasha Shield" aria-haspopup="dialog" aria-controls="dialog" hidden>
+            <i data-i="shield"></i>
+          </button>
+          <button class="icon desktop-page-tools" data-act="tools" aria-label="Page tools" title="Page tools">
+            <i data-i="spark"></i>
+          </button>
+          <button class="icon phone-only" data-act="pageActions" title="Page actions" aria-label="Page actions"><i data-i="sliders"></i></button>
+          <button class="icon toolbar-settings" data-act="settings" title="Settings" aria-label="Settings">
+            <i data-i="settings"></i>
+          </button>
+          <button class="icon" data-act="more" title="Browser menu" aria-label="Browser menu">
+            <i data-i="more"></i>
+          </button>
+        </header>
+        <div id="address-matches" role="listbox" aria-label="Address suggestions" hidden></div>
+        <button id="compact-site" class="phone-only" data-act="expandPhoneBars" aria-label="Show browser controls" hidden></button>
+        <nav id="bookmark-bar" aria-label="Bookmarks bar" hidden></nav>
+        <div id="findbar" hidden>
+          <i data-i="search"></i
+          ><input id="find-input" aria-label="Find on page" placeholder="Find on page" /><button
+            class="icon"
+            data-act="findPrev"
+            aria-label="Previous match"
+          >
+            <i data-i="up"></i></button
+          ><button class="icon" data-act="findNext" aria-label="Next match"><i data-i="down"></i></button
+          ><button class="icon" data-act="findClose" aria-label="Close find"><i data-i="x"></i></button>
+        </div>
+        <div id="content"></div>
+        <div id="viewport" hidden aria-label="Web page">
+          <div id="pane-left" class="pane">
+            <div class="pane-head" data-pane-focus="left">
+              <button class="pane-title" data-pane-focus="left"></button>
+              <button class="icon" data-pane-close="left" aria-label="Close this pane">
+                <i data-i="x"></i>
+              </button>
+            </div>
+            <div class="pane-body"></div>
+          </div>
+          <div id="pane-divider" aria-label="Resize panes" hidden></div>
+          <div id="pane-right" class="pane" hidden>
+            <div class="pane-head" data-pane-focus="right">
+              <button class="pane-title" data-pane-focus="right"></button>
+              <button class="icon" data-pane-close="right" aria-label="Close this pane">
+                <i data-i="x"></i>
+              </button>
+            </div>
+            <div class="pane-body"></div>
+          </div>
+        </div>
+        <nav id="mobilebar" aria-label="Browser actions">
+          <button class="icon" data-act="back" aria-label="Go back"><i data-i="back"></i></button
+          ><button class="icon" data-act="forward" aria-label="Go forward"><i data-i="forward"></i></button
+          ><button class="icon mobile-new" data-act="newTab" aria-label="Open new tab">
+            <i data-i="plus"></i></button
+          ><button class="tab-count" data-act="tabOverview" aria-label="Manage tabs" title="Manage tabs">
+            <span>1</span></button
+          ><button class="icon" data-act="share" aria-label="Share current page" title="Share page"><i data-i="share"></i></button
+          ><button class="icon space-mobile" data-act="spaceSheet" aria-label="Spaces" title="Spaces" hidden>
+            <span id="mobile-space-emoji" aria-hidden="true">🌊</span></button
+          ><button class="icon" data-act="mobileLibrary" aria-label="Open library">
+            <i data-i="book"></i>
+          </button>
+        </nav>
+      </main>
+    </div>
+    <dialog id="dialog" aria-labelledby="dialog-title">
+      <header>
+        <h2 id="dialog-title"></h2>
+        <button class="icon" data-act="dismiss" aria-label="Close dialog"><i data-i="x"></i></button>
+      </header>
+      <div id="dialog-body"></div>
+    </dialog>
+    <div id="toast" role="status"></div>
+  </body>
+</html>

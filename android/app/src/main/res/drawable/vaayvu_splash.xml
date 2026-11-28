@@ -1,0 +1,3 @@
+<!-- The V/wind splash glyph on transparency. -->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@mipmap/vaayvu_splash_img" android:gravity="fill" android:filter="true" />

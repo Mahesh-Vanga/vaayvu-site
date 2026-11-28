@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Standards corpus</title>
+<style>
+  body { display: grid; grid-template-columns: 1fr 1fr; }
+  .logical { margin-inline-start: 12px; padding-block: 4px; }
+  @supports (display: grid) { .supports { color: rgb(1, 2, 3); } }
+</style>
+</head>
+<body>
+  <div class="logical supports" id="logical">Logical properties</div>
+  <dialog id="dialog"><p>Dialog</p></dialog>
+  <form id="form"><input name="q" required><button>Go</button></form>
+  <script>
+    window.__results = {
+      hostname: new URL('https://例え.テスト/a?b=1').hostname,
+      param: new URLSearchParams('a=1&b=2').get('b'),
+      intl: new Intl.NumberFormat('de-DE').format(1234.5),
+      dialog: typeof HTMLDialogElement,
+      resize: typeof ResizeObserver,
+      animate: typeof Element.prototype.animate,
+      grid: getComputedStyle(document.body).display,
+      logical: getComputedStyle(document.getElementById('logical')).marginInlineStart,
+      supports: CSS.supports('display', 'grid'),
+      formValid: document.getElementById('form').checkValidity(),
+      storage: (() => { localStorage.setItem('corpus', 'ok'); return localStorage.getItem('corpus'); })(),
+    };
+  </script>
+</body>
+</html>

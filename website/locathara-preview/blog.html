@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog — Locathara</title>
+    <meta name="description" content="Locathara blog: release notes, architecture deep dives, philosophy posts, and behind-the-scenes updates. No marketing fluff, no weekly cadence — only when there's something worth saying." />
+    <link rel="canonical" href="https://locathara.com/blog.html" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" href="assets/images/locathara-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/images/locathara-180.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Locathara" />
+    <meta property="og:title" content="Blog — Locathara" />
+    <meta property="og:description" content="Release notes, architecture deep dives, philosophy posts. Updates, not spam." />
+    <meta property="og:url" content="https://locathara.com/blog.html" />
+    <meta property="og:image" content="https://locathara.com/assets/images/og.jpg" />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/plex-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css?v=20261127c" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="masthead" id="top">
+      <div class="shell masthead-inner">
+        <a class="brand" href="index.html" aria-label="Locathara, home">
+          <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none">
+            <defs><linearGradient id="brandGradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9" /><stop offset="50%" stop-color="#6366f1" /><stop offset="100%" stop-color="#a855f7" /></linearGradient></defs>
+            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 2.5L25.5 8.5V23.5L16 29.5 6.5 23.5V8.5L16 4.5z" fill="url(#brandGradient)" stroke="#0f172a" stroke-width="0.5"/>
+            <path d="M16 10v12M10 16h12" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+          </svg>
+          <span class="brand-text">Locathara</span>
+        </a>
+
+        <nav class="nav" id="primary-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="product.html">Vaayvu Browser</a>
+          <a href="technology.html">Technology</a>
+          <a href="philosophy.html">Philosophy</a>
+          <a href="company.html">Company</a>
+          <a href="download.html">Download</a>
+          <a href="blog.html" aria-current="page">Blog</a>
+          <a class="nav-github" href="https://github.com/Mahesh-Vanga" target="_blank" rel="noopener" aria-label="Founder on GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </nav>
+
+        <div class="masthead-actions">
+          <a class="button button-primary" href="download.html">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+          <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="hero hero-compact" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true">
+          <canvas class="hero-canvas" data-hero-canvas></canvas>
+          <div class="hero-gradient"></div>
+        </div>
+        <div class="shell">
+          <div class="hero-content">
+            <p class="eyebrow" data-reveal>Blog</p>
+            <h1 id="hero-title" data-reveal>
+              <span class="line-mask"><span class="line-inner">Updates,</span></span>
+              <span class="line-mask"><span class="line-inner">not spam</span></span>
+            </h1>
+            <p class="lede" data-reveal>
+              Major releases, architecture posts, and the occasional behind-the-scenes note.
+              No marketing fluff, no weekly cadence — only when there's something worth saying.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Posts -->
+      <section class="blog-page" aria-labelledby="posts-title">
+        <div class="shell">
+          <header class="section-head" data-reveal style="text-align:center;">
+            <h2 id="posts-title">Latest posts</h2>
+            <p class="lede">Subscribe via <a href="contact.html">email</a>, <a href="https://github.com/Mahesh-Vanga" target="_blank" rel="noopener">GitHub</a>, or <a href="https://twitter.com/locathara" target="_blank" rel="noopener">Twitter</a>.</p>
+          </header>
+
+          <div class="blog-grid">
+            <!-- Post 1 -->
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-image">
+                <svg viewBox="0 0 400 250" width="100%" height="100%" style="display:block;background:linear-gradient(135deg,#0f172a 0%,#020617 100%);" aria-hidden="true">
+                  <defs><linearGradient id="post1Grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#6366f1"/></linearGradient></defs>
+                  <text x="200" y="110" text-anchor="middle" font-family="Fraunces, serif" font-size="28" fill="url(#post1Grad)" font-weight="500">v0.0.23</text>
+                  <text x="200" y="145" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#94a3b8">Release announcement</text>
+                </svg>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-meta">
+                  <span class="blog-card-tag">Release</span>
+                  <time datetime="2026-11-20">Nov 20, 2026</time>
+                </div>
+                <h3><a href="#">Vaayvu v0.0.23 — First public release</a></h3>
+                <p>Four platforms, one browser. Rasha Shield, Spaces, self-hosted Sync, and optional India Search mode. All MIT licensed. Here's what's new and what's next.</p>
+                <a class="blog-card-link" href="#">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-image">
+                <svg viewBox="0 0 400 250" width="100%" height="100%" style="display:block;background:linear-gradient(135deg,#0f172a 0%,#020617 100%);" aria-hidden="true">
+                  <defs><linearGradient id="post2Grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+                  <text x="200" y="110" text-anchor="middle" font-family="Fraunces, serif" font-size="28" fill="url(#post2Grad)" font-weight="500">Rasha Shield</text>
+                  <text x="200" y="145" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#94a3b8">Deep dive</text>
+                </svg>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-meta">
+                  <span class="blog-card-tag">Engineering</span>
+                  <time datetime="2026-11-15">Nov 15, 2026</time>
+                </div>
+                <h3><a href="#">Inside Rasha Shield: VFD bytecode VM</a></h3>
+                <p>Why we built our own filter engine instead of using EasyList/uBlock. The VFD format, bytecode compilation, strong mode heuristics, and per-site state architecture.</p>
+                <a class="blog-card-link" href="#">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-image">
+                <svg viewBox="0 0 400 250" width="100%" height="100%" style="display:block;background:linear-gradient(135deg,#0f172a 0%,#020617 100%);" aria-hidden="true">
+                  <defs><linearGradient id="post3Grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs>
+                  <text x="200" y="110" text-anchor="middle" font-family="Fraunces, serif" font-size="28" fill="url(#post3Grad)" font-weight="500">Sync</text>
+                  <text x="200" y="145" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#94a3b8">Architecture</text>
+                </svg>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-meta">
+                  <span class="blog-card-tag">Architecture</span>
+                  <time datetime="2026-11-10">Nov 10, 2026</time>
+                </div>
+                <h3><a href="#">Vaayvu Sync: E2E encryption without a cloud</a></h3>
+                <p>How Argon2id + AES-GCM gives you self-hosted sync where the server stores only ciphertext. Key derivation, conflict resolution, and the open protocol.</p>
+                <a class="blog-card-link" href="#">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-image">
+                <svg viewBox="0 0 400 250" width="100%" height="100%" style="display:block;background:linear-gradient(135deg,#0f172a 0%,#020617 100%);" aria-hidden="true">
+                  <defs><linearGradient id="post4Grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a855f7"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+                  <text x="200" y="110" text-anchor="middle" font-family="Fraunces, serif" font-size="28" fill="url(#post4Grad)" font-weight="500">Philosophy</text>
+                  <text x="200" y="145" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#94a3b8">Why we build</text>
+                </svg>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-meta">
+                  <span class="blog-card-tag">Philosophy</span>
+                  <time datetime="2026-11-05">Nov 5, 2026</time>
+                </div>
+                <h3><a href="#">Why native web views beat Electron</a></h3>
+                <p>The case for WKWebView, WebView2, and Android WebView. Text rendering, scrolling physics, binary size, memory, security updates, and accessibility — the honest comparison.</p>
+                <a class="blog-card-link" href="#">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-image">
+                <svg viewBox="0 0 400 250" width="100%" height="100%" style="display:block;background:linear-gradient(135deg,#0f172a 0%,#020617 100%);" aria-hidden="true">
+                  <defs><linearGradient id="post5Grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#22c55e"/></linearGradient></defs>
+                  <text x="200" y="110" text-anchor="middle" font-family="Fraunces, serif" font-size="28" fill="url(#post5Grad)" font-weight="500">India Search</text>
+                  <text x="200" y="145" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#94a3b8">On-device</text>
+                </svg>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-meta">
+                  <span class="blog-card-tag">Feature</span>
+                  <time datetime="2026-11-01">Nov 1, 2026</time>
+                </div>
+                <h3><a href="#">India Search: Offline directories for 1.4B people</a></h3>
+                <p>Pincodes, IFSC codes, STD codes, government services — all searchable offline, no query logging. How community-maintained directories work on-device.</p>
+                <a class="blog-card-link" href="#">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </article>
+
+            <!-- Post 6 -->
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-image">
+                <svg viewBox="0 0 400 250" width="100%" height="100%" style="display:block;background:linear-gradient(135deg,#0f172a 0%,#020617 100%);" aria-hidden="true">
+                  <defs><linearGradient id="post6Grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs>
+                  <text x="200" y="110" text-anchor="middle" font-family="Fraunces, serif" font-size="28" fill="url(#post6Grad)" font-weight="500">Open Source</text>
+                  <text x="200" y="145" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#94a3b8">MIT licensed</text>
+                </svg>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-meta">
+                  <span class="blog-card-tag">Open Source</span>
+                  <time datetime="2026-10-28">Oct 28, 2026</time>
+                </div>
+                <h3><a href="#">Open source, not open core</a></h3>
+                <p>Why everything — browser, shield, sync, search — is MIT licensed with no enterprise features held back. The sustainability model that aligns with users.</p>
+                <a class="blog-card-link" href="#">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Newsletter CTA -->
+          <div style="text-align:center;margin-top:64px;" data-reveal>
+            <p class="eyebrow">Stay updated</p>
+            <h2 style="margin:16px 0 20px;">Get posts by email</h2>
+            <p class="lede">No tracking pixels. Unsubscribe anytime. Buttondown powered.</p>
+            <form class="contact-form" style="max-width:400px;margin:24px auto 0;" data-form action="https://api.buttondown.email/v1/subscribers" method="POST">
+              <input type="hidden" name="tags" value="locathara-blog" />
+              <div class="form-group">
+                <label for="blog-email">Email address</label>
+                <input type="email" id="blog-email" name="email" placeholder="you@example.com" required autocomplete="email" />
+              </div>
+              <button type="submit" class="button button-primary" style="width:100%;">Subscribe</button>
+              <p class="form-note">We use Buttondown. No tracking pixels. Unsubscribe anytime.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div class="footer-brand">
+          <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none">
+            <defs><linearGradient id="brandGradientFooter" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9" /><stop offset="50%" stop-color="#6366f1" /><stop offset="100%" stop-color="#a855f7" /></linearGradient></defs>
+            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 2.5L25.5 8.5V23.5L16 29.5 6.5 23.5V8.5L16 4.5z" fill="url(#brandGradientFooter)" stroke="#0f172a" stroke-width="0.5"/>
+            <path d="M16 10v12M10 16h12" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+          </svg>
+          <div><strong>Locathara</strong><span>Building the quieter web</span></div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-column"><h4>Product</h4><a href="product.html">Vaayvu Browser</a><a href="product.html#features">Features</a><a href="download.html">Downloads</a><a href="blog.html">Blog</a></div>
+          <div class="footer-column"><h4>Company</h4><a href="company.html">About</h4><a href="philosophy.html">Philosophy</a><a href="https://github.com/Mahesh-Vanga" target="_blank" rel="noopener">Founder</a></div>
+          <div class="footer-column"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="https://vaayvu.com/LICENSE.txt" target="_blank" rel="noopener">License (MIT)</a><a href="contact.html">Contact</a></div>
+        </nav>
+
+        <div class="footer-bottom">
+          <p class="copyright">© 2026 Locathara · All code MIT-licensed unless noted</p>
+          <p class="footer-note">Built with native web views, Rust, and care</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+    <script src="site.js?v=20261127c" defer></script>
+  </body>
+</html>

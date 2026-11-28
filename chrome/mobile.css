@@ -1,0 +1,324 @@
+.phone-only {
+  display: none;
+}
+@media (max-width: 760px), (max-width: 1024px) and (max-height: 540px) and (pointer: coarse) {
+  :root:not([data-theme='dark']) {
+    --accent: #005fbf;
+    --muted: #60616b;
+  }
+  #shell {
+    background: var(--bg);
+  }
+  #toolbar {
+    gap: 2px;
+    padding-inline: 6px;
+  }
+  #toolbar .desktop-page-tools {
+    display: none;
+  }
+  .phone-only {
+    display: inline-flex;
+  }
+  #toolbar .icon.phone-only {
+    width: 40px;
+    height: 44px;
+  }
+  #toolbar #address {
+    font-size: 16px;
+  }
+  #toolbar .address {
+    height: 40px;
+  }
+  #mobilebar {
+    padding-inline: 4px;
+    min-height: 54px;
+    gap: 0;
+  }
+  #mobilebar > button {
+    min-height: 44px;
+    min-width: 40px;
+  }
+  #mobilebar .mobile-new {
+    background: var(--accent-soft);
+    border-radius: 14px;
+  }
+  #mobilebar .tab-count {
+    border: 0;
+  }
+  #mobilebar .tab-count span {
+    padding: 3px 6px;
+    border: 1.6px solid currentColor;
+    border-radius: 6px;
+  }
+  .phone-compact #toolbar,
+  .phone-compact #mobilebar {
+    display: none;
+  }
+  #compact-site {
+    flex: none;
+    align-self: stretch;
+    padding: 6px 14px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    background: var(--surface);
+    color: var(--text);
+    min-height: 34px;
+    border-bottom: 1px solid var(--line);
+  }
+  #compact-site strong {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 13px;
+  }
+  #compact-site svg {
+    width: 14px;
+    height: 14px;
+    color: var(--accent);
+  }
+  .wrap:has(.phone-home) {
+    padding: 12px 16px 24px;
+  }
+  #toolbar [data-act='bookmark'],
+  body:not(.phone-on-page) #toolbar [data-act='pageActions'] {
+    display: none;
+  }
+  .phone-home .rowhead {
+    margin: 24px 0 10px;
+  }
+  .phone-home .rowhead h2 {
+    font-size: 18px;
+  }
+  .phone-tiles {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px 4px;
+  }
+  .phone-tile {
+    min-width: 0;
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    gap: 6px;
+    padding: 2px;
+  }
+  .phone-tile .favmark {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+  }
+  .phone-tile strong {
+    font-size: 12px;
+    font-weight: 600;
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .phone-cards {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    gap: 10px;
+    padding: 0 2px 6px;
+  }
+  .phone-cards button {
+    flex: none;
+    width: clamp(154px, 46vw, 220px);
+    display: grid;
+    justify-items: start;
+    gap: 5px;
+    background: var(--surface);
+    border: 1px solid var(--line-soft);
+    border-radius: 16px;
+    text-align: start;
+    padding: 14px;
+    scroll-snap-align: start;
+  }
+  .phone-cards strong,
+  .phone-cards small,
+  .phone-origin strong,
+  .phone-origin small,
+  .phone-entry-list strong,
+  .phone-entry-list small {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  .phone-cards small,
+  .phone-origin small,
+  .phone-entry-list small {
+    color: var(--text-secondary);
+    font-size: 12px;
+  }
+  .phone-cards .favmark {
+    margin-bottom: 8px;
+  }
+  .phone-primary-actions,
+  .phone-zoom {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .phone-primary-actions button,
+  .phone-zoom button {
+    padding: 11px 4px;
+    min-height: 48px;
+    border: 1px solid var(--line-soft);
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    line-height: 1.2;
+    gap: 7px;
+    background: var(--surface);
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  .phone-primary-actions {
+    margin: 14px 0;
+  }
+  .phone-primary-actions button {
+    color: var(--text);
+    background: var(--accent-soft);
+    border-color: transparent;
+  }
+  .phone-primary-actions svg {
+    color: var(--accent);
+  }
+  #dialog[data-layout='phoneSheet'] {
+    margin: auto 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: 88dvh;
+    padding: 20px 18px max(16px, env(safe-area-inset-bottom));
+    border: 1px solid var(--line);
+    border-bottom: 0;
+    border-radius: 24px 24px 0 0;
+    background: var(--bg);
+  }
+  #dialog[data-layout='phoneSheet'] > header {
+    margin: 0 0 16px;
+  }
+  #dialog[data-layout='phoneSheet'] header .icon {
+    width: 44px;
+    height: 44px;
+  }
+  #dialog[data-layout='phoneSheet'] .rowhead h3 {
+    font-size: 16px;
+  }
+  .phone-origin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 12px;
+  }
+  .phone-origin div,
+  .phone-entry-list span {
+    min-width: 0;
+  }
+  .phone-action-list,
+  .phone-entry-list,
+  .phone-folder-list {
+    background: var(--surface);
+    border: 1px solid var(--line-soft);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .phone-action-list:empty,
+  .phone-folder-list:empty {
+    display: none;
+  }
+  .phone-action-list > button,
+  .phone-folder-list > button,
+  .phone-pin-row,
+  .phone-kv {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    text-align: start;
+    padding: 11px 14px;
+    min-height: 48px;
+  }
+  .phone-kv {
+    justify-content: space-between;
+  }
+  .phone-action-list > * + *,
+  .phone-entry-list > * + *,
+  .phone-folder-list > * + * {
+    border-top: 1px solid var(--line-soft);
+  }
+  .phone-action span,
+  .phone-folder-list span,
+  .phone-pin-row label {
+    flex: 1;
+  }
+  .phone-action small {
+    display: block;
+    color: var(--text-secondary);
+  }
+  .phone-action > svg:first-child,
+  .phone-folder-list > button > svg:first-child {
+    color: var(--accent);
+  }
+  .phone-action > svg:last-child,
+  .phone-folder-list > button > svg:last-child {
+    width: 14px;
+  }
+  .phone-pin-row label {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .phone-segments {
+    border-radius: 12px;
+    padding: 4px;
+    background: var(--tint);
+    display: flex;
+    gap: 2px;
+    margin-bottom: 12px;
+  }
+  .phone-segments button {
+    flex: 1;
+    font-weight: 600;
+    font-size: 12px;
+    min-height: 40px;
+    border-radius: 9px;
+  }
+  .phone-segments [aria-pressed='true'],
+  .phone-zoom [aria-pressed='true'] {
+    background: var(--surface);
+    color: var(--accent);
+    box-shadow: var(--shadow-sm);
+  }
+  .phone-entry-list > div,
+  .phone-entry-list button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .phone-entry-list > div > button:first-child {
+    flex: 1;
+    min-width: 0;
+    text-align: start;
+    padding: 10px 12px;
+  }
+  .phone-topics { display:flex; flex-wrap:wrap; gap:6px; }
+  .phone-topics button { background:var(--accent-soft); color:var(--text); min-height:42px; padding:8px 12px; border-radius:12px; }
+  .phone-topics small { color:var(--text-secondary); margin-left:3px; }
+  #phone-appearance-form { margin-top:16px; }
+  .phone-entry-list .icon {
+    width: 44px;
+    min-height: 44px;
+  }
+  #phone-library-search {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+}

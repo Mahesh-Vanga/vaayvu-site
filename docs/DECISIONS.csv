@@ -1,0 +1,92 @@
+id,date,decision,rationale,evidence,status
+D-001,2026-11-28,Canonical route scheme is vaayvu:// with orbit:// retained as a legacy alias,Route migration must not break existing deep links,tests/onboarding.test.cjs; chrome/onboarding.js,accepted
+D-002,2026-11-28,s-172 is permanently excluded from the atlas,The canonical spec forbids VPN tunnel or connectivity UI,tests/onboarding-steps.test.cjs; docs/SCREENS.csv,accepted
+D-003,2026-11-28,Canonical names and categories override older implementation labels,The user-provided spec is the source of truth for the audit,docs/SCREENS.csv; chrome/onboarding.js,accepted
+D-004,2026-11-28,a-001 to a-019 use category ads-and-rewards and route vaayvu://revenue/a-NNN,Canonical Ads and rewards inventory,chrome/onboarding.js; tests/onboarding-steps.test.cjs,accepted
+D-005,2026-11-28,a-020 to a-032 use category revenue-operations and route vaayvu://revenue/a-NNN,Canonical Revenue operations inventory,chrome/onboarding.js; tests/onboarding-steps.test.cjs,accepted
+D-006,2026-11-28,Reward balances derive from immutable ledger postings and failed fetches show unavailable,No fabricated or zeroed balances on failure,chrome/onboarding.js; tests/onboarding-steps.test.cjs,accepted
+D-007,2026-11-28,Payout state accepts only verified provider callbacks and never regresses Paid to Pending,Signature verification dedupe and ordered transitions are required,chrome/onboarding.js; tests/onboarding-steps.test.cjs,accepted
+D-008,2026-11-28,Ads consent and rewards enrollment stay independent,Declining ads must leave browsing and Rasha fully available,chrome/onboarding.js; tests/onboarding-steps.test.cjs,accepted
+D-009,2026-11-28,Rejected creative cannot become deliverable through a status edit,Independent review and immutability are required,chrome/onboarding.js; tests/onboarding-steps.test.cjs,accepted
+D-010,2026-11-28,s-582 to s-600 and s-601 to s-623 use canonical migration library search enterprise family support and quality screens,Legacy policy and atlas-card renderers did not match the canonical inventory,chrome/onboarding.js; docs/SCREENS.csv,accepted
+D-011,2026-11-28,P00 exit artifacts are drafted but not signed,Only a human owner can sign the charter and exit gate,docs/CHARTER.md; docs/SOURCES.csv,closed
+D-012,2026-11-28,Node 22.13.0 is the pinned minimum toolchain and scripts/doctor.cjs enforces it,Reproducible setup needs one executable check,.nvmrc; windows/package.json; scripts/doctor.cjs; .github/workflows/build.yml,accepted
+D-013,2026-11-28,P01 remains unverified until a remote CI run is observed locally green CI is not evidence of remote green,Evidence rules require observable evidence,docs/PHASES.csv; docs/DEVELOPMENT.md,open
+D-014,2026-11-28,Three engine spikes were executed with recorded results,Spike evidence replaces the earlier missing-result state,docs/ENGINE-LAB.csv; docs/ENGINE-LAB.md,accepted
+D-015,2026-11-28,GeckoView is a conditional prototype go and a product no-go until blocker parity media DRM and packaging are measured,Runtime loading alone does not prove VFD parity,docs/ENGINE-LAB.md,accepted
+D-016,2026-11-28,Design tokens are canonical in design/tokens.json and guarded against chrome/styles.css,Token drift must fail CI design/tokens.json;,scripts/check-tokens.cjs; .github/workflows/build.yml,accepted
+D-017,2026-11-28,P03 prototype tests are present but remain unverified until Playwright probes run locally or remotely,Existing probe files are not proof of execution,docs/DESIGN-SYSTEM.md; docs/PHASES.csv,closed
+D-018,2026-11-28,P04 SQLite domain store is implemented as a tested reference layer and is not wired into the shipping renderer,Rewiring desktop persistence is a separate change with migration risk,windows/domain/store.cjs; tests/domain-store.test.cjs; docs/DOMAIN-MODEL.md,closed
+D-019,2026-11-28,Recovered unclean sessions are marked so recovery is not repeated,A relaunch must not resurface the same crashed session repeatedly,windows/domain/store.cjs; tests/domain-store.test.cjs,accepted
+D-020,2026-11-28,Signed 0.0.23 macOS artifacts exist but do not represent the current source,Signed stale artifacts cannot close the current phase gate,docs/DESKTOP-MVP.md; windows/verify-mac.mjs,open
+D-021,2026-11-28,P05 download lifecycle is implemented but lacks a native Electron assertion,Screen-level tests are not native file-download evidence,windows/host.cjs; docs/DESKTOP-MVP.md,open
+D-022,2026-11-28,iOS does not advertise canDefaultBrowser because the app cannot change the system default browser,Platform acceptance test expects the capability to be absent,apple/Sources/PageActions.swift; apple/Tests/NavigationTests.swift,accepted
+D-023,2026-11-28,The existing iOS IPA is development-signed and is not evidence of a TestFlight build,TestFlight requires an App Store Connect upload and processing,docs/APPLE-MOBILE.md; apple/scripts/package.sh,open
+D-024,2026-11-28,P03 interactive probes executed successfully after installing Chromium,Local execution is valid phase evidence for the prototype gate,docs/DESIGN-SYSTEM.md; tests/browser-ui.cjs; tests/desktop-tab-strip-ui.cjs; tests/inspector-ui.cjs,accepted
+D-025,2026-11-28,P04 gate is accepted at the contract level because the exit gate asks for state machines migrations and tested recovery,Shipping integration is tracked separately,docs/DOMAIN-MODEL.md; tests/domain-store.test.cjs,accepted
+D-026,2026-11-28,GeckoView 161 requires compileSdk 37 so the spike pins 145,The project builds against SDK 36 with AGP 9.1,android/geckoview-spike/build.gradle; docs/ENGINE-LAB.md,accepted
+D-027,2026-11-28,The Android product remains Java/WebView; GeckoView is a spike not the shipping engine,Migrating engines is a separate architecture program,docs/ANDROID-MOBILE.md; docs/ENGINE-LAB.md,open
+D-028,2026-11-28,The Android release identity is now Vaayvu with dev.vaayvu.app and a new Vaayvu keystore,The owner requested removal of the legacy identity; upgrades from the old package require a fresh install,android/keystore/vaayvu-release.keystore; docs/ANDROID-MOBILE.md,accepted
+D-029,2026-11-28,Navigation URL validation rejects control characters backslashes and oversized URLs before parsing,Hostile inputs must not be normalized into an accepted navigation,chrome/core.js; scripts/security-gate.cjs; tests/fixtures/hostile-urls.json,accepted
+D-030,2026-11-28,P08 local security gate is green but external hostile-site testing remains unverified,A third-party audit cannot be replaced by a local corpus,docs/THREAT-MODEL.md; docs/PHASES.csv,open
+D-031,2026-11-28,Translation is offered only when a host advertises canTranslate and no shipping host does,The UI must not pretend to translate,docs/CONTENT-WORKFLOWS.md,open
+D-032,2026-11-28,Content workflow E2E includes reader extraction PDF and PNG capture in the desktop suite,These are the content operations the app can prove end to end,windows/test/content-workflow.cjs; windows/test/run.cjs,accepted
+D-033,2026-11-28,Sync payloads are server-readable and not end-to-end encrypted,The documented sync schema stores regular URLs and titles in SQLite,docs/CREDENTIALS-SYNC.md; sync/server.mjs,open
+D-034,2026-11-28,Passkeys are delegated to platform WebAuthn rather than a custom vault,The browser does not implement its own credential store,docs/CREDENTIALS-SYNC.md,open
+D-035,2026-11-28,Session recipes are atlas screen contracts without a persistent shipping recipe engine,The workflow screens do not equal an automation runtime,docs/POWER-TOOLS.md,open
+D-036,2026-11-28,Split view is implemented and screen-tested but lacks a native pane resize probe,No fake E2E claim for split panes,docs/POWER-TOOLS.md; tests/tabs-s079.test.cjs,open
+D-037,2026-11-28,The shipping extension runtime is CSS-only and rejects scripts wildcards store packages and network-capable CSS,CSS-only is the security boundary,chrome/extensions.js; docs/EXTENSIONS-MANAGED.md,accepted
+D-038,2026-11-28,Enterprise policy screens are contracts without MDM/GPO/plist enforcement,Screen coverage is not a managed-policy runtime,docs/EXTENSIONS-MANAGED.md,open
+D-039,2026-11-28,AI page text is redacted client-side and wrapped as untrusted JSON server-side with no model tools,Prompt injection and secret leakage must be bounded at both layers,chrome/ai-guard.js; sync/server.mjs; docs/AI-OPTIN.md,accepted
+D-040,2026-11-28,The agent policy guard exists but no agent executor ships,Guarded screens are not a runtime,docs/AI-OPTIN.md,open
+D-041,2026-11-28,Performance results are local and telemetry-free with a published JSON baseline,Reproducibility requires a stored baseline and comparator,docs/BENCHMARKS.md; scripts/benchmark.cjs; scripts/benchmark-compare.cjs,accepted
+D-042,2026-11-28,CPU time is an energy proxy and heap delta is not a peak or leak result,No joule or leak claim without a dedicated measurement,docs/BENCHMARKS.md,open
+D-043,2026-11-28,RTL/CJK layout and formatting ship but no translated string catalog exists,English strings are not a localized release,docs/ACCESSIBILITY-I18N.md; chrome/i18n.js,open
+D-044,2026-11-28,VoiceOver TalkBack and Narrator are not device-verified in this audit,Automated aria checks do not equal a screen-reader session,docs/ACCESSIBILITY-I18N.md,open
+D-045,2026-11-28,Mac and Windows artifacts are signed and verified but Apple notarization was not performed,No notary credentials are available,docs/RELEASE-OPS.md; tests/test/0.0.23,open
+D-046,2026-11-28,Rollback is verified as a dry run over both manifests without installing an old build,A live rollback needs a managed device,docs/releases/ROLLBACK-DRILL.md,open
+D-047,2026-11-28,P17 cannot be verified without real beta users and measured SLOs,No telemetry cohort exists and inventing numbers violates evidence rules,docs/BETA-MAINTENANCE.md; docs/slo.json,open
+D-048,2026-11-28,P17 depends on P35 which has not been submitted,Release evidence is a declared dependency,docs/PHASES.csv,open
+D-049,2026-11-28,Critical-work leases expire between 30 seconds and 1 hour and protect tabs from idle sleep and pressure reclaim,A forgotten lease must not pin memory forever,windows/host.cjs; docs/TAB-LIFECYCLE.md,accepted
+D-050,2026-11-28,The lifecycle harness stubs renderer close and reports CPU time as an energy proxy,Renderer teardown cost needs a separate trace,docs/TAB-LIFECYCLE.md; windows/test/lifecycle-pressure.cjs,open
+D-051,2026-11-28,Storage writes return a quota failure and keep the previous value rather than throwing into the UI,Settings must survive a full disk,chrome/storage.js; tests/network-storage.test.cjs,accepted
+D-052,2026-11-28,Encrypted DNS is a screen contract and no DoH resolver ships,No DNS privacy claim without a resolver,docs/NETWORK-STORAGE.md,open
+D-053,2026-11-28,The VFD rule database is original hand-authored work with per-rule provenance and no third-party list files,Ownership must be auditable,docs/RAASHA-PRIVACY.md; scripts/vfd-ownership-audit.cjs,accepted
+D-054,2026-11-28,Private tabs ignore paused-site relaxations while first-party tokens still require aggressive mode,Privacy must not silently unblock trackers,scripts/vfd-ownership-audit.cjs; tests/vfd.test.cjs,accepted
+D-055,2026-11-28,The secure vault is a tested AES-GCM reference module and is not wired into a shipping credential UI,Integration is a separate product change,windows/vault.cjs; tests/vault.test.cjs,open
+D-056,2026-11-28,Hostile pages cannot access Node Electron or chrome-origin storage and permissions are denied,Isolation must be proven end to end,windows/test/hostile-isolation.cjs,accepted
+D-057,2026-11-28,Desktop containers remain screen contracts while private and Android profile partitions are real,No desktop container runtime exists,docs/ADVANCED-TABS.md,open
+D-058,2026-11-28,Tab IDs must survive reload and restore and are asserted in the desktop probe,Stable identity is required for groups and leases,tests/desktop-tab-strip-ui.cjs,accepted
+D-059,2026-11-28,P23 fault recovery backup and sentinel tests pass but sync payload is not end-to-end encrypted,TLS is not the same as E2E payload encryption,docs/CONTINUITY-RECOVERY.md; sync/server.mjs,open
+D-060,2026-11-28,A private sentinel must be absent from every SQLite file and snapshot,Sync must never persist private pages,sync/privacy-sentinel.test.mjs,accepted
+D-061,2026-11-28,Research collections are a local-first tested module and are not wired to a shipping research screen,The reading list remains the shipping local workflow,docs/RESEARCH-READING.md; chrome/collections.js,open
+D-062,2026-11-28,The focus timer stores an absolute deadline so reload cannot reset it,Decrementing timers drift and reset,docs/RESEARCH-READING.md; chrome/observatory.js,accepted
+D-063,2026-11-28,Automation requires explicit consent matching URL and named single-use approval before any handler runs,No unconsented context or destructive action,chrome/automation.js; tests/automation.test.cjs,accepted
+D-064,2026-11-28,Automation receipts must not contain page text or step detail,Receipts are not a context leak,chrome/automation.js; docs/AUTOMATION.md,accepted
+D-065,2026-11-28,The shipping workflow screens have no automation executor,The contract layer is not a runtime,docs/AUTOMATION.md,open
+D-066,2026-11-28,PDF PNG and MHTML exports are native and leave the page URL and title unchanged,Save-copy must not mutate the page,docs/DOCUMENT-STUDIO.md; windows/test/content-workflow.cjs,accepted
+D-067,2026-11-28,Download quarantine resume and integrity remain screen contracts,No native resume or checksum test exists,docs/DOCUMENT-STUDIO.md,open
+D-068,2026-11-28,P27 cannot be verified without real-device playback and call tests,No product WebRTC call path or media lab,docs/MEDIA-REALTIME.md,open
+D-069,2026-11-28,Style extensions are independent of Rasha and ad blocking and grant no script permission,No forbidden dependency either direction,docs/WEBAPPS-EXTENSIONS.md,accepted
+D-070,2026-11-28,PWA install window and offline runtime remain screen contracts,No PWA capability is claimed,docs/WEBAPPS-EXTENSIONS.md,open
+D-071,2026-11-28,The standards corpus is WPT-style and not an official WPT run,No official pass rate may be claimed,docs/COMPATIBILITY.md; tests/standards-ui.cjs,open
+D-072,2026-11-28,The comparative lab is same-machine same-runtime and does not compare against other browsers,Cross-browser claims need a separate controlled study,docs/COMPARATIVE-PERF.md,accepted
+D-073,2026-11-28,A case must stay at or below 10 percent coefficient of variation to pass stability,Noisy medians are not published as results,scripts/comparative-benchmark.cjs,accepted
+D-074,2026-11-28,Light and dark are the two shipped presets and high contrast is an extra accessibility mode,Preset count must be explicit,docs/DESIGN-A11Y-L10N.md; chrome/styles.css,accepted
+D-075,2026-11-28,iPad requires a popover source for UIActivityViewController presentation,Missing source crashes on iPad,docs/PARITY.md; apple/Tests/PhoneInteractionTests.swift,accepted
+D-076,2026-11-28,P32 cannot claim physical mobile parity without devices,Simulators and emulators are not physical evidence,docs/PARITY.md,open
+D-077,2026-11-28,Bookmark import/export is bounded escaped and URL-validated and there is no public search index,Import/export must not create a leak or index,docs/MIGRATION-SEARCH.md; chrome/workbench.js,accepted
+D-078,2026-11-28,Full account data export remains a screen contract,No account export runtime is claimed,docs/MIGRATION-SEARCH.md,open
+D-079,2026-11-28,Managed policy is HMAC-signed scoped and fully disclosed and supervised exit requires guardian or PIN,Safe exit must not trap the owner,docs/MANAGED-SUPERVISED.md; chrome/managed-policy.js,accepted
+D-080,2026-11-28,MDM/GPO ingestion and key distribution remain unwired,The policy contract is not a managed deployment runtime,docs/MANAGED-SUPERVISED.md,open
+D-081,2026-11-28,P35 release decision is no-go while P17 P27 and P32 critical blockers remain,Signed artifacts do not equal release readiness,docs/RELEASE-ASSURANCE.md; docs/release-readiness.json,accepted
+D-082,2026-11-28,A release gate must aggregate phase status and signed artifact hashes rather than a hand-written claim,Readiness must be reproducible,scripts/release-readiness.cjs; docs/release-readiness.json,accepted
+D-083,2026-11-28,Revenue inventory is owned-only with no third-party publisher inventory or resale,Advertiser terms must not imply inventory the product does not own,docs/REVENUE-POLICY.md; docs/revenue-policy.json,accepted
+D-084,2026-11-28,P36 cannot be approved without product legal security privacy approvals and a jurisdiction decision,Contracts are not approvals,docs/REVENUE-POLICY.md; scripts/revenue-policy-check.cjs,open
+D-085,2026-11-28,Campaign creatives must be HMAC-signed and placed only on owned allowlisted inventory,Unsigned or swapped creative must never serve,docs/CAMPAIGN-CONSENT.md; chrome/campaign.js,accepted
+D-086,2026-11-28,Ads and Rasha are independent switches and rewards consent is not ads consent,No coupling or implied consent,tests/campaign-consent.test.cjs,accepted
+D-087,2026-11-28,Reward funding accepts collected net revenue only and every posting must balance,Uncollected invoiced revenue cannot fund rewards,docs/REWARD-LEDGER.md; chrome/reward-ledger.js,accepted
+D-088,2026-11-28,Payout keys and provider evidence are idempotent and provider approval gates all payouts,Duplicate submission cannot create a second payout,docs/REWARD-LEDGER.md; tests/reward-ledger.test.cjs,accepted
+D-089,2026-11-28,Monetization rollout is 0 percent until approvals release reconciliation support and measured economics exist,Signed code is not a pilot,docs/MONETIZATION-PILOT.md; scripts/pilot-check.cjs,open
+D-090,2026-11-28,No revenue impression or payout economics are published while unmeasured,Invented economics would violate evidence rules,docs/MONETIZATION-PILOT.md; docs/pilot-plan.json,accepted
+D-091,2026-11-28,"P00 charter signed by owner attestation on 2026-11-28 for product, engineering and evidence roles",The owner explicitly authorized the typed attestation,docs/CHARTER.md,accepted

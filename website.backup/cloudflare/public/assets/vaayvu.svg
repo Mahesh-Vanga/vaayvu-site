@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1076" height="1022" viewBox="90 119 1076 1022" role="img" aria-labelledby="title desc">
+<title id="title">Vaayvu Browser app icon</title>
+<desc id="desc">Vector recreation of the supplied browser icon, with tabbed window, address bar, blue V and cyan wind ribbons. All artwork uses editable vector shapes and gradients.</desc>
+<defs>
+  <radialGradient id="bg" cx="50%" cy="47%" r="72%"><stop stop-color="#21045f"/><stop offset="1" stop-color="#140345"/></radialGradient>
+  <linearGradient id="rearTab" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#ead8cc"/><stop offset="0.45" stop-color="#d7c4be"/><stop offset="1" stop-color="#ad9fa8"/></linearGradient>
+  <linearGradient id="frontTab" x1="0" y1="0.15" x2="1" y2="0.8"><stop stop-color="#ff9b59"/><stop offset="0.48" stop-color="#ff7c50"/><stop offset="1" stop-color="#f65046"/></linearGradient>
+  <linearGradient id="tabEdge" x1="0" y1="0" x2="0.7" y2="1"><stop stop-color="#ffe3b9"/><stop offset="1" stop-color="#ff9a75" stop-opacity="0"/></linearGradient>
+  <linearGradient id="paper" x1="0.15" y1="0" x2="0.65" y2="1"><stop stop-color="#fff3e2"/><stop offset="0.29" stop-color="#fdf5e9"/><stop offset="0.58" stop-color="#fefaf4"/><stop offset="1" stop-color="#fdf2e3"/></linearGradient>
+  <radialGradient id="paperWarm" cx="91%" cy="25%" r="69%"><stop stop-color="#ecd6bc" stop-opacity=".28"/><stop offset="1" stop-color="#f5e7d9" stop-opacity="0"/></radialGradient>
+  <linearGradient id="paperEdge" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fffdf7"/><stop offset=".8" stop-color="#fffaf4" stop-opacity=".5"/><stop offset="1" stop-color="#d3c4b6" stop-opacity=".3"/></linearGradient>
+  <linearGradient id="corner" x1="0.06" y1="0.25" x2=".97" y2=".85"><stop stop-color="#0054e5"/><stop offset=".42" stop-color="#008df6"/><stop offset=".7" stop-color="#0078fb"/><stop offset="1" stop-color="#003cec"/></linearGradient>
+  <radialGradient id="cornerLight" cx="62%" cy="38%" r="64%"><stop stop-color="#02c5ff" stop-opacity=".5"/><stop offset="1" stop-color="#0054ff" stop-opacity="0"/></radialGradient>
+  <linearGradient id="address" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffdf8"/><stop offset="1" stop-color="#faf3eb"/></linearGradient>
+  <linearGradient id="leftV" x1=".13" y1="0" x2=".69" y2="1"><stop stop-color="#00b2fa"/><stop offset=".27" stop-color="#007ff8"/><stop offset=".55" stop-color="#0642e0"/><stop offset=".79" stop-color="#11139b"/><stop offset="1" stop-color="#3426dc"/></linearGradient>
+  <linearGradient id="rightV" x1=".93" y1="0" x2=".18" y2=".89"><stop stop-color="#008cfa"/><stop offset=".28" stop-color="#0064ed"/><stop offset=".53" stop-color="#0026a9"/><stop offset=".76" stop-color="#07167b"/><stop offset="1" stop-color="#1451f5"/></linearGradient>
+  <linearGradient id="vBottom" x1=".13" y1=".08" x2=".77" y2=".93"><stop stop-color="#00126e"/><stop offset=".42" stop-color="#0639db"/><stop offset=".78" stop-color="#075cfb"/><stop offset="1" stop-color="#1759f9"/></linearGradient>
+  <linearGradient id="topAir" x1=".05" y1=".95" x2=".94" y2=".05"><stop stop-color="#0063df"/><stop offset=".4" stop-color="#00b8f8"/><stop offset=".72" stop-color="#00ddfa"/><stop offset="1" stop-color="#00edfc"/></linearGradient>
+  <linearGradient id="topHighlight" x1=".22" y1=".88" x2=".92" y2=".16"><stop stop-color="#7eeaff" stop-opacity="0"/><stop offset=".40" stop-color="#d8ffff"/><stop offset=".73" stop-color="#8ffcff"/><stop offset="1" stop-color="#00f3ff"/></linearGradient>
+  <linearGradient id="whiteAir" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#eafaff"/><stop offset=".38" stop-color="#fffefa"/><stop offset="1" stop-color="#fffaf0"/></linearGradient>
+  <linearGradient id="lowerAir" x1=".1" y1=".95" x2=".68" y2=".1"><stop stop-color="#04e1f8"/><stop offset=".28" stop-color="#00c9f9"/><stop offset=".57" stop-color="#0097fb"/><stop offset="1" stop-color="#0066e8"/></linearGradient>
+  <linearGradient id="lowerEdge" x1=".05" y1=".95" x2=".9" y2=".05"><stop stop-color="#a5fdff"/><stop offset=".35" stop-color="#12e0fc"/><stop offset=".76" stop-color="#00b5fa"/><stop offset="1" stop-color="#0084f0"/></linearGradient>
+  <clipPath id="windowClip"><path d="M158 243H1097C1136 243 1164 277 1164 327V981C1164 1074 1105 1139 1021 1139H187C133 1139 92 1093 92 989V304C92 269 119 243 158 243Z"/></clipPath>
+  <clipPath id="vClip"><path d="M263 460H408C450 460 479 480 498 516L589 690L684 515C703 478 732 460 776 460H913C924 460 930 470 923 482L653 941C641 963 623 976 599 976H542C513 976 493 964 478 937L277 539C263 514 253 498 248 491C237 476 247 460 263 460Z"/></clipPath>
+</defs>
+<g id="Vaayvu-browser-icon">
+  <path id="inactive-tab" d="M532 164H1042C1099 164 1144 208 1161 287L1164 320H533Z" fill="url(#rearTab)" stroke="#f6e9dd" stroke-width="3"/>
+  <path id="active-tab" d="M92 302C100 257 116 211 141 175C163 143 186 121 217 121H530C565 121 587 136 605 168C624 203 639 232 667 247L667 303Z" fill="url(#frontTab)" stroke="url(#tabEdge)" stroke-width="3.3"/>
+  <path id="browser-window" d="M158 243H1097C1136 243 1164 277 1164 327V981C1164 1074 1105 1139 1021 1139H187C133 1139 92 1093 92 989V304C92 269 119 243 158 243Z" fill="url(#paper)"/>
+  <g clip-path="url(#windowClip)">
+    <rect x="92" y="243" width="1072" height="896" fill="url(#paperWarm)"/>
+    <path id="blue-corner" d="M213 1139C348 1051 560 1031 741 984C964 925 1149 794 1164 584L1180 1150H208Z" fill="url(#corner)"/>
+    <path d="M213 1139C348 1051 560 1031 741 984C964 925 1149 794 1164 584L1180 1150H208Z" fill="url(#cornerLight)"/>
+    <!-- Transparent, graduated vector shading beneath the address field. -->
+    <g fill="#8d6955">
+      <rect x="143" y="281" width="970" height="133" rx="64" opacity=".018"/>
+      <rect x="146" y="286" width="964" height="121" rx="59" opacity=".025"/>
+      <rect x="149" y="290" width="958" height="111" rx="54" opacity=".035"/>
+      <rect x="151" y="291" width="954" height="104" rx="51" opacity=".055"/>
+      <rect x="153" y="289" width="950" height="101" rx="50" opacity=".045"/>
+    </g>
+    <rect id="address-bar" x="146" y="282" width="961" height="102" rx="51" fill="url(#address)" stroke="#fffdf9" stroke-width="2.6"/>
+    <g id="globe" transform="translate(223 332)" fill="none" stroke="#17275e" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle r="31.5"/><ellipse rx="13.3" ry="31.5"/><path d="M-29 -15Q0 -4 29 -15M-31.5 0H31.5M-29 15Q0 4 29 15"/>
+    </g>
+    <path id="text-caret" d="M302 305V359" stroke="#7783a7" stroke-width="4" stroke-linecap="round"/>
+    <g id="V-monogram" clip-path="url(#vClip)">
+      <path d="M233 453H434L513 511L650 777L579 985H505Z" fill="url(#leftV)"/>
+      <path d="M589 690L684 515C703 478 732 460 776 460H913C924 460 930 470 923 482L653 941C641 963 623 976 599 976H542C513 976 493 964 478 937L445 867Z" fill="url(#rightV)"/>
+      <path d="M436 843C510 785 620 753 792 712L802 808L675 992H489Z" fill="url(#vBottom)"/>
+    </g>
+    <g id="wind-ribbons">
+      <path d="M589 690C679 626 758 588 877 586C969 586 1021 555 1036 487C1053 563 1019 623 953 650C902 672 840 670 771 672C689 672 633 680 589 690Z" fill="url(#topAir)"/>
+      <path d="M589 690C679 626 758 588 877 586C969 586 1021 555 1036 487C1036 554 1004 591 946 611C905 626 855 626 800 626C707 626 644 657 589 690Z" fill="url(#topHighlight)"/>
+      <path d="M474 929C456 900 433 868 440 829C447 768 509 720 589 690C650 674 715 671 790 671C878 671 937 663 983 644C948 686 881 704 790 714C624 733 522 752 474 822C448 860 453 896 474 929Z" fill="url(#whiteAir)"/>
+      <path d="M474 929C453 896 448 860 474 822C522 752 624 733 790 714C881 704 948 686 983 644C955 701 904 732 818 744C710 758 603 760 536 791C485 815 459 859 474 929Z" fill="url(#lowerAir)"/>
+      <path d="M474 929C453 896 448 860 474 822C491 797 512 782 540 768C505 795 483 819 474 848C465 874 467 901 474 929Z" fill="url(#lowerEdge)"/>
+    </g>
+  </g>
+  <path d="M158 243H1097C1136 243 1164 277 1164 327V981C1164 1074 1105 1139 1021 1139H187C133 1139 92 1093 92 989V304C92 269 119 243 158 243Z" fill="none" stroke="url(#paperEdge)" stroke-width="2.8"/>
+</g>
+</svg>

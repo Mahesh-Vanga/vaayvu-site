@@ -1,0 +1,3 @@
+<!-- The center 72dp fills the launcher mask. Its edge colors extend into the motion area. -->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@mipmap/vaayvu_launcher_art" android:gravity="fill" android:filter="true" />

@@ -1,0 +1,49 @@
+id,source,owner,location,scope,last_checked,status
+S-01,User-provided canonical screen specs,Product owner,conversation submissions and docs/SCREENS.csv,Screen names routes categories phases priorities owners acceptance,2026-11-28,authoritative
+S-02,Canonical screen inventory,Product owner,docs/SCREENS.csv,655 screen rows including s-172 exclusion,2026-11-28,authoritative
+S-03,Readable screen inventory,Product owner,docs/SCREENS.md,Mirror of the canonical inventory,2026-11-28,current
+S-04,Onboarding and atlas documentation,Engineering,docs/ONBOARDING.md,Routes phases priorities and range notes,2026-11-28,current
+S-05,Screen implementation,Engineering,chrome/onboarding.js,All renderers routes metadata and handlers,2026-11-28,implemented
+S-06,First-run routing,Engineering,chrome/boot.js,First-run route vaayvu://onboarding/s-001,2026-11-28,implemented
+S-07,Shared test suite,Engineering,tests/*.test.cjs,Screen metadata acceptance and regression evidence,2026-11-28,passing
+S-08,Repository readme,Engineering,README.md,Product scope supported platforms build and test commands,2026-11-28,current
+S-09,Phase specification,Product owner,conversation submissions and docs/PHASES.csv,Program phases P00 to P39 exit gates,2026-11-28,authoritative
+S-10,Developer setup and toolchain guard,Engineering,docs/DEVELOPMENT.md; scripts/doctor.cjs; .nvmrc,Pinned setup CI gates and secrets boundaries,2026-11-28,current
+S-11,Engine feasibility lab evidence,Engineering,docs/ENGINE-LAB.md; docs/ENGINE-LAB.csv; docs/VFD-ENGINE.md,Engine spike status blockers and go/no-go,2026-11-28,current
+S-12,Design system and prototype evidence,Design,docs/DESIGN-SYSTEM.md; design/tokens.json; chrome/styles.css; branding/,Brand tokens glass responsive layouts accessibility and interactive probes,2026-11-28,current
+S-13,Domain model and durable data evidence,Engineering,windows/domain/store.cjs; tests/domain-store.test.cjs; docs/DOMAIN-MODEL.md,SQLite schema state machines migrations crash journal and recovery,2026-11-28,reference
+S-14,Desktop MVP and signed build evidence,Engineering,docs/DESKTOP-MVP.md; windows/test; tests/test/0.0.23,Desktop capabilities signed macOS artifacts and Windows build,2026-11-28,current
+S-15,Apple mobile implementation and acceptance evidence,Engineering,docs/APPLE-MOBILE.md; apple/Sources; apple/Tests,WebKit iPhone iPad navigation storage and simulator acceptance,2026-11-28,current
+S-16,Android mobile and adaptive evidence,Engineering,docs/ANDROID-MOBILE.md; scripts/android-adaptive-check.sh; android/app,Android release adaptive launches permissions and signing,2026-11-28,current
+S-17,Security threat model and gate evidence,Security,docs/THREAT-MODEL.md; scripts/security-gate.cjs; tests/fixtures/hostile-urls.json,Threat model security invariants hostile inputs and external-test status,2026-11-28,current
+S-18,Content workflow evidence,Engineering,docs/CONTENT-WORKFLOWS.md; windows/test/content-workflow.cjs,Reader PDF capture history bookmarks downloads and translation status,2026-11-28,current
+S-19,Credential sync and recovery evidence,Engineering,docs/CREDENTIALS-SYNC.md; sync/recovery.test.mjs; sync/server.mjs,Sync credentials backup restore and chaos tests,2026-11-28,current
+S-20,Power tools and restore evidence,Engineering,docs/POWER-TOOLS.md; chrome/spaces.js; tests/spaces.test.cjs,Spaces tab triage vertical tabs split view notes and restore,2026-11-28,current
+S-21,Extension compatibility and security evidence,Security,docs/EXTENSIONS-MANAGED.md; docs/EXTENSION-MATRIX.csv; chrome/extensions.js,Extension matrix manifest CSS ZIP and permission review,2026-11-28,current
+S-22,AI opt-in guard and injection evidence,Security,docs/AI-OPTIN.md; chrome/ai-guard.js; sync/ai-guard.test.mjs,Prompt injection privacy cost and agent action policy,2026-11-28,current
+S-23,Published performance baseline,Engineering,docs/BENCHMARKS.md; docs/benchmarks/2026-11-28.json; scripts/benchmark.cjs,Local throughput CPU proxy and regression baseline,2026-11-28,current
+S-24,Accessibility and locale evidence,Design,docs/ACCESSIBILITY-I18N.md; scripts/a11y-audit.cjs; chrome/i18n.js,Accessibility audit RTL CJK reduced motion and localization status,2026-11-28,current
+S-25,Release manifest and rollback evidence,Release,docs/RELEASE-OPS.md; docs/releases/0.0.23.json; docs/releases/ROLLBACK-DRILL.md,Signed artifacts manifests rollback drill and gaps,2026-11-28,current
+S-26,Beta governance and SLO definitions,Release,docs/BETA-MAINTENANCE.md; docs/slo.json,Opt-in beta staged rollout triage governance and unmeasured SLOs,2026-11-28,draft
+S-27,Tab lifecycle pressure and lease evidence,Engineering,docs/TAB-LIFECYCLE.md; docs/benchmarks/lifecycle-2026-11-28.json; windows/test/lifecycle-pressure.cjs,Pressure reclaim leases RAM CPU and wake trace,2026-11-28,current
+S-28,Network transport and storage recovery evidence,Engineering,docs/NETWORK-STORAGE.md; chrome/storage.js; tests/network-storage.test.cjs,Transport partitions quota recovery and no-loss checks,2026-11-28,current
+S-29,Rasha ownership and enforcement evidence,Security,docs/RAASHA-PRIVACY.md; scripts/vfd-ownership-audit.cjs; docs/ADBLOCK-LICENSES.md,Original rules ownership audit enforcement and isolation corpus,2026-11-28,current
+S-30,Security isolation vault and update integrity evidence,Security,docs/SECURITY-UPDATES.md; windows/test/hostile-isolation.cjs; windows/vault.cjs,Hostile isolation vault permissions and signed updates,2026-11-28,current
+S-31,Advanced tab workspace and partition evidence,Engineering,docs/ADVANCED-TABS.md; tests/desktop-tab-strip-ui.cjs; tests/tabs.test.cjs,Stable IDs four layouts protected work and partitions,2026-11-28,current
+S-32,Continuity fault recovery and sentinel evidence,Engineering,docs/CONTINUITY-RECOVERY.md; sync/privacy-sentinel.test.mjs; sync/recovery.test.mjs,Fault injection backup restore sentinel and encryption status,2026-11-28,current
+S-33,Research reading focus and offline evidence,Engineering,docs/RESEARCH-READING.md; chrome/collections.js; tests/observatory-ui.cjs,Collections reader offline focus timer and feed status,2026-11-28,current
+S-34,Guarded automation contract evidence,Engineering,docs/AUTOMATION.md; chrome/automation.js; tests/automation.test.cjs,Dry-run approval receipts consent and injection,2026-11-28,current
+S-35,Document capture and download evidence,Engineering,docs/DOCUMENT-STUDIO.md; windows/test/content-workflow.cjs,Native PDF PNG MHTML non-destructive save and download rules,2026-11-28,current
+S-36,Media and real-time status,Engineering,docs/MEDIA-REALTIME.md; tests/media-realtime.test.cjs,Playback call and real-device verification status,2026-11-28,draft
+S-37,Extension trust and web-app status,Engineering,docs/WEBAPPS-EXTENSIONS.md; tests/extensions.test.cjs,Extension permissions Rasha independence and PWA gap,2026-11-28,current
+S-38,Developer tooling and standards corpus evidence,Engineering,docs/COMPATIBILITY.md; tests/standards-ui.cjs; tests/inspector-ui.cjs,Native inspection standards corpus tasks and unsupported cases,2026-11-28,current
+S-39,Comparative matched-device performance evidence,Engineering,docs/COMPARATIVE-PERF.md; docs/benchmarks/comparative-2026-11-28.json,Matched-device coverage stability and scope,2026-11-28,current
+S-40,Design presets accessibility and responsive evidence,Design,docs/DESIGN-A11Y-L10N.md; design/tokens.json; scripts/a11y-audit.cjs,Presets accessible journeys responsive chrome and localization gap,2026-11-28,current
+S-41,Native parity and device evidence,Engineering,docs/PARITY.md; apple/Tests/PhoneInteractionTests.swift; docs/APPLE-MOBILE.md; docs/ANDROID-MOBILE.md,Physical Mac simulator emulator and Windows package status,2026-11-28,current
+S-42,Migration library and search evidence,Engineering,docs/MIGRATION-SEARCH.md; chrome/workbench.js; sync/privacy-sentinel.test.mjs,Import export migrations external search and isolation,2026-11-28,current
+S-43,Managed policy isolation and exit evidence,Security,docs/MANAGED-SUPERVISED.md; chrome/managed-policy.js; tests/managed-policy.test.cjs,Signed policy disclosure scope isolation and safe exit,2026-11-28,current
+S-44,Release readiness and blocker evidence,Release,docs/RELEASE-ASSURANCE.md; docs/release-readiness.json; scripts/release-readiness.cjs,Signed artifacts phase status blockers and no-go decision,2026-11-28,current
+S-45,Revenue policy contracts,Product,docs/REVENUE-POLICY.md; docs/revenue-policy.json; scripts/revenue-policy-check.cjs,Inventory ownership advertiser terms privacy and jurisdiction,2026-11-28,draft
+S-46,Campaign and consent fixtures,Product,docs/CAMPAIGN-CONSENT.md; chrome/campaign.js; tests/campaign-consent.test.cjs,Signed creatives consent placements frequency and Rasha independence,2026-11-28,fixture
+S-47,Reward ledger and payout contract,Product,docs/REWARD-LEDGER.md; chrome/reward-ledger.js; tests/reward-ledger.test.cjs,Funding balance immutability idempotency and provider gate,2026-11-28,fixture
+S-48,Monetization pilot readiness,Release,docs/MONETIZATION-PILOT.md; docs/pilot-plan.json; scripts/pilot-check.cjs,Rollout approvals reconciliation kill switch support and economics,2026-11-28,blocked

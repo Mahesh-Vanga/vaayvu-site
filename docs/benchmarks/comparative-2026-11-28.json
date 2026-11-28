@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "product": "Vaayvu",
+    "cpu": "Apple M5",
+    "platform": "darwin arm64",
+    "node": "22.23.2",
+    "date": "2026-11-28T05:19:20.024Z",
+    "runs": 5,
+    "command": "node scripts/comparative-benchmark.cjs --json"
+  },
+  "coverage": [
+    "adblock",
+    "navigation",
+    "workspace",
+    "ai"
+  ],
+  "results": [
+    {
+      "id": "vfd-on",
+      "group": "adblock",
+      "iterations": 120000,
+      "runs": 5,
+      "medianMs": 116.11,
+      "minMs": 115.19,
+      "maxMs": 121.16,
+      "cvPercent": 2.2,
+      "perSecond": 1033479
+    },
+    {
+      "id": "vfd-off",
+      "group": "adblock",
+      "iterations": 120000,
+      "runs": 5,
+      "medianMs": 2.15,
+      "minMs": 2.05,
+      "maxMs": 2.33,
+      "cvPercent": 4.7,
+      "perSecond": 55888688
+    },
+    {
+      "id": "url-validation",
+      "group": "navigation",
+      "iterations": 200000,
+      "runs": 5,
+      "medianMs": 35,
+      "minMs": 34.5,
+      "maxMs": 35.68,
+      "cvPercent": 1.1,
+      "perSecond": 5714742
+    },
+    {
+      "id": "spaces-normalize",
+      "group": "workspace",
+      "iterations": 50000,
+      "runs": 5,
+      "medianMs": 5.59,
+      "minMs": 5.51,
+      "maxMs": 5.63,
+      "cvPercent": 0.8,
+      "perSecond": 8937683
+    },
+    {
+      "id": "guard-redaction",
+      "group": "ai",
+      "iterations": 20000,
+      "runs": 5,
+      "medianMs": 4.81,
+      "minMs": 4.69,
+      "maxMs": 4.92,
+      "cvPercent": 1.9,
+      "perSecond": 4155341
+    },
+    {
+      "id": "guard-injection",
+      "group": "ai",
+      "iterations": 20000,
+      "runs": 5,
+      "medianMs": 4.58,
+      "minMs": 4.37,
+      "maxMs": 4.67,
+      "cvPercent": 2.5,
+      "perSecond": 4363755
+    }
+  ],
+  "stability": {
+    "thresholdCvPercent": 20,
+    "unstable": [],
+    "pass": true
+  },
+  "comparison": "Same machine and runtime. Not a comparison with other browsers."
+}

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Philosophy — Locathara</title>
+    <meta name="description" content="Why we build this way: local by default, no dark patterns, honest about limitations, sustainable not VC-scale, open source not open core, native feel not Electron." />
+    <link rel="canonical" href="https://locathara.com/philosophy.html" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" href="assets/images/locathara-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/images/locathara-180.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Locathara" />
+    <meta property="og:title" content="Philosophy — Locathara" />
+    <meta property="og:description" content="Local by default, no dark patterns, honest limitations, sustainable, open source, native feel. Why we build this way." />
+    <meta property="og:url" content="https://locathara.com/philosophy.html" />
+    <meta property="og:image" content="https://locathara.com/assets/images/og.jpg" />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/plex-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css?v=20261127c" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="masthead" id="top">
+      <div class="shell masthead-inner">
+        <a class="brand" href="index.html" aria-label="Locathara, home">
+          <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none">
+            <defs><linearGradient id="brandGradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9" /><stop offset="50%" stop-color="#6366f1" /><stop offset="100%" stop-color="#a855f7" /></linearGradient></defs>
+            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 2.5L25.5 8.5V23.5L16 29.5 6.5 23.5V8.5L16 4.5z" fill="url(#brandGradient)" stroke="#0f172a" stroke-width="0.5"/>
+            <path d="M16 10v12M10 16h12" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+          </svg>
+          <span class="brand-text">Locathara</span>
+        </a>
+
+        <nav class="nav" id="primary-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="product.html">Vaayvu Browser</a>
+          <a href="technology.html">Technology</a>
+          <a href="philosophy.html" aria-current="page">Philosophy</a>
+          <a href="company.html">Company</a>
+          <a href="download.html">Download</a>
+          <a href="blog.html">Blog</a>
+          <a class="nav-github" href="https://github.com/Mahesh-Vanga" target="_blank" rel="noopener" aria-label="Founder on GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </nav>
+
+        <div class="masthead-actions">
+          <a class="button button-primary" href="download.html">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+          <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="hero hero-compact" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true">
+          <canvas class="hero-canvas" data-hero-canvas></canvas>
+          <div class="hero-gradient"></div>
+        </div>
+        <div class="shell">
+          <div class="hero-content">
+            <p class="eyebrow" data-reveal>Philosophy</p>
+            <h1 id="hero-title" data-reveal>
+              <span class="line-mask"><span class="line-inner">Why we build</span></span>
+              <span class="line-mask"><span class="line-inner">this way</span></span>
+            </h1>
+            <p class="lede" data-reveal>
+              The modern web runs on attention extraction. We're building the alternative — software that serves you, not advertisers.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Principles -->
+      <section class="philosophy-deep" aria-labelledby="principles-title">
+        <div class="shell">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow">Our principles</p>
+            <h2 id="principles-title">Six principles that guide every decision</h2>
+            <p class="lede">Not marketing values. Engineering constraints we refuse to compromise on.</p>
+          </header>
+
+          <!-- Principle 1 -->
+          <article class="principle" data-reveal>
+            <div class="principle-number">01</div>
+            <div class="principle-content">
+              <h3>Local by default</h3>
+              <p>Computation happens on your device. Rule matching, sync encryption, space management — nothing leaves your machine unless you explicitly configure a sync server. This isn't a privacy feature; it's the architecture.</p>
+              <div class="principle-detail">
+                <h4>What this means in practice</h4>
+                <ul>
+                  <li>Rasha Shield compiles rules to bytecode and matches entirely on-device — zero network requests for filtering</li>
+                  <li>Vaayvu Sync encrypts with keys derived from your passphrase via Argon2id before any data leaves the device</li>
+                  <li>Spaces, themes, and preferences stored locally in IndexedDB / platform keychain</li>
+                  <li>Update checks fetch a static JSON manifest — no client identity, no fingerprinting</li>
+                  <li>Crash reports and diagnostics stay local unless you manually share them</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Principle 2 -->
+          <article class="principle" data-reveal>
+            <div class="principle-number">02</div>
+            <div class="principle-content">
+              <h3>No dark patterns</h3>
+              <p>No nag screens, no forced accounts, no "sign in to sync" walls, no telemetry opt-out buried in settings. The browser works fully without an account. You download, you use it. That's it.</p>
+              <div class="principle-detail">
+                <h4>What we explicitly don't do</h4>
+                <ul>
+                  <li>No "create account to continue" interstitial on first run</li>
+                  <li>No "sync is better with an account" nags in the UI</li>
+                  <li>No pre-checked "help improve Vaayvu" telemetry consent</li>
+                  <li>No feature gating behind authentication</li>
+                  <li>No "you're missing out" messaging for non-synced users</li>
+                  <li>No automatic cloud backup of anything</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Principle 3 -->
+          <article class="principle" data-reveal>
+            <div class="principle-number">03</div>
+            <div class="principle-content">
+              <h3>Honest about limitations</h3>
+              <p>We document what doesn't work: no scripted extensions, no DRM video on Linux, iOS build requires your own Apple team. We'd rather you know upfront than discover later and feel misled.</p>
+              <div class="principle-detail">
+                <h4>Current known limitations</h4>
+                <ul>
+                  <li><strong>No scripted extensions:</strong> Only CSS-based style packages. No JS APIs, no background scripts, no content scripts.</li>
+                  <li><strong>iOS build requires your Apple Developer account:</strong> We cannot distribute a signed iOS binary. You build from Xcode with your team.</li>
+                  <li><strong>No DRM video (Widevine/PlayReady):</strong> Native web views on Linux/macOS/Windows don't expose CDM APIs. Netflix, Prime Video, etc. won't play in HD.</li>
+                  <li><strong>No translation API:</strong> Platform web views don't expose built-in translation. Use a style extension or external service.</li>
+                  <li><strong>Limited PDF editing:</strong> Native PDF viewers are read-only. Annotations require external tools.</li>
+                  <li><strong>No sync for private windows:</strong> By design — private tabs never touch the sync engine.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Principle 4 -->
+          <article class="principle" data-reveal>
+            <div class="principle-number">04</div>
+            <div class="principle-content">
+              <h3>Sustainable, not VC-scale</h3>
+              <p>Locathara is self-funded. We don't need hypergrowth. We need a viable business that can pay developers to maintain this for the next decade. That means small team, low burn, direct relationship with users.</p>
+              <div class="principle-detail">
+                <h4>What sustainability looks like for us</h4>
+                <ul>
+                  <li><strong>No investor pressure:</strong> No board demanding 10x returns. No "growth at all costs" mandates.</li>
+                  <li><strong>Small team, high leverage:</strong> Rust core + native shells means one engineer can maintain four platforms.</li>
+                  <li><strong>Direct revenue:</strong> If we ever charge, it'll be for something you'd pay for — not for selling your attention or data.</li>
+                  <li><strong>No pivot risk:</strong> We're not building for acquisition. We're building for the next 10+ years.</li>
+                  <li><strong>Community alignment:</strong> Our incentives match yours. We win when the browser is good enough that you'd recommend it.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Principle 5 -->
+          <article class="principle" data-reveal>
+            <div class="principle-number">05</div>
+            <div class="principle-content">
+              <h3>Open source, not open core</h3>
+              <p>The browser, shield engine, sync server, and native hosts are all MIT-licensed. No "enterprise features" held back. If you want to fork and build a business on it, go ahead — we'd love to see what you make.</p>
+              <div class="principle-detail">
+                <h4>What's open (everything)</h4>
+                <ul>
+                  <li><strong>Vaayvu Browser:</strong> All platform shells, UI, core logic — <a href="https://github.com/Mahesh-Vanga/vaayvu-site" target="_blank" rel="noopener">github.com/Mahesh-Vanga/vaayvu-site</a></li>
+                  <li><strong>No CLA required:</strong> Contributions welcome under MIT. No contributor license agreement that assigns copyright.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Principle 6 -->
+          <article class="principle" data-reveal>
+            <div class="principle-number">06</div>
+            <div class="principle-content">
+              <h3>Native feel, not Electron</h3>
+              <p>WKWebView on macOS/iOS, WebView2 on Windows, Android WebView on Android. Each platform gets its own text rendering, scrolling physics, and system integration. It's more work — but it feels right.</p>
+              <div class="principle-detail">
+                <h4>Why native web views matter</h4>
+                <ul>
+                  <li><strong>Text rendering:</strong> Each platform's text shaping, hinting, and font fallback — not a compromised cross-platform compromise</li>
+                  <li><strong>Scrolling physics:</strong> macOS momentum, Windows precision, Android fling — each feels like the OS</li>
+                  <li><strong>System integration:</strong> Keychain, Credential Manager, Keystore; native notifications; platform auth dialogs</li>
+                  <li><strong>Binary size:</strong> ~50 MB total across platforms vs ~200 MB+ for Electron</li>
+                  <li><strong>Memory:</strong> Shared system web view process vs dedicated Chromium per app</li>
+                  <li><strong>Security updates:</strong> OS updates the web view; we don't ship a browser engine</li>
+                  <li><strong>Accessibility:</strong> Platform-native accessibility tree, not a custom implementation</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Manifesto -->
+          <div class="manifesto" data-reveal>
+            <h3>Manifesto</h3>
+            <p>We believe the web can be a tool for thought, not a trap for attention.</p>
+            <p>We believe software should serve the person using it, not the company selling it.</p>
+            <p>We believe privacy is not a feature you toggle — it's the default architecture you build on.</p>
+            <p>We believe sustainable businesses are built on trust, not surveillance.</p>
+            <p>We believe open source means open — not "open core" with the good parts locked away.</p>
+            <p>We believe native platforms deserve native apps, not web apps in a trench coat.</p>
+            <p><strong>We're building the quieter web. One browser at a time.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section section-alt" style="text-align:center;">
+        <div class="shell">
+          <div data-reveal style="max-width:600px;margin:0 auto;">
+            <p class="eyebrow">Align with our philosophy?</p>
+            <h2 style="margin:16px 0 20px;">Try the browser that embodies it</h2>
+            <p class="lede">Vaayvu is our proof of concept. Download and see what local-first feels like.</p>
+            <div class="hero-actions" style="justify-content:center;margin-top:24px;">
+              <a class="button button-primary button-large" href="download.html">Download Vaayvu</a>
+              <a class="button button-secondary button-large" href="https://github.com/Mahesh-Vanga/vaayvu-site" target="_blank" rel="noopener">Read the source</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div class="footer-brand">
+          <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none">
+            <defs><linearGradient id="brandGradientFooter" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9" /><stop offset="50%" stop-color="#6366f1" /><stop offset="100%" stop-color="#a855f7" /></linearGradient></defs>
+            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 2.5L25.5 8.5V23.5L16 29.5 6.5 23.5V8.5L16 4.5z" fill="url(#brandGradientFooter)" stroke="#0f172a" stroke-width="0.5"/>
+            <path d="M16 10v12M10 16h12" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+          </svg>
+          <div><strong>Locathara</strong><span>Building the quieter web</span></div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-column"><h4>Product</h4><a href="product.html">Vaayvu Browser</a><a href="product.html#features">Features</a><a href="download.html">Downloads</a><a href="blog.html">Blog</a></div>
+          <div class="footer-column"><h4>Company</h4><a href="company.html">About</h4><a href="philosophy.html">Philosophy</a><a href="https://github.com/Mahesh-Vanga" target="_blank" rel="noopener">Founder</a></div>
+          <div class="footer-column"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="https://vaayvu.com/LICENSE.txt" target="_blank" rel="noopener">License (MIT)</a><a href="contact.html">Contact</a></div>
+        </nav>
+
+        <div class="footer-bottom">
+          <p class="copyright">© 2026 Locathara · All code MIT-licensed unless noted</p>
+          <p class="footer-note">Built with native web views, Rust, and care</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+    <script src="site.js?v=20261127c" defer></script>
+  </body>
+</html>

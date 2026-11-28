@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08C442BC2177C8C3A76177F3 /* ChromeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE32E7E3BB21353BEB6272D /* ChromeStorage.swift */; };
+		19ACE24371DEDAB7FE0096CF /* Downloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3437A2E01F28039099A31851 /* Downloads.swift */; };
+		2D79C0B44A118A9F003D7529 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211D8F02E633E944D608B923 /* App.swift */; };
+		3112C32EE2432599F33CA632 /* PhoneInteractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7152216BE968094B9319EC /* PhoneInteractionTests.swift */; };
+		688D8D3FE4FCAA91E6A35C15 /* BrowserHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063C20F56CFBB58B7A9673D /* BrowserHost.swift */; };
+		81CC4E75F8E2809961100BA5 /* PageActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF02985E636646A224DDC747 /* PageActions.swift */; };
+		8D79E9E94AEBCAF37CE2399D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6087E1F5889125051BA533C /* Assets.xcassets */; };
+		A0E6ED25F36AF4F1B041A7D9 /* chrome in Resources */ = {isa = PBXBuildFile; fileRef = D764C60942DC56C6BDF96B1B /* chrome */; };
+		A145750725A6C3DFA132DE09 /* PhoneBrowserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D3C8490876E4E7FE1086EC /* PhoneBrowserActions.swift */; };
+		B8316EB34739A0000FF10955 /* IndiaSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896EB69C238E40928FDA6E2A /* IndiaSearch.swift */; };
+		BB6DEEF19E6F1770DDA80D28 /* IndiaSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE5C14EDEAC22BF23885DB2 /* IndiaSearchTests.swift */; };
+		C3C99ED2A2D58740D6449D12 /* NavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9296E253541B718343CB632 /* NavigationTests.swift */; };
+		D396CEED821FC58A94CC12CC /* WebDialogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89458A241304FEFF75242E5E /* WebDialogs.swift */; };
+		DBC0B34C39FC6AA67B3891D5 /* Wikipedia-Reading-Type.zip in Resources */ = {isa = PBXBuildFile; fileRef = A69D28BC24A06574027A6AB5 /* Wikipedia-Reading-Type.zip */; };
+		EC303785131E95A58EB8B52F /* BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB9A83546F1C3C4A9A3EA3 /* BrowserTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		404F6209B8763623CDC7B31F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60E3E0EEE6861DF06C05C874 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40A5BE628389A8E95A311154;
+			remoteInfo = "Vaayvu iPhone";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04D3C8490876E4E7FE1086EC /* PhoneBrowserActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBrowserActions.swift; sourceTree = "<group>"; };
+		1B491294523C226D2A70D5CC /* Vaayvu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vaayvu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		211D8F02E633E944D608B923 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		3437A2E01F28039099A31851 /* Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloads.swift; sourceTree = "<group>"; };
+		5BE32E7E3BB21353BEB6272D /* ChromeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromeStorage.swift; sourceTree = "<group>"; };
+		7063C20F56CFBB58B7A9673D /* BrowserHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserHost.swift; sourceTree = "<group>"; };
+		7495CBC13AE25B490C852E6F /* VaayvuPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VaayvuPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77CB9A83546F1C3C4A9A3EA3 /* BrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserTests.swift; sourceTree = "<group>"; };
+		89458A241304FEFF75242E5E /* WebDialogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDialogs.swift; sourceTree = "<group>"; };
+		896EB69C238E40928FDA6E2A /* IndiaSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaSearch.swift; sourceTree = "<group>"; };
+		8A7152216BE968094B9319EC /* PhoneInteractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInteractionTests.swift; sourceTree = "<group>"; };
+		A6087E1F5889125051BA533C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A69D28BC24A06574027A6AB5 /* Wikipedia-Reading-Type.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "Wikipedia-Reading-Type.zip"; sourceTree = "<group>"; };
+		D764C60942DC56C6BDF96B1B /* chrome */ = {isa = PBXFileReference; lastKnownFileType = folder; name = chrome; path = ../chrome; sourceTree = SOURCE_ROOT; };
+		ECE5C14EDEAC22BF23885DB2 /* IndiaSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaSearchTests.swift; sourceTree = "<group>"; };
+		EF02985E636646A224DDC747 /* PageActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageActions.swift; sourceTree = "<group>"; };
+		F9296E253541B718343CB632 /* NavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0AC173F18289412074C54192 = {
+			isa = PBXGroup;
+			children = (
+				A6087E1F5889125051BA533C /* Assets.xcassets */,
+				D764C60942DC56C6BDF96B1B /* chrome */,
+				9B756777616EEC047681258F /* examples */,
+				E21F6628ED1F0AB783891B0E /* Sources */,
+				62622F0E0E36609F23F1E487 /* Tests */,
+				A0B743C41D6F1B2E69F02957 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		62622F0E0E36609F23F1E487 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				77CB9A83546F1C3C4A9A3EA3 /* BrowserTests.swift */,
+				ECE5C14EDEAC22BF23885DB2 /* IndiaSearchTests.swift */,
+				F9296E253541B718343CB632 /* NavigationTests.swift */,
+				8A7152216BE968094B9319EC /* PhoneInteractionTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		9B756777616EEC047681258F /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				A69D28BC24A06574027A6AB5 /* Wikipedia-Reading-Type.zip */,
+			);
+			name = examples;
+			path = ../examples;
+			sourceTree = "<group>";
+		};
+		A0B743C41D6F1B2E69F02957 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B491294523C226D2A70D5CC /* Vaayvu.app */,
+				7495CBC13AE25B490C852E6F /* VaayvuPhoneTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E21F6628ED1F0AB783891B0E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				211D8F02E633E944D608B923 /* App.swift */,
+				7063C20F56CFBB58B7A9673D /* BrowserHost.swift */,
+				5BE32E7E3BB21353BEB6272D /* ChromeStorage.swift */,
+				3437A2E01F28039099A31851 /* Downloads.swift */,
+				896EB69C238E40928FDA6E2A /* IndiaSearch.swift */,
+				EF02985E636646A224DDC747 /* PageActions.swift */,
+				04D3C8490876E4E7FE1086EC /* PhoneBrowserActions.swift */,
+				89458A241304FEFF75242E5E /* WebDialogs.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		071F487935AEF1345EBAE46B /* Vaayvu iOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FD6615BF95CC8601845BEA9 /* Build configuration list for PBXNativeTarget "Vaayvu iOS Tests" */;
+			buildPhases = (
+				95DAC4CD5B24D7185328ECE3 /* Sources */,
+				919B5E49C5186C450FE0D768 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31985D38E69BF9FC8A430A90 /* PBXTargetDependency */,
+			);
+			name = "Vaayvu iOS Tests";
+			packageProductDependencies = (
+			);
+			productName = "Vaayvu iOS Tests";
+			productReference = 7495CBC13AE25B490C852E6F /* VaayvuPhoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		40A5BE628389A8E95A311154 /* Vaayvu iPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D02B6F140BACCBDE4D84BD5E /* Build configuration list for PBXNativeTarget "Vaayvu iPhone" */;
+			buildPhases = (
+				B68179FE8263CC75E0179724 /* Prepare search trust settings */,
+				652FFF33C8FFECF3FB52E6EE /* Sources */,
+				0A9297F52C103148B893258D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Vaayvu iPhone";
+			packageProductDependencies = (
+			);
+			productName = "Vaayvu iPhone";
+			productReference = 1B491294523C226D2A70D5CC /* Vaayvu.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		60E3E0EEE6861DF06C05C874 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					071F487935AEF1345EBAE46B = {
+						ProvisioningStyle = Automatic;
+					};
+					40A5BE628389A8E95A311154 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0C78672E35EAB9B0636ECB87 /* Build configuration list for PBXProject "Vaayvu" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 0AC173F18289412074C54192;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A0B743C41D6F1B2E69F02957 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40A5BE628389A8E95A311154 /* Vaayvu iPhone */,
+				071F487935AEF1345EBAE46B /* Vaayvu iOS Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0A9297F52C103148B893258D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D79E9E94AEBCAF37CE2399D /* Assets.xcassets in Resources */,
+				A0E6ED25F36AF4F1B041A7D9 /* chrome in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		919B5E49C5186C450FE0D768 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBC0B34C39FC6AA67B3891D5 /* Wikipedia-Reading-Type.zip in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B68179FE8263CC75E0179724 /* Prepare search trust settings */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/scripts/search-plist.py",
+				"$(SRCROOT)/$(VAAYVU_BASE_INFO_PLIST)",
+				"$(SRCROOT)/../search",
+			);
+			name = "Prepare search trust settings";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/VaayvuSearch-Info.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/bin/python3 \"$SRCROOT/scripts/search-plist.py\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		652FFF33C8FFECF3FB52E6EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D79C0B44A118A9F003D7529 /* App.swift in Sources */,
+				688D8D3FE4FCAA91E6A35C15 /* BrowserHost.swift in Sources */,
+				08C442BC2177C8C3A76177F3 /* ChromeStorage.swift in Sources */,
+				19ACE24371DEDAB7FE0096CF /* Downloads.swift in Sources */,
+				B8316EB34739A0000FF10955 /* IndiaSearch.swift in Sources */,
+				81CC4E75F8E2809961100BA5 /* PageActions.swift in Sources */,
+				A145750725A6C3DFA132DE09 /* PhoneBrowserActions.swift in Sources */,
+				D396CEED821FC58A94CC12CC /* WebDialogs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95DAC4CD5B24D7185328ECE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC303785131E95A58EB8B52F /* BrowserTests.swift in Sources */,
+				BB6DEEF19E6F1770DDA80D28 /* IndiaSearchTests.swift in Sources */,
+				C3C99ED2A2D58740D6449D12 /* NavigationTests.swift in Sources */,
+				3112C32EE2432599F33CA632 /* PhoneInteractionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31985D38E69BF9FC8A430A90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40A5BE628389A8E95A311154 /* Vaayvu iPhone */;
+			targetProxy = 404F6209B8763623CDC7B31F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2269741324299276010341B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = N7P95VYT78;
+				INFOPLIST_FILE = "$(DERIVED_FILE_DIR)/VaayvuSearch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.vaayvu.app;
+				PRODUCT_MODULE_NAME = VaayvuPhone;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VAAYVU_BASE_INFO_PLIST = "iOS-Info.plist";
+			};
+			name = Debug;
+		};
+		26128E0121450BBA5487020E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = N7P95VYT78;
+				INFOPLIST_FILE = "$(DERIVED_FILE_DIR)/VaayvuSearch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.vaayvu.app;
+				PRODUCT_MODULE_NAME = VaayvuPhone;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VAAYVU_BASE_INFO_PLIST = "iOS-Info.plist";
+			};
+			name = Release;
+		};
+		433FD94B5F8A92CAB35DE31F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = N7P95VYT78;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.vaayvu.phonetests;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = dev.vaayvu.app;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = dev.vaayvu.app;
+				PRODUCT_NAME = VaayvuPhoneTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vaayvu.app/Vaayvu";
+			};
+			name = Release;
+		};
+		7CB6E6DB062BCD4F08918CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 60;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MARKETING_VERSION = 0.0.23;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.vaayvu.app;
+				PRODUCT_NAME = Vaayvu;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AC514C309E9AC439B14F70EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 60;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MARKETING_VERSION = 0.0.23;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.vaayvu.app;
+				PRODUCT_NAME = Vaayvu;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DB74E0848278FDC508E5AC23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = N7P95VYT78;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.vaayvu.phonetests;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = dev.vaayvu.app;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = dev.vaayvu.app;
+				PRODUCT_NAME = VaayvuPhoneTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vaayvu.app/Vaayvu";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0C78672E35EAB9B0636ECB87 /* Build configuration list for PBXProject "Vaayvu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CB6E6DB062BCD4F08918CBC /* Debug */,
+				AC514C309E9AC439B14F70EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8FD6615BF95CC8601845BEA9 /* Build configuration list for PBXNativeTarget "Vaayvu iOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB74E0848278FDC508E5AC23 /* Debug */,
+				433FD94B5F8A92CAB35DE31F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D02B6F140BACCBDE4D84BD5E /* Build configuration list for PBXNativeTarget "Vaayvu iPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2269741324299276010341B0 /* Debug */,
+				26128E0121450BBA5487020E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 60E3E0EEE6861DF06C05C874 /* Project object */;
+}

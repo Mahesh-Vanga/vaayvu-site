@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "status": "blocked",
+  "rollout": {
+    "stage": "none",
+    "approvedPercent": 0,
+    "stages": [1, 5, 25, 100],
+    "approvals": {
+      "productOwner": null,
+      "legal": null,
+      "security": null,
+      "privacy": null
+    }
+  },
+  "dependencies": {
+    "P35": "no-go",
+    "P36": "blocked",
+    "P37": "blocked",
+    "P38": "blocked"
+  },
+  "reconciliation": {
+    "required": true,
+    "onlyCollectedNetRevenue": true,
+    "lastRun": null,
+    "status": "pending"
+  },
+  "killSwitch": {
+    "implemented": true,
+    "tested": true,
+    "weakensRasha": false,
+    "evidence": "a-031 tests"
+  },
+  "support": {
+    "path": "a-017 appeal; a-030 payout operations",
+    "sla": null,
+    "status": "draft"
+  },
+  "economics": {
+    "monitored": false,
+    "measuredAt": null,
+    "metrics": ["funded pool", "collected revenue", "verified impressions", "payouts", "fees"],
+    "values": null
+  }
+}

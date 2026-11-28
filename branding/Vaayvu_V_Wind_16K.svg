@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="16384"
+     height="16384"
+     viewBox="0 0 1254 1254"
+     role="img"
+     aria-labelledby="title">
+
+  <title id="title">Vaayvu Browser</title>
+
+  <defs>
+
+    <!-- Premium cream background -->
+
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff6e6"/>
+      <stop offset=".30" stop-color="#f8f4f1"/>
+      <stop offset=".60" stop-color="#f5f0ef"/>
+      <stop offset="1" stop-color="#e8e5f1"/>
+    </linearGradient>
+
+    <radialGradient id="warmLight" cx="12%" cy="5%" r="65%">
+      <stop offset="0" stop-color="#ffe2a8" stop-opacity=".65"/>
+      <stop offset=".38" stop-color="#fff6e7" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="coolLight" cx="86%" cy="92%" r="65%">
+      <stop offset="0" stop-color="#dcdcf0" stop-opacity=".60"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Rounded icon edge -->
+
+    <linearGradient id="tileEdge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf7"/>
+      <stop offset=".30" stop-color="#ffffff"/>
+      <stop offset=".65" stop-color="#e8ded8"/>
+      <stop offset="1" stop-color="#bfc1d4"/>
+    </linearGradient>
+
+    <linearGradient id="innerEdge" x1="0" y1="0" x2=".8" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+      <stop offset=".45" stop-color="#ffffff" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".60"/>
+    </linearGradient>
+
+    <!-- Left side of V -->
+
+    <linearGradient id="vLeft" x1=".05" y1="0" x2=".65" y2="1">
+      <stop offset="0" stop-color="#00e3ef"/>
+      <stop offset=".19" stop-color="#00b5f5"/>
+      <stop offset=".40" stop-color="#0068ed"/>
+      <stop offset=".65" stop-color="#1030ee"/>
+      <stop offset=".84" stop-color="#3320e8"/>
+      <stop offset="1" stop-color="#773bfa"/>
+    </linearGradient>
+
+    <radialGradient id="vLeftShade" cx="88%" cy="42%" r="70%">
+      <stop offset="0" stop-color="#00166c" stop-opacity=".90"/>
+      <stop offset=".45" stop-color="#001da5" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#003cff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Right side of V -->
+
+    <linearGradient id="vRight" x1=".92" y1="0" x2=".15" y2=".8">
+      <stop offset="0" stop-color="#00c9ed"/>
+      <stop offset=".25" stop-color="#0095f1"/>
+      <stop offset=".48" stop-color="#0050ed"/>
+      <stop offset=".72" stop-color="#0026b8"/>
+      <stop offset="1" stop-color="#071465"/>
+    </linearGradient>
+
+    <!-- Bottom portion of V -->
+
+    <linearGradient id="vBottom" x1=".15" y1=".05" x2=".8" y2="1">
+      <stop offset="0" stop-color="#001364"/>
+      <stop offset=".35" stop-color="#0734cf"/>
+      <stop offset=".66" stop-color="#1259ff"/>
+      <stop offset="1" stop-color="#5898ff"/>
+    </linearGradient>
+
+    <radialGradient id="violetFoot" cx="0%" cy="100%" r="100%">
+      <stop offset="0" stop-color="#8245ff"/>
+      <stop offset=".35" stop-color="#5826fc" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#4823ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Upper wind ribbon -->
+
+    <linearGradient id="upperWind" x1=".1" y1=".9" x2=".95" y2=".1">
+      <stop offset="0" stop-color="#007ce9"/>
+      <stop offset=".30" stop-color="#009df1"/>
+      <stop offset=".65" stop-color="#00c6ed"/>
+      <stop offset="1" stop-color="#00d8f1"/>
+    </linearGradient>
+
+    <linearGradient id="upperShine" x1=".15" y1=".85" x2=".95" y2=".1">
+      <stop offset="0" stop-color="#a3faff"/>
+      <stop offset=".35" stop-color="#d9fbff"/>
+      <stop offset=".62" stop-color="#95f5fa"/>
+      <stop offset="1" stop-color="#00ffeb"/>
+    </linearGradient>
+
+    <!-- White wind ribbon -->
+
+    <linearGradient id="whiteWind" x1=".1" y1=".9" x2=".95" y2=".1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".35" stop-color="#f5fcff"/>
+      <stop offset=".65" stop-color="#d4e5fb"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+
+    <!-- Lower blue wind ribbon -->
+
+    <linearGradient id="lowerWind" x1=".05" y1=".95" x2=".75" y2=".15">
+      <stop offset="0" stop-color="#00ecf0"/>
+      <stop offset=".22" stop-color="#00dafa"/>
+      <stop offset=".50" stop-color="#00b4f4"/>
+      <stop offset=".78" stop-color="#0076ec"/>
+      <stop offset="1" stop-color="#0055d9"/>
+    </linearGradient>
+
+    <linearGradient id="windCurl" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#74faff"/>
+      <stop offset=".45" stop-color="#19def8"/>
+      <stop offset="1" stop-color="#0099f3" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Rounded-square icon silhouette -->
+
+    <clipPath id="tileClip">
+      <path d="M348 97
+               H887
+               C1059 97 1159 199 1159 373
+               V905
+               C1159 1077 1060 1183 886 1183
+               H349
+               C177 1183 79 1077 79 905
+               V374
+               C79 201 176 97 348 97Z"/>
+    </clipPath>
+
+    <!-- V monogram silhouette -->
+
+    <clipPath id="vClip">
+      <path d="M218 367
+               H407
+               C449 367 474 385 492 423
+               L573 597
+               L672 425
+               C694 387 720 367 761 367
+               H941
+               C959 367 974 381 963 400
+               L654 953
+               C640 977 621 991 594 991
+               H534
+               C507 991 484 976 469 950
+               L198 410
+               C178 384 188 367 218 367Z"/>
+    </clipPath>
+
+  </defs>
+
+  <!-- Transparent exterior.
+       No full-canvas background rectangle. -->
+
+  <!-- Premium rounded-square app icon -->
+
+  <g id="app-icon-background">
+
+    <path d="M348 97
+             H887
+             C1059 97 1159 199 1159 373
+             V905
+             C1159 1077 1060 1183 886 1183
+             H349
+             C177 1183 79 1077 79 905
+             V374
+             C79 201 176 97 348 97Z"
+          fill="url(#tile)"
+          stroke="url(#tileEdge)"
+          stroke-width="5"/>
+
+    <g clip-path="url(#tileClip)">
+
+      <rect x="79" y="97"
+            width="1080" height="1086"
+            fill="url(#warmLight)"/>
+
+      <rect x="79" y="97"
+            width="1080" height="1086"
+            fill="url(#coolLight)"/>
+
+    </g>
+
+    <path d="M349 105
+             H887
+             C1053 105 1151 205 1151 373
+             V905
+             C1151 1073 1055 1175 886 1175
+             H349
+             C182 1175 87 1073 87 905
+             V374
+             C87 206 182 105 349 105Z"
+          fill="none"
+          stroke="url(#innerEdge)"
+          stroke-width="3"/>
+
+  </g>
+
+  <!-- Vaayvu V monogram -->
+
+  <g id="vaayvu-v" clip-path="url(#vClip)">
+
+    <rect x="175" y="360"
+          width="800" height="640"
+          fill="url(#vLeft)"/>
+
+    <rect x="175" y="360"
+          width="800" height="640"
+          fill="url(#vLeftShade)"/>
+
+    <path d="M573 597
+             L672 425
+             C694 387 720 367 761 367
+             H941
+             C959 367 974 381 963 400
+             L654 953
+             C640 977 621 991 594 991
+             H534
+             C507 991 484 976 469 950
+             L405 832Z"
+          fill="url(#vRight)"/>
+
+    <path d="M416 863
+             C459 779 575 746 795 731
+             L804 1000
+             H396Z"
+          fill="url(#vBottom)"/>
+
+    <path d="M416 863
+             C459 779 575 746 795 731
+             L804 1000
+             H396Z"
+          fill="url(#violetFoot)"/>
+
+  </g>
+
+  <!-- Vayu flowing wind ribbons -->
+
+  <g id="vayu-wind-ribbons">
+
+    <!-- Upper cyan wind -->
+
+    <path id="upper-band"
+          d="M405 822
+             C389 769 435 711 508 657
+             C602 587 717 540 844 538
+             C956 536 1034 498 1053 389
+             C1084 472 1076 552 1018 599
+             C956 649 876 656 766 657
+             C645 658 543 664 470 716
+             C420 751 402 786 405 822Z"
+          fill="url(#upperWind)"/>
+
+    <!-- Upper ribbon highlight -->
+
+    <path id="upper-light"
+          d="M418 749
+             C451 711 478 679 508 657
+             C602 587 717 540 844 538
+             C956 536 1034 498 1053 389
+             C1065 467 1037 522 982 555
+             C935 584 876 598 783 599
+             C637 599 501 651 418 749Z"
+          fill="url(#upperShine)"/>
+
+    <!-- White middle wind -->
+
+    <path id="white-band"
+          d="M445 908
+             C426 881 397 842 403 792
+             C410 733 472 691 554 673
+             C624 655 706 657 773 657
+             C886 656 982 642 1031 604
+             C1002 659 948 680 887 692
+             C812 707 743 711 675 715
+             C554 723 480 749 438 799
+             C411 832 424 879 445 908Z"
+          fill="url(#whiteWind)"/>
+
+    <!-- Lower blue wind -->
+
+    <path id="lower-band"
+          d="M445 908
+             C424 879 411 832 438 799
+             C480 749 554 723 675 715
+             C743 711 812 707 887 692
+             C948 680 1002 659 1031 604
+             C1006 664 955 709 892 731
+             C821 755 735 757 665 765
+             C552 778 476 804 449 848
+             C437 867 440 890 445 908Z"
+          fill="url(#lowerWind)"/>
+
+    <!-- Folded wind highlight -->
+
+    <path id="curl-highlight"
+          d="M445 908
+             C424 879 411 832 438 799
+             C459 774 490 756 529 743
+             C478 770 451 803 444 839
+             C439 860 439 887 445 908Z"
+          fill="url(#windCurl)"/>
+
+  </g>
+
+</svg>

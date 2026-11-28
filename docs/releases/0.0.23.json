@@ -1,0 +1,40 @@
+{
+  "version": "0.0.23",
+  "product": "Vaayvu",
+  "packageVersion": "0.0.23",
+  "buildNumber": 60,
+  "generatedAt": "2026-11-28T06:20:37.483Z",
+  "artifacts": [
+    {
+      "name": "Vaayvu-0.0.23-Android.apk",
+      "bytes": 6288145,
+      "sha256": "79f75bc8590a0ba9eb0db4c9c551a7f3d95e4964a2993ed7a7cdd271b1bd66c6"
+    },
+    {
+      "name": "Vaayvu-0.0.23-Windows-x64.zip",
+      "bytes": 163569977,
+      "sha256": "3f608ca676f4d07344dd4377da29d56bc0629c676bc22b3193a4b57e678dc871"
+    },
+    {
+      "name": "Vaayvu-0.0.23-iOS.ipa",
+      "bytes": 3276434,
+      "sha256": "46f58c475a88edefabb78c85fec1f5267882fb5c3a0cbaab28fa5f22c51eb878"
+    },
+    {
+      "name": "Vaayvu-0.0.23-iPhoneSimulator.zip",
+      "bytes": 3576386,
+      "sha256": "c47c617c1a405df10ca352dd2c351b67d3d3d36f8bbaad55db367637a98d3a17"
+    },
+    {
+      "name": "Vaayvu-0.0.23-macOS.dmg",
+      "bytes": 138490503,
+      "sha256": "bb90687e9ab82f7b1cbdadef14b1e051d4c42d15f82b5549f141a2e3efda7e2f"
+    },
+    {
+      "name": "Vaayvu-0.0.23-macOS.pkg",
+      "bytes": 125384585,
+      "sha256": "5a5ed62ad23a3aaca2dd8e301a95ea6833c4c28e22f4eae6e81323239b361208"
+    }
+  ],
+  "directory": "tests/test/0.0.23"
+}

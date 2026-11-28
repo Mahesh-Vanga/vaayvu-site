@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="og-title og-desc">
+  <title id="og-title">Locathara — Building the quieter web</title>
+  <desc id="og-desc">Locathara wordmark with the tagline: Building the quieter web</desc>
+  <defs>
+    <linearGradient id="ogBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="ogAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogBg)"/>
+  <!-- Subtle gradient orbs -->
+  <circle cx="200" cy="150" r="300" fill="url(#ogAccent)" opacity="0.08"/>
+  <circle cx="1000" cy="500" r="250" fill="url(#ogAccent)" opacity="0.06"/>
+  <circle cx="600" cy="600" r="200" fill="url(#ogAccent)" opacity="0.05"/>
+  <!-- Brand mark -->
+  <g transform="translate(600, 220)">
+    <path d="M0-40L-70-20v-120h140v120L0-40zM0-30L-55-15v-90h110v90L0-30z" fill="url(#ogAccent)" stroke="#020617" stroke-width="2"/>
+    <path d="M0-10v60M-30 20h60" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  </g>
+  <!-- Text -->
+  <text x="600" y="400" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="500" fill="#f1f5f9" letter-spacing="-1">Building the quieter web</text>
+  <text x="600" y="470" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" fill="#94a3b8">Locathara</text>
+</svg>

@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "product": "Vaayvu",
+    "cpu": "Apple M5",
+    "platform": "darwin arm64",
+    "node": "22.23.2",
+    "electron": "45.4.1",
+    "date": "2026-11-28T04:50:00.000Z",
+    "command": "npm --prefix windows test",
+    "suite": "lifecycle-pressure"
+  },
+  "result": {
+    "thresholdBytes": 1,
+    "tabs": 4,
+    "sleptUnderPressure": ["t1", "t3"],
+    "leaseProtected": "t2",
+    "activeProtected": "t4",
+    "woke": "t1",
+    "ramWorkingSetKb": 611568,
+    "heapDeltaBytes": 2241168,
+    "cpuMs": 93.35,
+    "elapsedMs": 304
+  },
+  "notes": [
+    "VAAYVU_PRESSURE_BYTES=1 forces the pressure branch for the test.",
+    "Renderer close is stubbed so Electron can exit cleanly; sleep decisions, lease protection, active-tab protection and wake are real.",
+    "CPU time is an energy proxy, not a joule measurement.",
+    "Values vary by machine and thermal state."
+  ]
+}

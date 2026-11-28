@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "product": "Vaayvu",
+    "node": "22.23.2",
+    "platform": "darwin arm64",
+    "cpu": "Apple M5",
+    "date": "2026-11-28T04:33:06.026Z",
+    "command": "node scripts/benchmark.cjs --json",
+    "root": "/Users/mahesh_vanga/4. Opensource app/browser"
+  },
+  "results": [
+    {
+      "label": "VFD decisions",
+      "iterations": 120000,
+      "ms": 127.48,
+      "perSecond": 941342,
+      "cpuMs": 138.28,
+      "blocked": 30000
+    },
+    {
+      "label": "URL validation",
+      "iterations": 200000,
+      "ms": 35.81,
+      "perSecond": 5585747,
+      "cpuMs": 37.59,
+      "accepted": 100000
+    },
+    {
+      "label": "Spaces normalize",
+      "iterations": 50000,
+      "ms": 9.18,
+      "perSecond": 5443757,
+      "cpuMs": 15.13,
+      "count": 50000
+    },
+    {
+      "label": "AI guard redaction",
+      "iterations": 20000,
+      "ms": 5.89,
+      "perSecond": 3397965,
+      "cpuMs": 7.19,
+      "redacted": 20000
+    }
+  ],
+  "memory": {
+    "heapBefore": 4027040,
+    "heapAfter": 4445760,
+    "heapDelta": 418720
+  },
+  "notes": [
+    "Local only: no network requests, telemetry or upload.",
+    "CPU time is a proxy for energy, not a joule measurement.",
+    "Numbers vary by machine; compare runs on the same machine."
+  ]
+}

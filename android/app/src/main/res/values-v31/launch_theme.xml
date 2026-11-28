@@ -1,0 +1,6 @@
+<resources>
+    <style name="VaayvuLaunchTheme" parent="@style/VaayvuTheme">
+        <item name="android:windowSplashScreenBackground">@color/vaayvu_splash_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/vaayvu_splash</item>
+    </style>
+</resources>

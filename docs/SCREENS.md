@@ -1,0 +1,659 @@
+# Screen index
+
+| Screen | Name | Category | Phase | Priority | Route | Platform | Origin |
+|---|---|---|---|---|---|---|---|
+| s-001 | Boot/splash | onboarding | p00 | core | vaayvu://onboarding/s-001 | Browser user | — |
+| s-002 | Welcome | onboarding | p00 | core | vaayvu://onboarding/s-002 | Browser user | — |
+| s-003 | Default browser request | onboarding | p00 | core | vaayvu://onboarding/s-003 | Browser user | — |
+| s-004 | Import source picker | onboarding | p00 | core | vaayvu://onboarding/s-004 | Browser user | — |
+| s-005 | Import progress | onboarding | p00 | core | vaayvu://onboarding/s-005 | Browser user | — |
+| s-006 | Import results | onboarding | p00 | core | vaayvu://onboarding/s-006 | Browser user | — |
+| s-007 | Sync intro | onboarding | p00 | core | vaayvu://onboarding/s-007 | Browser user | — |
+| s-008 | Create account | onboarding | p00 | core | vaayvu://onboarding/s-008 | Browser user | — |
+| s-009 | Sign in | onboarding | p00 | core | vaayvu://onboarding/s-009 | Browser user | — |
+| s-010 | Recovery key | onboarding | p00 | core | vaayvu://onboarding/s-010 | Browser user | — |
+| s-011 | Privacy setup | onboarding | p00 | core | vaayvu://onboarding/s-011 | Browser user | — |
+| s-012 | Appearance setup | onboarding | p00 | core | vaayvu://onboarding/s-012 | Browser user | — |
+| s-013 | Feature tour | onboarding | p00 | core | vaayvu://onboarding/s-013 | Browser user | — |
+| s-014 | Page reminders | onboarding | p00 | core | vaayvu://onboarding/s-014 | Browser user | — |
+| s-015 | Onboarding checklist | onboarding | p00 | core | vaayvu://onboarding/s-015 | Browser user | — |
+| s-016 | Update available | onboarding | p00 | core | vaayvu://onboarding/s-016 | Browser user | — |
+| s-017 | What's new | onboarding | p00 | core | vaayvu://onboarding/s-017 | Browser user | — |
+| s-018 | Crash restore | onboarding | p00 | core | vaayvu://onboarding/s-018 | Browser user | — |
+| s-019 | Safe mode prompt | onboarding | p00 | core | vaayvu://onboarding/s-019 | Browser user | — |
+| s-020 | Unsupported system | onboarding | p00 | core | vaayvu://onboarding/s-020 | Browser user | — |
+| s-021 | Main window light | window-chrome | p03 | core | vaayvu://window-chrome/s-021 | Browser user | — |
+| s-022 | Main window dark | window-chrome | p03 | core | vaayvu://window-chrome/s-022 | Browser user | — |
+| s-023 | Compact window | window-chrome | p03 | core | vaayvu://window-chrome/s-023 | Browser user | — |
+| s-024 | Fullscreen | window-chrome | p03 | core | vaayvu://window-chrome/s-024 | Browser user | — |
+| s-025 | Horizontal tab strip | window-chrome | p03 | core | vaayvu://window-chrome/s-025 | Browser user | — |
+| s-026 | Vertical tab rail | window-chrome | p03 | core | vaayvu://window-chrome/s-026 | Browser user | — |
+| s-027 | Tab overflow menu | window-chrome | p03 | core | vaayvu://window-chrome/s-027 | Browser user | — |
+| s-028 | Toolbar default | window-chrome | p03 | core | vaayvu://window-chrome/s-028 | Browser user | — |
+| s-029 | Toolbar customize | window-chrome | p03 | core | vaayvu://window-chrome/s-029 | Browser user | — |
+| s-030 | Omnibox idle | window-chrome | p03 | core | vaayvu://window-chrome/s-030 | Browser user | — |
+| s-031 | Omnibox expanded | window-chrome | p03 | core | vaayvu://window-chrome/s-031 | Browser user | — |
+| s-032 | Security chip popover | window-chrome | p03 | core | vaayvu://window-chrome/s-032 | Browser user | — |
+| s-033 | Permissions chip | window-chrome | p03 | core | vaayvu://window-chrome/s-033 | Browser user | — |
+| s-034 | Page actions chip | window-chrome | p03 | core | vaayvu://window-chrome/s-034 | Browser user | — |
+| s-035 | Bookmarks bar | window-chrome | p03 | core | vaayvu://window-chrome/s-035 | Browser user | — |
+| s-036 | Status/hover URL | window-chrome | p03 | core | vaayvu://window-chrome/s-036 | Browser user | — |
+| s-037 | Find bar | window-chrome | p03 | core | vaayvu://window-chrome/s-037 | Browser user | — |
+| s-038 | Downloads bubble | window-chrome | p03 | core | vaayvu://window-chrome/s-038 | Browser user | — |
+| s-039 | Downloads shelf | window-chrome | p03 | core | vaayvu://window-chrome/s-039 | Browser user | — |
+| s-040 | Extensions overflow | window-chrome | p03 | core | vaayvu://window-chrome/s-040 | Browser user | — |
+| s-041 | Profile menu | window-chrome | p03 | core | vaayvu://window-chrome/s-041 | Browser user | — |
+| s-042 | Space switcher | window-chrome | p03 | core | vaayvu://window-chrome/s-042 | Browser user | — |
+| s-043 | App menu | window-chrome | p03 | core | vaayvu://window-chrome/s-043 | Browser user | — |
+| s-044 | macOS menu bar | window-chrome | p03 | core | vaayvu://window-chrome/s-044 | Browser user | — |
+| s-045 | Windows jump list/taskbar | window-chrome | p03 | core | vaayvu://window-chrome/s-045 | Browser user | — |
+| s-046 | Page context menu | window-chrome | p03 | core | vaayvu://window-chrome/s-046 | Browser user | — |
+| s-047 | Link context menu | window-chrome | p03 | core | vaayvu://window-chrome/s-047 | Browser user | — |
+| s-048 | Image/video context menu | window-chrome | p03 | core | vaayvu://window-chrome/s-048 | Browser user | — |
+| s-049 | Toast/undo host | window-chrome | p03 | core | vaayvu://window-chrome/s-049 | Browser user | — |
+| s-050 | Command palette | window-chrome | p03 | core | vaayvu://window-chrome/s-050 | Browser user | — |
+| s-051 | Start default | start-page | p05 | core | vaayvu://start-page/s-051 | Browser user | — |
+| s-052 | Start customized | start-page | p05 | core | vaayvu://start-page/s-052 | Browser user | — |
+| s-053 | Start zero-state | start-page | p05 | core | vaayvu://start-page/s-053 | Browser user | — |
+| s-054 | Shortcuts editor | start-page | p05 | core | vaayvu://start-page/s-054 | Browser user | — |
+| s-055 | Frequently visited | start-page | p05 | core | vaayvu://start-page/s-055 | Browser user | — |
+| s-056 | Continue browsing | start-page | p05 | core | vaayvu://start-page/s-056 | Browser user | — |
+| s-057 | Spaces overview | start-page | p05 | core | vaayvu://start-page/s-057 | Browser user | — |
+| s-058 | Reading list preview | start-page | p05 | core | vaayvu://start-page/s-058 | Browser user | — |
+| s-059 | AI prompt bar | start-page | p05 | core | vaayvu://start-page/s-059 | Browser user | — |
+| s-060 | News feed (opt-in) | start-page | p05 | core | vaayvu://start-page/s-060 | Browser user | — |
+| s-061 | Widgets | start-page | p05 | core | vaayvu://start-page/s-061 | Browser user | — |
+| s-062 | Wallpaper picker | start-page | p05 | core | vaayvu://start-page/s-062 | Browser user | — |
+| s-063 | Start settings | start-page | p05 | core | vaayvu://start-page/s-063 | Browser user | — |
+| s-064 | Offline start | start-page | p05 | core | vaayvu://start-page/s-064 | Browser user | — |
+| s-065 | Private start | start-page | p05 | core | vaayvu://start-page/s-065 | Browser user | — |
+| s-066 | Active tab | tabs | p05 | core | vaayvu://tabs/s-066 | Browser user | — |
+| s-067 | Inactive tab | tabs | p05 | core | vaayvu://tabs/s-067 | Browser user | — |
+| s-068 | Pinned tab | tabs | p05 | core | vaayvu://tabs/s-068 | Browser user | — |
+| s-069 | Muted tab | tabs | p05 | core | vaayvu://tabs/s-069 | Browser user | — |
+| s-070 | Playing audio | tabs | p05 | core | vaayvu://tabs/s-070 | Browser user | — |
+| s-071 | Loading tab | tabs | p05 | core | vaayvu://tabs/s-071 | Browser user | — |
+| s-072 | Crashed tab | tabs | p05 | core | vaayvu://tabs/s-072 | Browser user | — |
+| s-073 | Sleeping tab | tabs | p05 | core | vaayvu://tabs/s-073 | Browser user | — |
+| s-074 | Hover preview | tabs | p05 | core | vaayvu://tabs/s-074 | Browser user | — |
+| s-075 | Group collapsed | tabs | p05 | core | vaayvu://tabs/s-075 | Browser user | — |
+| s-076 | Group expanded | tabs | p05 | core | vaayvu://tabs/s-076 | Browser user | — |
+| s-077 | Stack/archive | tabs | p05 | core | vaayvu://tabs/s-077 | Browser user | — |
+| s-078 | Split 2-up | tabs | p05 | core | vaayvu://tabs/s-078 | Browser user | — |
+| s-079 | Split 3/4-up | tabs | p05 | core | vaayvu://tabs/s-079 | Browser user | — |
+| s-080 | Tab search | tabs | p05 | core | vaayvu://tabs/s-080 | Browser user | — |
+| s-081 | Mobile tab grid | tabs | p05 | core | vaayvu://tabs/s-081 | Browser user | — |
+| s-082 | Mobile tab list | tabs | p05 | core | vaayvu://tabs/s-082 | Browser user | — |
+| s-083 | Tab group editor | tabs | p05 | core | vaayvu://tabs/s-083 | Browser user | — |
+| s-084 | Tab context menu | tabs | p05 | core | vaayvu://tabs/s-084 | Browser user | — |
+| s-085 | Drag/reorder | tabs | p05 | core | vaayvu://tabs/s-085 | Browser user | — |
+| s-086 | Tear-off preview | tabs | p05 | core | vaayvu://tabs/s-086 | Browser user | — |
+| s-087 | Close undo toast | tabs | p05 | core | vaayvu://tabs/s-087 | Browser user | — |
+| s-088 | Recently closed | tabs | p05 | core | vaayvu://tabs/s-088 | Browser user | — |
+| s-089 | Audio mixer | tabs | p05 | core | vaayvu://tabs/s-089 | Browser user | — |
+| s-090 | Tab memory panel | tabs | p05 | core | vaayvu://tabs/s-090 | Browser user | — |
+| s-091 | Tab sync panel | tabs | p05 | core | vaayvu://tabs/s-091 | Browser user | — |
+| s-092 | Private tabs | tabs | p05 | core | vaayvu://tabs/s-092 | Browser user | — |
+| s-093 | Mobile overflow | tabs | p05 | core | vaayvu://tabs/s-093 | Browser user | — |
+| s-094 | Tab swipe | tabs | p05 | core | vaayvu://tabs/s-094 | Browser user | — |
+| s-095 | Empty tab state | tabs | p05 | core | vaayvu://tabs/s-095 | Browser user | — |
+| s-096 | Loading page | content | p09 | core | vaayvu://content/s-096 | Browser user | — |
+| s-097 | Loaded page | content | p09 | core | vaayvu://content/s-097 | Browser user | — |
+| s-098 | Back/forward menu | content | p09 | core | vaayvu://content/s-098 | Browser user | — |
+| s-099 | DNS error | content | p09 | core | vaayvu://content/s-099 | Browser user | — |
+| s-100 | Offline error | content | p09 | core | vaayvu://content/s-100 | Browser user | — |
+| s-101 | Timeout | content | p09 | core | vaayvu://content/s-101 | Browser user | — |
+| s-102 | Certificate error | content | p09 | core | vaayvu://content/s-102 | Browser user | — |
+| s-103 | Renderer crash | content | p09 | core | vaayvu://content/s-103 | Browser user | — |
+| s-104 | Out of memory | content | p09 | core | vaayvu://content/s-104 | Browser user | — |
+| s-105 | Policy blocked | content | p09 | core | vaayvu://content/s-105 | Browser user | — |
+| s-106 | Unsafe site interstitial | content | p09 | core | vaayvu://content/s-106 | Browser user | — |
+| s-107 | Captive portal | content | p09 | core | vaayvu://content/s-107 | Browser user | — |
+| s-108 | PDF viewer | content | p09 | core | vaayvu://content/s-108 | Browser user | — |
+| s-109 | PDF annotate/sign | content | p09 | conditional | vaayvu://content/s-109 | Browser user | — |
+| s-110 | Reader mode | content | p09 | conditional | vaayvu://content/s-110 | Browser user | — |
+| s-111 | Reader settings | content | p09 | conditional | vaayvu://content/s-111 | Browser user | — |
+| s-112 | Translate prompt | content | p09 | conditional | vaayvu://content/s-112 | Browser user | — |
+| s-113 | Translated page | content | p09 | conditional | vaayvu://content/s-113 | Browser user | — |
+| s-114 | Find results | content | p09 | conditional | vaayvu://content/s-114 | Browser user | — |
+| s-115 | View source | content | p09 | conditional | vaayvu://content/s-115 | Browser user | — |
+| s-116 | Fullscreen video | content | p09 | conditional | vaayvu://content/s-116 | Browser user | — |
+| s-117 | PiP window | content | p09 | conditional | vaayvu://content/s-117 | Browser user | — |
+| s-118 | Mini player | content | p09 | conditional | vaayvu://content/s-118 | Browser user | — |
+| s-119 | Print preview | content | p09 | conditional | vaayvu://content/s-119 | Browser user | — |
+| s-120 | Save page | content | p09 | conditional | vaayvu://content/s-120 | Browser user | — |
+| s-121 | Screenshot capture | content | p09 | conditional | vaayvu://content/s-121 | Browser user | — |
+| s-122 | Screenshot annotate | content | p09 | conditional | vaayvu://content/s-122 | Browser user | — |
+| s-123 | Share sheet | content | p09 | conditional | vaayvu://content/s-123 | Browser user | — |
+| s-124 | QR/share | content | p09 | conditional | vaayvu://content/s-124 | Browser user | — |
+| s-125 | Send to device | content | p09 | conditional | vaayvu://content/s-125 | Browser user | — |
+| s-126 | Sidebar shell | sidebar | p09 | conditional | vaayvu://sidebar/s-126 | Browser user | — |
+| s-127 | Bookmarks panel | sidebar | p09 | conditional | vaayvu://sidebar/s-127 | Browser user | — |
+| s-128 | History panel | sidebar | p09 | conditional | vaayvu://sidebar/s-128 | Browser user | — |
+| s-129 | Reading list | sidebar | p09 | conditional | vaayvu://sidebar/s-129 | Browser user | — |
+| s-130 | Downloads | sidebar | p09 | conditional | vaayvu://sidebar/s-130 | Browser user | — |
+| s-131 | Notes | sidebar | p09 | conditional | vaayvu://sidebar/s-131 | Browser user | — |
+| s-132 | Highlights | sidebar | p09 | conditional | vaayvu://sidebar/s-132 | Browser user | — |
+| s-133 | AI chat | sidebar | p09 | conditional | vaayvu://sidebar/s-133 | Browser user | — |
+| s-134 | Extensions | sidebar | p09 | conditional | vaayvu://sidebar/s-134 | Browser user | — |
+| s-135 | Spaces | sidebar | p09 | conditional | vaayvu://sidebar/s-135 | Browser user | — |
+| s-136 | Tab tree | sidebar | p09 | conditional | vaayvu://sidebar/s-136 | Browser user | — |
+| s-137 | Sync activity | sidebar | p09 | conditional | vaayvu://sidebar/s-137 | Browser user | — |
+| s-138 | Site info | sidebar | p09 | conditional | vaayvu://sidebar/s-138 | Browser user | — |
+| s-139 | Performance | sidebar | p09 | conditional | vaayvu://sidebar/s-139 | Browser user | — |
+| s-140 | Sidebar settings | sidebar | p09 | conditional | vaayvu://sidebar/s-140 | Browser user | — |
+| s-141 | Bookmark manager | manager | p09 | conditional | vaayvu://managers/s-141 | Browser user | — |
+| s-142 | Bookmark editor | manager | p09 | conditional | vaayvu://managers/s-142 | Browser user | — |
+| s-143 | History manager | manager | p09 | conditional | vaayvu://managers/s-143 | Browser user | — |
+| s-144 | History detail | manager | p09 | conditional | vaayvu://managers/s-144 | Browser user | — |
+| s-145 | Downloads manager | manager | p09 | conditional | vaayvu://managers/s-145 | Browser user | — |
+| s-146 | Download detail | manager | p09 | conditional | vaayvu://managers/s-146 | Browser user | — |
+| s-147 | Password list | manager | p09 | conditional | vaayvu://managers/s-147 | Browser user | — |
+| s-148 | Password detail | manager | p09 | conditional | vaayvu://managers/s-148 | Browser user | — |
+| s-149 | Password generator | manager | p09 | conditional | vaayvu://managers/s-149 | Browser user | — |
+| s-150 | Passkey manager | manager | p09 | conditional | vaayvu://managers/s-150 | Browser user | — |
+| s-151 | Addresses | manager | p09 | conditional | vaayvu://managers/s-151 | Browser user | — |
+| s-152 | Payment methods | manager | p09 | conditional | vaayvu://managers/s-152 | Browser user | — |
+| s-153 | Identity/autofill | manager | p09 | conditional | vaayvu://managers/s-153 | Browser user | — |
+| s-154 | Extensions manager | manager | p09 | conditional | vaayvu://managers/s-154 | Browser user | — |
+| s-155 | Extension detail | manager | p09 | conditional | vaayvu://managers/s-155 | Browser user | — |
+| s-156 | Extension install prompt | manager | p09 | conditional | vaayvu://managers/s-156 | Browser user | — |
+| s-157 | Site settings list | manager | p09 | conditional | vaayvu://managers/s-157 | Browser user | — |
+| s-158 | Site detail | manager | p09 | conditional | vaayvu://managers/s-158 | Browser user | — |
+| s-159 | Cookies/storage | manager | p09 | conditional | vaayvu://managers/s-159 | Browser user | — |
+| s-160 | Certificates | manager | p09 | conditional | vaayvu://managers/s-160 | Browser user | — |
+| s-161 | Clear browsing data | manager | p09 | conditional | vaayvu://managers/s-161 | Browser user | — |
+| s-162 | Import/export | manager | p09 | conditional | vaayvu://managers/s-162 | Browser user | — |
+| s-163 | Profile manager | manager | p09 | conditional | vaayvu://managers/s-163 | Browser user | — |
+| s-164 | Space manager | manager | p09 | conditional | vaayvu://managers/s-164 | Browser user | — |
+| s-165 | Search engines manager | manager | p09 | conditional | vaayvu://managers/s-165 | Browser user | — |
+| s-166 | Site protection panel | security-privacy | p08 | conditional | vaayvu://security-privacy/s-166 | Browser user | — |
+| s-167 | Privacy dashboard | security-privacy | p08 | conditional | vaayvu://security-privacy/s-167 | Browser user | — |
+| s-168 | Tracker detail | security-privacy | p08 | conditional | vaayvu://security-privacy/s-168 | Browser user | — |
+| s-169 | Cookie banner handling details | security-privacy | p08 | conditional | vaayvu://security-privacy/s-169 | Browser user | — |
+| s-170 | Fingerprint settings | security-privacy | p08 | conditional | vaayvu://security-privacy/s-170 | Browser user | — |
+| s-171 | DNS/proxy | security-privacy | p08 | conditional | vaayvu://security-privacy/s-171 | Browser user | — |
+| s-172 | VPN — excluded legacy record | security-privacy | p08 | excluded | vaayvu://security-privacy/s-172 | Browser user | — |
+| s-173 | Firewall | security-privacy | p08 | conditional | vaayvu://security-privacy/s-173 | Browser user | — |
+| s-174 | Breach monitor | security-privacy | p08 | conditional | vaayvu://security-privacy/s-174 | Browser user | — |
+| s-175 | Malware and scam protection | security-privacy | p08 | conditional | vaayvu://security-privacy/s-175 | Browser user | — |
+| s-176 | Permission audit | security-privacy | p08 | conditional | vaayvu://security-privacy/s-176 | Browser user | — |
+| s-177 | Private window | security-privacy | p08 | conditional | vaayvu://security-privacy/s-177 | Browser user | — |
+| s-178 | Guest window | security-privacy | p08 | conditional | vaayvu://security-privacy/s-178 | Browser user | — |
+| s-179 | Kids mode | security-privacy | p08 | conditional | vaayvu://security-privacy/s-179 | Browser user | — |
+| s-180 | Panic clear | security-privacy | p08 | conditional | vaayvu://security-privacy/s-180 | Browser user | — |
+| s-181 | Permission prompt | security-privacy | p08 | conditional | vaayvu://security-privacy/s-181 | Browser user | — |
+| s-182 | Permission blocked | security-privacy | p08 | conditional | vaayvu://security-privacy/s-182 | Browser user | — |
+| s-183 | Site data prompt | security-privacy | p08 | conditional | vaayvu://security-privacy/s-183 | Browser user | — |
+| s-184 | HTTPS upgrade interstitial | security-privacy | p08 | conditional | vaayvu://security-privacy/s-184 | Browser user | — |
+| s-185 | Insecure form warning | security-privacy | p08 | conditional | vaayvu://security-privacy/s-185 | Browser user | — |
+| s-186 | Settings root | settings | p04 | conditional | vaayvu://settings/s-186 | Browser user | — |
+| s-187 | Appearance | settings | p04 | conditional | vaayvu://settings/s-187 | Browser user | — |
+| s-188 | Tabs & spaces | settings | p04 | conditional | vaayvu://settings/s-188 | Browser user | — |
+| s-189 | Search & omnibox | settings | p04 | conditional | vaayvu://settings/s-189 | Browser user | — |
+| s-190 | Privacy | settings | p04 | conditional | vaayvu://settings/s-190 | Browser user | — |
+| s-191 | Rasha ad blocker settings | settings | p04 | conditional | vaayvu://settings/s-191 | Browser user | — |
+| s-192 | Passwords & autofill | settings | p04 | conditional | vaayvu://settings/s-192 | Browser user | — |
+| s-193 | Payments | settings | p04 | conditional | vaayvu://settings/s-193 | Browser user | — |
+| s-194 | Downloads | settings | p04 | conditional | vaayvu://settings/s-194 | Browser user | — |
+| s-195 | Languages & translate | settings | p04 | conditional | vaayvu://settings/s-195 | Browser user | — |
+| s-196 | Accessibility | settings | p04 | conditional | vaayvu://settings/s-196 | Browser user | — |
+| s-197 | System & performance | settings | p04 | conditional | vaayvu://settings/s-197 | Browser user | — |
+| s-198 | Extensions | settings | p04 | conditional | vaayvu://settings/s-198 | Browser user | — |
+| s-199 | Sync | settings | p04 | conditional | vaayvu://settings/s-199 | Browser user | — |
+| s-200 | AI | settings | p04 | conditional | vaayvu://settings/s-200 | Browser user | — |
+| s-201 | Advanced | settings | p04 | conditional | vaayvu://settings/s-201 | Browser user | — |
+| s-202 | About/reset | settings | p04 | conditional | vaayvu://settings/s-202 | Browser user | — |
+| s-203 | AI launcher | ai | p13 | conditional | vaayvu://ai/s-203 | Browser user | — |
+| s-204 | Chat with page | ai | p13 | conditional | vaayvu://ai/s-204 | Browser user | — |
+| s-205 | Summarize | ai | p13 | conditional | vaayvu://ai/s-205 | Browser user | — |
+| s-206 | Compare tabs | ai | p13 | conditional | vaayvu://ai/s-206 | Browser user | — |
+| s-207 | Compose/rewrite | ai | p13 | conditional | vaayvu://ai/s-207 | Browser user | — |
+| s-208 | Selection actions | ai | p13 | conditional | vaayvu://ai/s-208 | Browser user | — |
+| s-209 | Agent plan | ai | p13 | conditional | vaayvu://ai/s-209 | Browser user | — |
+| s-210 | Agent run | ai | p13 | conditional | vaayvu://ai/s-210 | Browser user | — |
+| s-211 | Agent receipts | ai | p13 | conditional | vaayvu://ai/s-211 | Browser user | — |
+| s-212 | AI memory | ai | p13 | conditional | vaayvu://ai/s-212 | Browser user | — |
+| s-213 | AI settings | ai | p13 | conditional | vaayvu://ai/s-213 | Browser user | — |
+| s-214 | Model picker | ai | p13 | conditional | vaayvu://ai/s-214 | Browser user | — |
+| s-215 | Quota/paywall | ai | p13 | conditional | vaayvu://ai/s-215 | Browser user | — |
+| s-216 | AI error/offline | ai | p13 | conditional | vaayvu://ai/s-216 | Browser user | — |
+| s-217 | AI onboarding | ai | p13 | conditional | vaayvu://ai/s-217 | Browser user | — |
+| s-218 | AI history | ai | p13 | conditional | vaayvu://ai/s-218 | Browser user | — |
+| s-219 | Account overview | accounts | p10 | conditional | vaayvu://accounts/s-219 | Browser user | — |
+| s-220 | Devices | accounts | p10 | conditional | vaayvu://accounts/s-220 | Browser user | — |
+| s-221 | Sync conflict | accounts | p10 | conditional | vaayvu://accounts/s-221 | Browser user | — |
+| s-222 | Plans | accounts | p10 | conditional | vaayvu://accounts/s-222 | Browser user | — |
+| s-223 | Checkout | accounts | p10 | conditional | vaayvu://accounts/s-223 | Browser user | — |
+| s-224 | Manage subscription | accounts | p10 | conditional | vaayvu://accounts/s-224 | Browser user | — |
+| s-225 | Invoices | accounts | p10 | conditional | vaayvu://accounts/s-225 | Browser user | — |
+| s-226 | Family | accounts | p10 | conditional | vaayvu://accounts/s-226 | Browser user | — |
+| s-227 | Restore purchases | accounts | p10 | conditional | vaayvu://accounts/s-227 | Browser user | — |
+| s-228 | Delete account | accounts | p10 | conditional | vaayvu://accounts/s-228 | Browser user | — |
+| s-229 | Export data | accounts | p10 | conditional | vaayvu://accounts/s-229 | Browser user | — |
+| s-230 | Sign out | accounts | p10 | conditional | vaayvu://accounts/s-230 | Browser user | — |
+| s-231 | 2FA | accounts | p10 | conditional | vaayvu://accounts/s-231 | Browser user | — |
+| s-232 | Recovery | accounts | p10 | conditional | vaayvu://accounts/s-232 | Browser user | — |
+| s-233 | Notification settings | system-utilities | p16 | conditional | vaayvu://system-utilities/s-233 | Browser user | — |
+| s-234 | Default apps/protocols | system-utilities | p16 | conditional | vaayvu://system-utilities/s-234 | Browser user | — |
+| s-235 | Task manager | system-utilities | p16 | conditional | vaayvu://system-utilities/s-235 | Browser user | — |
+| s-236 | about:flags | system-utilities | p16 | conditional | vaayvu://system-utilities/s-236 | Browser user | — |
+| s-237 | Diagnostics | system-utilities | p16 | conditional | vaayvu://system-utilities/s-237 | Browser user | — |
+| s-238 | Crash report | system-utilities | p16 | conditional | vaayvu://system-utilities/s-238 | Browser user | — |
+| s-239 | Feedback | system-utilities | p16 | conditional | vaayvu://system-utilities/s-239 | Browser user | — |
+| s-240 | Help center | system-utilities | p16 | conditional | vaayvu://system-utilities/s-240 | Browser user | — |
+| s-241 | Legal | system-utilities | p16 | conditional | vaayvu://system-utilities/s-241 | Browser user | — |
+| s-242 | Licenses | system-utilities | p16 | conditional | vaayvu://system-utilities/s-242 | Browser user | — |
+| s-243 | Theme studio | system-utilities | p16 | conditional | vaayvu://system-utilities/s-243 | Browser user | — |
+| s-244 | Shortcut editor | system-utilities | p16 | conditional | vaayvu://system-utilities/s-244 | Browser user | — |
+| s-245 | Widgets | system-utilities | p16 | conditional | vaayvu://system-utilities/s-245 | Browser user | — |
+| s-246 | Handoff/continuity | system-utilities | p16 | conditional | vaayvu://system-utilities/s-246 | Browser user | — |
+| s-247 | Screen reader guide | system-utilities | p16 | conditional | vaayvu://system-utilities/s-247 | Browser user | — |
+| s-248 | Kiosk setup | system-utilities | p16 | conditional | vaayvu://system-utilities/s-248 | Browser user | — |
+| s-249 | Enterprise policy | system-utilities | p16 | conditional | vaayvu://system-utilities/s-249 | Browser user | — |
+| s-250 | DevTools | system-utilities | p16 | conditional | vaayvu://system-utilities/s-250 | Browser user | — |
+| s-251 | Browser startup health center | resilience | p04 | trust | vaayvu://resilience/s-251 | Browser user | — |
+| s-252 | Engine integrity and update status | resilience | p04 | trust | vaayvu://resilience/s-252 | Browser user | — |
+| s-253 | Profile lock/unlock | resilience | p04 | trust | vaayvu://resilience/s-253 | Browser user | — |
+| s-254 | Profile recovery choice | resilience | p04 | trust | vaayvu://resilience/s-254 | Browser user | — |
+| s-255 | Damaged session salvage | resilience | p04 | trust | vaayvu://resilience/s-255 | Browser user | — |
+| s-256 | Backup catalogue | resilience | p04 | trust | vaayvu://resilience/s-256 | Browser user | — |
+| s-257 | Backup restore preview | resilience | p04 | trust | vaayvu://resilience/s-257 | Browser user | — |
+| s-258 | Migration dry-run summary | resilience | p04 | trust | vaayvu://resilience/s-258 | Browser user | — |
+| s-259 | Crash journal inspection | resilience | p04 | trust | vaayvu://resilience/s-259 | Browser user | — |
+| s-260 | Safe-mode diagnostic wizard | resilience | p04 | trust | vaayvu://resilience/s-260 | Browser user | — |
+| s-261 | New profile isolation wizard | resilience | p04 | trust | vaayvu://resilience/s-261 | Browser user | — |
+| s-262 | Container isolation test page | resilience | p04 | trust | vaayvu://resilience/s-262 | Browser user | — |
+| s-263 | Security incident notice | resilience | p04 | trust | vaayvu://resilience/s-263 | Browser user | — |
+| s-264 | Emergency update required | security | p08 | trust | vaayvu://security/s-264 | Browser user | — |
+| s-265 | Engine version mismatch | security | p08 | trust | vaayvu://security/s-265 | Browser user | — |
+| s-266 | Unsupported DRM explanation | security | p08 | trust | vaayvu://security/s-266 | Browser user | — |
+| s-267 | Streaming compatibility page | security | p08 | trust | vaayvu://security/s-267 | Browser user | — |
+| s-268 | Extension API compatibility warning | security | p08 | trust | vaayvu://security/s-268 | Browser user | — |
+| s-269 | Extension permission diff review | security | p08 | trust | vaayvu://security/s-269 | Browser user | — |
+| s-270 | Extension sandbox isolation alert | security | p08 | trust | vaayvu://security/s-270 | Browser user | — |
+| s-271 | Malicious extension quarantine | security | p08 | trust | vaayvu://security/s-271 | Browser user | — |
+| s-272 | Extension rollback details | security | p08 | trust | vaayvu://security/s-272 | Browser user | — |
+| s-273 | Website permission active-indicator center | security | p08 | trust | vaayvu://security/s-273 | Browser user | — |
+| s-274 | Permission one-time session sheet | security | p08 | trust | vaayvu://security/s-274 | Browser user | — |
+| s-275 | Clipboard cross-origin warning | security | p08 | trust | vaayvu://security/s-275 | Browser user | — |
+| s-276 | Dangerous download quarantine | security | p08 | trust | vaayvu://security/s-276 | Browser user | — |
+| s-277 | Download resumed after restart | security | p08 | trust | vaayvu://security/s-277 | Browser user | — |
+| s-278 | Download hash and origin verification | security | p08 | trust | vaayvu://security/s-278 | Browser user | — |
+| s-279 | File upload privacy notice | security | p08 | trust | vaayvu://security/s-279 | Browser user | — |
+| s-280 | Device storage-pressure recovery | security | p08 | trust | vaayvu://security/s-280 | Browser user | — |
+| s-281 | Sync offline journal recovery | security | p08 | trust | vaayvu://security/s-281 | Browser user | — |
+| s-282 | Sync retention/compaction monitor | sync-credentials | p10 | trust | vaayvu://sync-credentials/s-282 | Browser user | — |
+| s-283 | Sync stale device recovery | sync-credentials | p10 | trust | vaayvu://sync-credentials/s-283 | Browser user | — |
+| s-284 | Sync revoked device confirmation | sync-credentials | p10 | trust | vaayvu://sync-credentials/s-284 | Browser user | — |
+| s-285 | Sync key change safety wizard | sync-credentials | p10 | trust | vaayvu://sync-credentials/s-285 | Browser user | — |
+| s-286 | Recovery phrase offline verification | sync-credentials | p10 | trust | vaayvu://sync-credentials/s-286 | Browser user | — |
+| s-287 | Account deletion export confirmation | sync-credentials | p10 | trust | vaayvu://sync-credentials/s-287 | Browser user | — |
+| s-288 | Credential conflict resolution | sync-credentials | p10 | trust | vaayvu://sync-credentials/s-288 | Browser user | — |
+| s-289 | Passkey availability explainer | sync-credentials | p10 | trust | vaayvu://sync-credentials/s-289 | Browser user | — |
+| s-290 | Passkey migration notice | sync-credentials | p10 | trust | vaayvu://sync-credentials/s-290 | Browser user | — |
+| s-291 | Credential phishing-site warning | sync-credentials | p10 | trust | vaayvu://sync-credentials/s-291 | Browser user | — |
+| s-292 | Omnibox Unicode hostname analysis | ai-trust | p13 | advanced | vaayvu://ai-trust/s-292 | Browser user | — |
+| s-293 | Lookalike URL review | ai-trust | p13 | advanced | vaayvu://ai-trust/s-293 | Browser user | — |
+| s-294 | Local network access prompt | ai-trust | p13 | advanced | vaayvu://ai-trust/s-294 | Browser user | — |
+| s-295 | Third-party cookie exception explainer | ai-trust | p13 | advanced | vaayvu://ai-trust/s-295 | Browser user | — |
+| s-296 | Incognito limitations explainer | ai-trust | p13 | advanced | vaayvu://ai-trust/s-296 | Browser user | — |
+| s-297 | User consent for AI page context | ai-trust | p13 | advanced | vaayvu://ai-trust/s-297 | Browser user | — |
+| s-298 | AI source permission picker | ai-trust | p13 | advanced | vaayvu://ai-trust/s-298 | Browser user | — |
+| s-299 | AI personal-data redaction preview | ai-trust | p13 | advanced | vaayvu://ai-trust/s-299 | Browser user | — |
+| s-300 | AI tool action approval | ai-trust | p13 | advanced | vaayvu://ai-trust/s-300 | Browser user | — |
+| s-301 | AI action receipt verification | ai-trust | p13 | advanced | vaayvu://ai-trust/s-301 | Browser user | — |
+| s-302 | AI prompt injection risk alert | ai-trust | p13 | advanced | vaayvu://ai-trust/s-302 | Browser user | — |
+| s-303 | AI provider outage fallback | ai-trust | p13 | advanced | vaayvu://ai-trust/s-303 | Browser user | — |
+| s-304 | AI cost controls | ai-trust | p13 | advanced | vaayvu://ai-trust/s-304 | Browser user | — |
+| s-305 | AI on-device memory warning | ai-trust | p13 | advanced | vaayvu://ai-trust/s-305 | Browser user | — |
+| s-306 | AI history deletion audit | ai-trust | p13 | advanced | vaayvu://ai-trust/s-306 | Browser user | — |
+| s-307 | Reader extraction failure fallback | content-performance | p14 | advanced | vaayvu://content-performance/s-307 | Browser user | — |
+| s-308 | PDF cryptographic signature limitations | content-performance | p14 | advanced | vaayvu://content-performance/s-308 | Browser user | — |
+| s-309 | PDF data loss confirmation | content-performance | p14 | advanced | vaayvu://content-performance/s-309 | Browser user | — |
+| s-310 | WebRTC session preservation warning | content-performance | p14 | advanced | vaayvu://content-performance/s-310 | Browser user | — |
+| s-311 | Screen-share permanent indicator | content-performance | p14 | advanced | vaayvu://content-performance/s-311 | Browser user | — |
+| s-312 | Tab snapshot data sensitivity notice | content-performance | p14 | advanced | vaayvu://content-performance/s-312 | Browser user | — |
+| s-313 | Tab restore conflict resolver | content-performance | p14 | advanced | vaayvu://content-performance/s-313 | Browser user | — |
+| s-314 | Tab discard exemption list | content-performance | p14 | advanced | vaayvu://content-performance/s-314 | Browser user | — |
+| s-315 | Tab memory profiler | content-performance | p14 | advanced | vaayvu://content-performance/s-315 | Browser user | — |
+| s-316 | Background activity detector | content-performance | p14 | advanced | vaayvu://content-performance/s-316 | Browser user | — |
+| s-317 | Battery saver exclusion list | content-performance | p14 | advanced | vaayvu://content-performance/s-317 | Browser user | — |
+| s-318 | Benchmark scene runner | content-performance | p14 | advanced | vaayvu://content-performance/s-318 | Browser user | — |
+| s-319 | Benchmark baseline comparison | content-performance | p14 | advanced | vaayvu://content-performance/s-319 | Browser user | — |
+| s-320 | Benchmark reproducibility report | content-performance | p14 | advanced | vaayvu://content-performance/s-320 | Browser user | — |
+| s-321 | Benchmark device list | content-performance | p14 | advanced | vaayvu://content-performance/s-321 | Browser user | — |
+| s-322 | High contrast surface inspector | content-performance | p14 | advanced | vaayvu://content-performance/s-322 | Browser user | — |
+| s-323 | Reduced transparency theme inspector | content-performance | p14 | advanced | vaayvu://content-performance/s-323 | Browser user | — |
+| s-324 | Screen reader route explorer | quality-release | p16 | advanced | vaayvu://quality-release/s-324 | Browser user | — |
+| s-325 | Keyboard shortcut conflict resolver | quality-release | p16 | advanced | vaayvu://quality-release/s-325 | Browser user | — |
+| s-326 | Foldable posture transition | quality-release | p16 | advanced | vaayvu://quality-release/s-326 | Browser user | — |
+| s-327 | iPad multiple-window restore | quality-release | p16 | advanced | vaayvu://quality-release/s-327 | Browser user | — |
+| s-328 | Windows Snap compatibility inspector | quality-release | p16 | advanced | vaayvu://quality-release/s-328 | Browser user | — |
+| s-329 | Linux compositor compatibility inspector | quality-release | p16 | advanced | vaayvu://quality-release/s-329 | Browser user | — |
+| s-330 | Upstream engine patch readiness | quality-release | p16 | advanced | vaayvu://quality-release/s-330 | Browser user | — |
+| s-331 | Release rollout and rollback status | quality-release | p16 | advanced | vaayvu://quality-release/s-331 | Browser user | — |
+| s-332 | Provider choice onboarding | onboarding | p03 | core | vaayvu://search/s-332 | Browser user | — |
+| s-333 | Search provider settings overview | settings | p03 | core | vaayvu://search/s-333 | Browser user | — |
+| s-334 | Regular default provider picker | settings | p03 | core | vaayvu://search/s-334 | Browser user | — |
+| s-335 | Private default provider picker | settings | p03 | core | vaayvu://search/s-335 | Browser user | — |
+| s-336 | Add custom search provider | settings | p05 | core | vaayvu://search/s-336 | Browser user | — |
+| s-337 | Edit custom search provider | settings | p05 | core | vaayvu://search/s-337 | Browser user | — |
+| s-338 | Invalid search provider error | error | p05 | core | vaayvu://search/s-338 | Browser user | — |
+| s-339 | Remote search suggestions consent | permissions | p05 | core | vaayvu://search/s-339 | Browser user | — |
+| s-340 | Search execution loading | navigation | p05 | core | vaayvu://search/s-340 | Browser user | — |
+| s-341 | Provider unavailable recovery | error | p05 | core | vaayvu://search/s-341 | Browser user | — |
+| s-342 | Search provider switcher quick action | navigation | p05 | next | vaayvu://search/s-342 | Browser user | — |
+| s-343 | Private search no-leak state | private | p05 | next | vaayvu://search/s-343 | Browser user | — |
+| s-344 | Custom blocked domains editor | security-privacy | p08 | core | vaayvu://settings/ad-blocker/s-344 | Browser user | — |
+| s-345 | Domain validation errors | security-privacy | p08 | core | vaayvu://settings/ad-blocker/s-345 | Browser user | — |
+| s-346 | Applying protection rules | security-privacy | p08 | core | vaayvu://settings/ad-blocker/s-346 | Browser user | — |
+| s-347 | Protection update failure | security-privacy | p08 | core | vaayvu://settings/ad-blocker/s-347 | Browser user | — |
+| s-348 | Site pause manager | security-privacy | p08 | core | vaayvu://settings/ad-blocker/s-348 | Browser user | — |
+| s-349 | Custom domain blocked page | security-privacy | p08 | core | vaayvu://settings/ad-blocker/s-349 | Browser user | — |
+| s-350 | Rasha rule collection details | security-privacy | p08 | core | vaayvu://settings/ad-blocker/s-350 | Browser user | — |
+| s-351 | Local blocking diagnostics | security-privacy | p08 | core | vaayvu://settings/ad-blocker/s-351 | Browser user | — |
+| s-352 | Reset ad blocker confirmation | security-privacy | p08 | core | vaayvu://settings/ad-blocker/s-352 | Browser user | — |
+| s-353 | Discard unsaved blocker changes | security-privacy | p08 | core | vaayvu://settings/ad-blocker/s-353 | Browser user | — |
+| s-354 | Resource budget center | adaptive-resource-governance | p18 | required | vaayvu://resource/1 | Browser user | — |
+| s-355 | Device memory budget editor | adaptive-resource-governance | p18 | required | vaayvu://resource/2 | Browser user | — |
+| s-356 | Memory pressure timeline | adaptive-resource-governance | p18 | required | vaayvu://resource/3 | Browser user | — |
+| s-357 | Critical workload leases | adaptive-resource-governance | p18 | required | vaayvu://resource/4 | Browser user | — |
+| s-358 | Reclaim impact preview | adaptive-resource-governance | p18 | required | vaayvu://resource/5 | Browser user | — |
+| s-359 | Resource recovery state | adaptive-resource-governance | p18 | required | vaayvu://resource/6 | Browser user | — |
+| s-360 | Lifecycle policy details | lifecycle | p18 | required | vaayvu://lifecycle/1 | Browser user | — |
+| s-361 | Tab preservation rules | lifecycle | p18 | required | vaayvu://lifecycle/2 | Browser user | — |
+| s-362 | Tab state snapshot review | lifecycle | p18 | required | vaayvu://lifecycle/3 | Browser user | — |
+| s-363 | Suspension decision explanation | lifecycle | p18 | required | vaayvu://lifecycle/4 | Browser user | — |
+| s-364 | Resume progress | lifecycle | p18 | required | vaayvu://lifecycle/5 | Browser user | — |
+| s-365 | Restore divergence review | lifecycle | p18 | required | vaayvu://lifecycle/6 | Browser user | — |
+| s-366 | Compute workload center | cpu-graphics-scheduler | p18 | required | vaayvu://compute/1 | Browser user | — |
+| s-367 | Background task inspector | cpu-graphics-scheduler | p18 | required | vaayvu://compute/2 | Browser user | — |
+| s-368 | Rendering quality controls | cpu-graphics-scheduler | p18 | required | vaayvu://compute/3 | Browser user | — |
+| s-369 | Frame pacing report | cpu-graphics-scheduler | p18 | required | vaayvu://compute/4 | Browser user | — |
+| s-370 | Graphics fallback notice | cpu-graphics-scheduler | p18 | required | vaayvu://compute/5 | Browser user | — |
+| s-371 | Workload priority editor | cpu-graphics-scheduler | p18 | required | vaayvu://compute/6 | Browser user | — |
+| s-372 | Energy profile center | energy | p18 | required | vaayvu://energy/1 | Browser user | — |
+| s-373 | Power schedule editor | energy | p18 | required | vaayvu://energy/2 | Browser user | — |
+| s-374 | Energy-intensive tab detail | energy | p18 | required | vaayvu://energy/3 | Browser user | — |
+| s-375 | Thermal mitigation notice | energy | p18 | required | vaayvu://energy/4 | Browser user | — |
+| s-376 | Battery exception manager | energy | p18 | required | vaayvu://energy/5 | Browser user | — |
+| s-377 | Energy benchmark result | energy | p18 | required | vaayvu://energy/6 | Browser user | — |
+| s-378 | Connection health overview | transport-connection-efficiency | p19 | required | vaayvu://network/1 | Browser user | — |
+| s-379 | Per-origin connection inspector | transport-connection-efficiency | p19 | required | vaayvu://network/2 | Browser user | — |
+| s-380 | Speculative loading controls | transport-connection-efficiency | p19 | required | vaayvu://network/3 | Browser user | — |
+| s-381 | Network retry state | transport-connection-efficiency | p19 | required | vaayvu://network/4 | Browser user | — |
+| s-382 | Encrypted DNS configuration | transport-connection-efficiency | p19 | required | vaayvu://network/5 | Browser user | — |
+| s-383 | Connection diagnostics export | transport-connection-efficiency | p19 | required | vaayvu://network/6 | Browser user | — |
+| s-384 | Storage breakdown center | storage-cache-disk-pressure | p19 | required | vaayvu://cache/1 | Browser user | — |
+| s-385 | Per-origin quota detail | storage-cache-disk-pressure | p19 | required | vaayvu://cache/2 | Browser user | — |
+| s-386 | Cache policy editor | storage-cache-disk-pressure | p19 | required | vaayvu://cache/3 | Browser user | — |
+| s-387 | Storage reclaim preview | storage-cache-disk-pressure | p19 | required | vaayvu://cache/4 | Browser user | — |
+| s-388 | Disk-pressure safe state | storage-cache-disk-pressure | p19 | required | vaayvu://cache/5 | Browser user | — |
+| s-389 | Storage integrity report | storage-cache-disk-pressure | p19 | required | vaayvu://cache/6 | Browser user | — |
+| s-390 | Rasha engine health | rasha-matching-rule-compiler | p20 | required | vaayvu://rashacore/1 | Browser user | — |
+| s-391 | Rasha rule inspection | rasha-matching-rule-compiler | p20 | required | vaayvu://rashacore/2 | Browser user | — |
+| s-392 | Rasha selector editor | rasha-matching-rule-compiler | p20 | required | vaayvu://rashacore/3 | Browser user | — |
+| s-393 | Rasha rule conflict review | rasha-matching-rule-compiler | p20 | required | vaayvu://rashacore/4 | Browser user | — |
+| s-394 | Rasha generation comparison | rasha-matching-rule-compiler | p20 | required | vaayvu://rashacore/5 | Browser user | — |
+| s-395 | Rasha quarantine and rollback | rasha-matching-rule-compiler | p20 | required | vaayvu://rashacore/6 | Browser user | — |
+| s-396 | Rasha research intake | rasha-independent-research | p20 | required | vaayvu://rashalab/1 | Browser user | — |
+| s-397 | Rule candidate review | rasha-independent-research | p20 | required | vaayvu://rashalab/2 | Browser user | — |
+| s-398 | Coverage corpus dashboard | rasha-independent-research | p20 | required | vaayvu://rashalab/3 | Browser user | — |
+| s-399 | Compatibility triage | rasha-independent-research | p20 | required | vaayvu://rashalab/4 | Browser user | — |
+| s-400 | Release signing review | rasha-independent-research | p20 | required | vaayvu://rashalab/5 | Browser user | — |
+| s-401 | Faulty rule containment | rasha-independent-research | p20 | required | vaayvu://rashalab/6 | Browser user | — |
+| s-402 | Privacy partition overview | privacy-boundaries-ephemeral-storage | p20 | required | vaayvu://privacyisolation/1 | Browser user | S-190 |
+| s-403 | Partition detail inspector | privacy-boundaries-ephemeral-storage | p20 | required | vaayvu://privacyisolation/2 | Browser user | S-402 |
+| s-404 | Storage access grant review | privacy-boundaries-ephemeral-storage | p20 | required | vaayvu://privacyisolation/3 | Browser user | S-402 |
+| s-405 | Automatic site cleanup rule editor | privacy-boundaries-ephemeral-storage | p20 | required | vaayvu://privacyisolation/4 | Browser user | S-402 |
+| s-406 | Selective cleanup result | privacy-boundaries-ephemeral-storage | p20 | required | vaayvu://privacyisolation/5 | Browser user | S-402 |
+| s-407 | Private leakage audit | privacy-boundaries-ephemeral-storage | p20 | required | vaayvu://privacyisolation/6 | Browser user | S-402 |
+| s-408 | Fingerprint protection controls | fingerprinting-tracking-resistance | p20 | required | vaayvu://fingerprint/1 | Browser user | S-170 |
+| s-409 | API exposure detail | fingerprinting-tracking-resistance | p20 | required | vaayvu://fingerprint/2 | Browser user | S-408 |
+| s-410 | Tracking redirect inspector | fingerprinting-tracking-resistance | p20 | required | vaayvu://fingerprint/3 | Browser user | S-408 |
+| s-411 | Scoped privacy exception editor | fingerprinting-tracking-resistance | p20 | required | vaayvu://fingerprint/4 | Browser user | S-408 |
+| s-412 | Fingerprint compatibility warning | fingerprinting-tracking-resistance | p20 | required | vaayvu://fingerprint/5 | Browser user | S-408 |
+| s-413 | Privacy regression results | fingerprinting-tracking-resistance | p20 | required | vaayvu://fingerprint/6 | Browser user | S-408 |
+| s-414 | Trusted origin detail | trusted-navigation-permission-intelligence | p21 | required | vaayvu://security/1 | Browser user | S-176 |
+| s-415 | Active capability sessions | trusted-navigation-permission-intelligence | p21 | required | vaayvu://security/2 | Browser user | S-414 |
+| s-416 | Grant scope editor | trusted-navigation-permission-intelligence | p21 | required | vaayvu://security/3 | Browser user | S-414 |
+| s-417 | Suspicious redirect review | trusted-navigation-permission-intelligence | p21 | required | vaayvu://security/4 | Browser user | S-414 |
+| s-418 | Security recovery center | trusted-navigation-permission-intelligence | p21 | required | vaayvu://security/5 | Browser user | S-414 |
+| s-419 | Permission event review | trusted-navigation-permission-intelligence | p21 | required | vaayvu://security/6 | Browser user | S-414 |
+| s-420 | Credential health overview | credentials-passkeys-safe-autofill | p21 | required | vaayvu://vault/1 | Browser user | S-192 |
+| s-421 | Origin match review | credentials-passkeys-safe-autofill | p21 | required | vaayvu://vault/2 | Browser user | S-420 |
+| s-422 | Passkey enrollment status | credentials-passkeys-safe-autofill | p21 | required | vaayvu://vault/3 | Browser user | S-420 |
+| s-423 | Credential import preview | credentials-passkeys-safe-autofill | p21 | required | vaayvu://vault/4 | Browser user | S-420 |
+| s-424 | Secure export confirmation | credentials-passkeys-safe-autofill | p21 | required | vaayvu://vault/5 | Browser user | S-420 |
+| s-425 | Vault recovery state | credentials-passkeys-safe-autofill | p21 | required | vaayvu://vault/6 | Browser user | S-420 |
+| s-426 | Update health center | secure-application-engine-maintenance | p21 | required | vaayvu://updates/1 | Browser user | S-252 |
+| s-427 | Update integrity detail | secure-application-engine-maintenance | p21 | required | vaayvu://updates/2 | Browser user | S-426 |
+| s-428 | Update installation review | secure-application-engine-maintenance | p21 | required | vaayvu://updates/3 | Browser user | S-426 |
+| s-429 | Update interrupted recovery | secure-application-engine-maintenance | p21 | required | vaayvu://updates/4 | Browser user | S-426 |
+| s-430 | Release rollback review | secure-application-engine-maintenance | p21 | required | vaayvu://updates/5 | Browser user | S-426 |
+| s-431 | Dependency security ledger | secure-application-engine-maintenance | p21 | required | vaayvu://updates/6 | Engineering / support workspace | S-426 |
+| s-432 | Four-side tab position chooser | advanced-tab-layout-organization | p22 | required | vaayvu://tablayouts/1 | Browser user | S-188 |
+| s-433 | Tab layout size editor | advanced-tab-layout-organization | p22 | required | vaayvu://tablayouts/2 | Browser user | S-432 |
+| s-434 | Nested group tree | advanced-tab-layout-organization | p22 | required | vaayvu://tablayouts/3 | Browser user | S-432 |
+| s-435 | Tab selection and batch review | advanced-tab-layout-organization | p22 | required | vaayvu://tablayouts/4 | Browser user | S-432 |
+| s-436 | Tab movement confirmation | advanced-tab-layout-organization | p22 | required | vaayvu://tablayouts/5 | Browser user | S-432 |
+| s-437 | Layout restoration state | advanced-tab-layout-organization | p22 | required | vaayvu://tablayouts/6 | Browser user | S-432 |
+| s-438 | Workspace project dashboard | project-spaces-multi-pane-workflow | p22 | required | vaayvu://workspaces/1 | Browser user | S-164 |
+| s-439 | Workspace template editor | project-spaces-multi-pane-workflow | p22 | required | vaayvu://workspaces/2 | Browser user | S-438 |
+| s-440 | Saved pane layout gallery | project-spaces-multi-pane-workflow | p22 | required | vaayvu://workspaces/3 | Browser user | S-438 |
+| s-441 | Workspace transition preview | project-spaces-multi-pane-workflow | p22 | required | vaayvu://workspaces/4 | Browser user | S-438 |
+| s-442 | Workspace archive review | project-spaces-multi-pane-workflow | p22 | required | vaayvu://workspaces/5 | Browser user | S-438 |
+| s-443 | Workspace restore conflict | project-spaces-multi-pane-workflow | p22 | required | vaayvu://workspaces/6 | Browser user | S-438 |
+| s-444 | Container manager | isolated-tab-containers-multi-account | p22 | required | vaayvu://containers/1 | Browser user | S-163 |
+| s-445 | Container creation wizard | isolated-tab-containers-multi-account | p22 | required | vaayvu://containers/2 | Browser user | S-444 |
+| s-446 | Container assignment rules | isolated-tab-containers-multi-account | p22 | required | vaayvu://containers/3 | Browser user | S-444 |
+| s-447 | Container tab transfer review | isolated-tab-containers-multi-account | p22 | required | vaayvu://containers/4 | Browser user | S-444 |
+| s-448 | Container data management | isolated-tab-containers-multi-account | p22 | required | vaayvu://containers/5 | Browser user | S-444 |
+| s-449 | Container unavailable fallback | isolated-tab-containers-multi-account | p22 | required | vaayvu://containers/6 | Browser user | S-444 |
+| s-450 | Continue project on device | encrypted-continuity-device-handoff | p23 | required | vaayvu://continuity/1 | Browser user | S-246 |
+| s-451 | Handoff consent sheet | encrypted-continuity-device-handoff | p23 | required | vaayvu://continuity/2 | Browser user | S-450 |
+| s-452 | Handoff incoming review | encrypted-continuity-device-handoff | p23 | required | vaayvu://continuity/3 | Browser user | S-450 |
+| s-453 | Sync change journal | encrypted-continuity-device-handoff | p23 | required | vaayvu://continuity/4 | Browser user | S-450 |
+| s-454 | Device trust and key rotation | encrypted-continuity-device-handoff | p23 | required | vaayvu://continuity/5 | Browser user | S-450 |
+| s-455 | Continuity recovery state | encrypted-continuity-device-handoff | p23 | required | vaayvu://continuity/6 | Browser user | S-450 |
+| s-456 | Backup inventory detail | data-preservation-backups-migration | p23 | required | vaayvu://recovery/1 | Browser user | S-256 |
+| s-457 | Backup creation review | data-preservation-backups-migration | p23 | required | vaayvu://recovery/2 | Browser user | S-456 |
+| s-458 | Migration compatibility matrix | data-preservation-backups-migration | p23 | required | vaayvu://recovery/3 | Browser user | S-456 |
+| s-459 | Interrupted write recovery | data-preservation-backups-migration | p23 | required | vaayvu://recovery/4 | Browser user | S-456 |
+| s-460 | Restore merge review | data-preservation-backups-migration | p23 | required | vaayvu://recovery/5 | Browser user | S-456 |
+| s-461 | Recovery evidence export | data-preservation-backups-migration | p23 | required | vaayvu://recovery/6 | Browser user | S-456 |
+| s-462 | Research collection dashboard | local-research-citations-collections | p24 | required | vaayvu://research/1 | Browser user | S-131 |
+| s-463 | Source capture review | local-research-citations-collections | p24 | required | vaayvu://research/2 | Browser user | S-462 |
+| s-464 | Citation and quote inspector | local-research-citations-collections | p24 | required | vaayvu://research/3 | Browser user | S-462 |
+| s-465 | Local collection search | local-research-citations-collections | p24 | required | vaayvu://research/4 | Browser user | S-462 |
+| s-466 | Research export review | local-research-citations-collections | p24 | required | vaayvu://research/5 | Browser user | S-462 |
+| s-467 | Missing-source recovery | local-research-citations-collections | p24 | required | vaayvu://research/6 | Browser user | S-462 |
+| s-468 | Reading dashboard detail | advanced-reader-shelf-offline-knowledge | p24 | required | vaayvu://reading/1 | Browser user | S-129 |
+| s-469 | Reader extraction preview | advanced-reader-shelf-offline-knowledge | p24 | required | vaayvu://reading/2 | Browser user | S-468 |
+| s-470 | Reader typography editor | advanced-reader-shelf-offline-knowledge | p24 | required | vaayvu://reading/3 | Browser user | S-468 |
+| s-471 | Offline article download review | advanced-reader-shelf-offline-knowledge | p24 | required | vaayvu://reading/4 | Browser user | S-468 |
+| s-472 | Reading progress library | advanced-reader-shelf-offline-knowledge | p24 | required | vaayvu://reading/5 | Browser user | S-468 |
+| s-473 | Reader unavailable recovery | advanced-reader-shelf-offline-knowledge | p24 | required | vaayvu://reading/6 | Browser user | S-468 |
+| s-474 | RSS subscription manager | independent-rss-subscribed-sources | p24 | required | vaayvu://feeds/1 | Browser user | S-060 |
+| s-475 | Add feed validation | independent-rss-subscribed-sources | p24 | required | vaayvu://feeds/2 | Browser user | S-474 |
+| s-476 | Feed article view | independent-rss-subscribed-sources | p24 | required | vaayvu://feeds/3 | Browser user | S-474 |
+| s-477 | Feed refresh preferences | independent-rss-subscribed-sources | p24 | required | vaayvu://feeds/4 | Browser user | S-474 |
+| s-478 | Feed import/export review | independent-rss-subscribed-sources | p24 | required | vaayvu://feeds/5 | Browser user | S-474 |
+| s-479 | Feed failure state | independent-rss-subscribed-sources | p24 | required | vaayvu://feeds/6 | Browser user | S-474 |
+| s-480 | Observatory Focus workspace | focus-distraction-time-awareness | p24 | required | vaayvu://focus/1 | Browser user | S-051 |
+| s-481 | Focus session preferences | focus-distraction-time-awareness | p24 | required | vaayvu://focus/2 | Browser user | S-480 |
+| s-482 | Distraction schedule editor | focus-distraction-time-awareness | p24 | required | vaayvu://focus/3 | Browser user | S-480 |
+| s-483 | Focus running indicator | focus-distraction-time-awareness | p24 | required | vaayvu://focus/4 | Browser user | S-480 |
+| s-484 | Focus completed summary | focus-distraction-time-awareness | p24 | required | vaayvu://focus/5 | Browser user | S-480 |
+| s-485 | Focus interrupted recovery | focus-distraction-time-awareness | p24 | required | vaayvu://focus/6 | Browser user | S-480 |
+| s-486 | Workflow library | user-owned-browser-workflow-automation | p25 | required | vaayvu://automation/1 | Browser user | S-050 |
+| s-487 | Workflow builder | user-owned-browser-workflow-automation | p25 | required | vaayvu://automation/2 | Browser user | S-486 |
+| s-488 | Workflow dry run | user-owned-browser-workflow-automation | p25 | required | vaayvu://automation/3 | Browser user | S-486 |
+| s-489 | Workflow execution monitor | user-owned-browser-workflow-automation | p25 | required | vaayvu://automation/4 | Browser user | S-486 |
+| s-490 | Workflow action approval | user-owned-browser-workflow-automation | p25 | required | vaayvu://automation/5 | Browser user | S-486 |
+| s-491 | Workflow run receipt | user-owned-browser-workflow-automation | p25 | required | vaayvu://automation/6 | Browser user | S-486 |
+| s-492 | Assistant capability dashboard | opt-in-intelligent-assistance-evidence | p25 | required | vaayvu://assistant/1 | Browser user | S-200 |
+| s-493 | Assistant context preview | opt-in-intelligent-assistance-evidence | p25 | required | vaayvu://assistant/2 | Browser user | S-492 |
+| s-494 | Evidence-linked answer panel | opt-in-intelligent-assistance-evidence | p25 | required | vaayvu://assistant/3 | Browser user | S-492 |
+| s-495 | Multi-tab comparison workspace | opt-in-intelligent-assistance-evidence | p25 | required | vaayvu://assistant/4 | Browser user | S-492 |
+| s-496 | Assistant memory manager | opt-in-intelligent-assistance-evidence | p25 | required | vaayvu://assistant/5 | Browser user | S-492 |
+| s-497 | Assistant blocked or unavailable state | opt-in-intelligent-assistance-evidence | p25 | required | vaayvu://assistant/6 | Browser user | S-492 |
+| s-498 | Document workspace | pdf-document-annotation-studio | p26 | required | vaayvu://documents/1 | Browser user | S-108 |
+| s-499 | Annotation properties | pdf-document-annotation-studio | p26 | required | vaayvu://documents/2 | Browser user | S-498 |
+| s-500 | Document comparison view | pdf-document-annotation-studio | p26 | required | vaayvu://documents/3 | Browser user | S-498 |
+| s-501 | Document save-copy review | pdf-document-annotation-studio | p26 | required | vaayvu://documents/4 | Browser user | S-498 |
+| s-502 | Document signature information | pdf-document-annotation-studio | p26 | required | vaayvu://documents/5 | Browser user | S-498 |
+| s-503 | Document unsupported or recovery state | pdf-document-annotation-studio | p26 | required | vaayvu://documents/6 | Browser user | S-498 |
+| s-504 | Capture mode chooser | page-capture-print-export | p26 | required | vaayvu://capture/1 | Browser user | S-121 |
+| s-505 | Capture region review | page-capture-print-export | p26 | required | vaayvu://capture/2 | Browser user | S-504 |
+| s-506 | Capture annotation editor | page-capture-print-export | p26 | required | vaayvu://capture/3 | Browser user | S-504 |
+| s-507 | Print layout editor | page-capture-print-export | p26 | required | vaayvu://capture/4 | Browser user | S-504 |
+| s-508 | Export destination review | page-capture-print-export | p26 | required | vaayvu://capture/5 | Browser user | S-504 |
+| s-509 | Capture/print failure recovery | page-capture-print-export | p26 | required | vaayvu://capture/6 | Browser user | S-504 |
+| s-510 | Download queue manager | advanced-download-file-lifecycle | p26 | required | vaayvu://downloads/1 | Browser user | S-145 |
+| s-511 | Download origin and integrity detail | advanced-download-file-lifecycle | p26 | required | vaayvu://downloads/2 | Browser user | S-510 |
+| s-512 | Download destination chooser | advanced-download-file-lifecycle | p26 | required | vaayvu://downloads/3 | Browser user | S-510 |
+| s-513 | Download resumption review | advanced-download-file-lifecycle | p26 | required | vaayvu://downloads/4 | Browser user | S-510 |
+| s-514 | Download quarantine review | advanced-download-file-lifecycle | p26 | required | vaayvu://downloads/5 | Browser user | S-510 |
+| s-515 | Download failure recovery | advanced-download-file-lifecycle | p26 | required | vaayvu://downloads/6 | Browser user | S-510 |
+| s-516 | Global media center | advanced-video-audio-media-continuity | p27 | required | vaayvu://media/1 | Browser user | S-117 |
+| s-517 | Per-tab media detail | advanced-video-audio-media-continuity | p27 | required | vaayvu://media/2 | Browser user | S-516 |
+| s-518 | Media playlist library | advanced-video-audio-media-continuity | p27 | required | vaayvu://media/3 | Browser user | S-516 |
+| s-519 | Playlist editor | advanced-video-audio-media-continuity | p27 | required | vaayvu://media/4 | Browser user | S-516 |
+| s-520 | Playback compatibility state | advanced-video-audio-media-continuity | p27 | required | vaayvu://media/5 | Browser user | S-516 |
+| s-521 | Media continuity review | advanced-video-audio-media-continuity | p27 | required | vaayvu://media/6 | Browser user | S-516 |
+| s-522 | Live collaboration status | webrtc-conferencing-live-collaboration | p27 | required | vaayvu://realtime/1 | Browser user | S-310 |
+| s-523 | Call protection detail | webrtc-conferencing-live-collaboration | p27 | required | vaayvu://realtime/2 | Browser user | S-522 |
+| s-524 | Device selection sheet | webrtc-conferencing-live-collaboration | p27 | required | vaayvu://realtime/3 | Browser user | S-522 |
+| s-525 | Screen-share scope review | webrtc-conferencing-live-collaboration | p27 | required | vaayvu://realtime/4 | Browser user | S-522 |
+| s-526 | Connection recovery state | webrtc-conferencing-live-collaboration | p27 | required | vaayvu://realtime/5 | Browser user | S-522 |
+| s-527 | Collaboration benchmark report | webrtc-conferencing-live-collaboration | p27 | required | vaayvu://realtime/6 | Engineering / support workspace | S-522 |
+| s-528 | Extension capability catalog | extensions-capability-compatibility | p28 | required | vaayvu://extensions/1 | Browser user | S-154 |
+| s-529 | Extension permission diff | extensions-capability-compatibility | p28 | required | vaayvu://extensions/2 | Browser user | S-528 |
+| s-530 | Extension site access editor | extensions-capability-compatibility | p28 | required | vaayvu://extensions/3 | Browser user | S-528 |
+| s-531 | Extension activity inspector | extensions-capability-compatibility | p28 | required | vaayvu://extensions/4 | Browser user | S-528 |
+| s-532 | Extension quarantine recovery | extensions-capability-compatibility | p28 | required | vaayvu://extensions/5 | Browser user | S-528 |
+| s-533 | Extension portability review | extensions-capability-compatibility | p28 | required | vaayvu://extensions/6 | Browser user | S-528 |
+| s-534 | Web app installation review | installable-web-apps-offline-workflows | p28 | required | vaayvu://webapps/1 | Browser user | S-234 |
+| s-535 | Installed web apps manager | installable-web-apps-offline-workflows | p28 | required | vaayvu://webapps/2 | Browser user | S-534 |
+| s-536 | Web app window settings | installable-web-apps-offline-workflows | p28 | required | vaayvu://webapps/3 | Browser user | S-534 |
+| s-537 | Offline web app status | installable-web-apps-offline-workflows | p28 | required | vaayvu://webapps/4 | Browser user | S-534 |
+| s-538 | Web app permission review | installable-web-apps-offline-workflows | p28 | required | vaayvu://webapps/5 | Browser user | S-534 |
+| s-539 | Web app unavailable or removal state | installable-web-apps-offline-workflows | p28 | required | vaayvu://webapps/6 | Browser user | S-534 |
+| s-540 | Developer studio launcher | browser-developer-studio | p29 | required | vaayvu://devtools/1 | Browser user | S-250 |
+| s-541 | Network trace workspace | browser-developer-studio | p29 | required | vaayvu://devtools/2 | Browser user | S-540 |
+| s-542 | Performance trace workspace | browser-developer-studio | p29 | required | vaayvu://devtools/3 | Browser user | S-540 |
+| s-543 | Storage inspection workspace | browser-developer-studio | p29 | required | vaayvu://devtools/4 | Browser user | S-540 |
+| s-544 | Remote device debugging review | browser-developer-studio | p29 | required | vaayvu://devtools/5 | Browser user | S-540 |
+| s-545 | Debug export and detach | browser-developer-studio | p29 | required | vaayvu://devtools/6 | Browser user | S-540 |
+| s-546 | Compatibility scenario library | website-compatibility-standards-laboratory | p29 | required | vaayvu://compatibility/1 | Engineering / support workspace | S-267 |
+| s-547 | Site capability report | website-compatibility-standards-laboratory | p29 | required | vaayvu://compatibility/2 | Engineering / support workspace | S-546 |
+| s-548 | Regression comparison workspace | website-compatibility-standards-laboratory | p29 | required | vaayvu://compatibility/3 | Engineering / support workspace | S-546 |
+| s-549 | Web standards result explorer | website-compatibility-standards-laboratory | p29 | required | vaayvu://compatibility/4 | Engineering / support workspace | S-546 |
+| s-550 | Compatibility exception review | website-compatibility-standards-laboratory | p29 | required | vaayvu://compatibility/5 | Engineering / support workspace | S-546 |
+| s-551 | Release-blocking compatibility report | website-compatibility-standards-laboratory | p29 | required | vaayvu://compatibility/6 | Engineering / support workspace | S-546 |
+| s-552 | Benchmark workload designer | competitive-performance-resource-laboratory | p30 | required | vaayvu://benchmark/1 | Engineering / support workspace | S-318 |
+| s-553 | Benchmark runner dashboard | competitive-performance-resource-laboratory | p30 | required | vaayvu://benchmark/2 | Engineering / support workspace | S-552 |
+| s-554 | Resource comparison explorer | competitive-performance-resource-laboratory | p30 | required | vaayvu://benchmark/3 | Engineering / support workspace | S-552 |
+| s-555 | Benchmark outlier review | competitive-performance-resource-laboratory | p30 | required | vaayvu://benchmark/4 | Engineering / support workspace | S-552 |
+| s-556 | Rasha matcher microbenchmark | competitive-performance-resource-laboratory | p30 | required | vaayvu://benchmark/5 | Engineering / support workspace | S-552 |
+| s-557 | Competitive evidence release report | competitive-performance-resource-laboratory | p30 | required | vaayvu://benchmark/6 | Engineering / support workspace | S-552 |
+| s-558 | Preset studio | appearance | p31 | required | vaayvu://appearance/s-558 | Browser user | S-187 |
+| s-559 | Theme scene gallery | adaptive-design-system-two-presets | p31 | required | vaayvu://appearance/2 | Browser user | S-558 |
+| s-560 | Native material controls | adaptive-design-system-two-presets | p31 | required | vaayvu://appearance/3 | Browser user | S-558 |
+| s-561 | Toolbar arrangement editor | adaptive-design-system-two-presets | p31 | required | vaayvu://appearance/4 | Browser user | S-558 |
+| s-562 | Responsive chrome | appearance | p31 | required | vaayvu://appearance/s-562 | Browser user | S-558 |
+| s-563 | Appearance fallback state | adaptive-design-system-two-presets | p31 | required | vaayvu://appearance/6 | Browser user | S-558 |
+| s-564 | Accessibility preference overview | accessibility-localization-inclusive-interaction | p31 | required | vaayvu://accessibility/1 | Browser user | S-196 |
+| s-565 | Keyboard command editor | accessibility-localization-inclusive-interaction | p31 | required | vaayvu://accessibility/2 | Browser user | S-564 |
+| s-566 | Assistive navigation guide | accessibility-localization-inclusive-interaction | p31 | required | vaayvu://accessibility/3 | Browser user | S-564 |
+| s-567 | Language and direction preview | accessibility-localization-inclusive-interaction | p31 | required | vaayvu://accessibility/4 | Browser user | S-564 |
+| s-568 | Accessibility audit report | accessibility-localization-inclusive-interaction | p31 | required | vaayvu://accessibility/5 | Engineering / support workspace | S-564 |
+| s-569 | Accessibility fallback state | accessibility-localization-inclusive-interaction | p31 | required | vaayvu://accessibility/6 | Browser user | S-564 |
+| s-570 | Mobile tab overview controls | phone-tablet-adaptive-windowing | p32 | required | vaayvu://mobile/1 | Browser user | S-081 |
+| s-571 | Tablet split layout editor | phone-tablet-adaptive-windowing | p32 | required | vaayvu://mobile/2 | Browser user | S-570 |
+| s-572 | Mobile address placement controls | phone-tablet-adaptive-windowing | p32 | required | vaayvu://mobile/3 | Browser user | S-570 |
+| s-573 | Window posture transition state | phone-tablet-adaptive-windowing | p32 | required | vaayvu://mobile/4 | Browser user | S-570 |
+| s-574 | Mobile background recovery | phone-tablet-adaptive-windowing | p32 | required | vaayvu://mobile/5 | Browser user | S-570 |
+| s-575 | Platform capability review | phone-tablet-adaptive-windowing | p32 | required | vaayvu://mobile/6 | Browser user | S-570 |
+| s-576 | Native window arrangement | desktop-native-windows-platform-integration | p32 | required | vaayvu://desktop/1 | Browser user | S-021 |
+| s-577 | Desktop titlebar controls | desktop-native-windows-platform-integration | p32 | required | vaayvu://desktop/2 | Browser user | S-576 |
+| s-578 | Window snapshot review | desktop-native-windows-platform-integration | p32 | required | vaayvu://desktop/3 | Browser user | S-576 |
+| s-579 | Desktop integration settings | desktop-native-windows-platform-integration | p32 | required | vaayvu://desktop/4 | Browser user | S-576 |
+| s-580 | Desktop platform fallback | desktop-native-windows-platform-integration | p32 | required | vaayvu://desktop/5 | Browser user | S-576 |
+| s-581 | Desktop build capability report | desktop-native-windows-platform-integration | p32 | required | vaayvu://desktop/6 | Engineering / support workspace | S-576 |
+| s-582 | Browser migration source chooser | switching-from-other-browsers-portability | p33 | required | vaayvu://importexport/1 | Browser user | S-186 |
+| s-583 | Migration inventory preview | switching-from-other-browsers-portability | p33 | required | vaayvu://importexport/2 | Browser user | S-582 |
+| s-584 | Migration conflict review | switching-from-other-browsers-portability | p33 | required | vaayvu://importexport/3 | Browser user | S-582 |
+| s-585 | Migration progress detail | switching-from-other-browsers-portability | p33 | required | vaayvu://importexport/4 | Browser user | S-582 |
+| s-586 | Migration completion report | switching-from-other-browsers-portability | p33 | required | vaayvu://importexport/5 | Browser user | S-582 |
+| s-587 | Portable export scope review | switching-from-other-browsers-portability | p33 | required | vaayvu://importexport/6 | Browser user | S-582 |
+| s-588 | Unified library workspace | advanced-bookmarks-history-local-search | p33 | required | vaayvu://collections/1 | Browser user | S-582 |
+| s-589 | Smart folder editor | advanced-bookmarks-history-local-search | p33 | required | vaayvu://collections/2 | Browser user | S-582 |
+| s-590 | Bookmark duplicate review | advanced-bookmarks-history-local-search | p33 | required | vaayvu://collections/3 | Browser user | S-582 |
+| s-591 | History time-range inspector | advanced-bookmarks-history-local-search | p33 | required | vaayvu://collections/4 | Browser user | S-582 |
+| s-592 | Library bulk action review | advanced-bookmarks-history-local-search | p33 | required | vaayvu://collections/5 | Browser user | S-582 |
+| s-593 | Library index recovery | advanced-bookmarks-history-local-search | p33 | required | vaayvu://collections/6 | Browser user | S-582 |
+| s-594 | Provider quick switcher detail | advanced-omnibox-provider-navigation | p33 | required | vaayvu://search/1 | Browser user | S-582 |
+| s-595 | Omnibox local suggestion controls | advanced-omnibox-provider-navigation | p33 | required | vaayvu://search/2 | Browser user | S-582 |
+| s-596 | Custom provider validation preview | advanced-omnibox-provider-navigation | p33 | required | vaayvu://search/3 | Browser user | S-582 |
+| s-597 | Search navigation error recovery | advanced-omnibox-provider-navigation | p33 | required | vaayvu://search/4 | Browser user | S-582 |
+| s-598 | Command and URL distinction review | advanced-omnibox-provider-navigation | p33 | required | vaayvu://search/5 | Browser user | S-582 |
+| s-599 | Search privacy report | advanced-omnibox-provider-navigation | p33 | required | vaayvu://search/6 | Browser user | S-582 |
+| s-600 | Managed policy overview | managed-deployment-policy-integrity | p34 | required | vaayvu://enterprise/1 | Browser user | S-186 |
+| s-601 | Policy provenance detail | managed-deployment-policy-integrity | p34 | required | vaayvu://enterprise/2 | Browser user | S-600 |
+| s-602 | Managed profile onboarding | managed-deployment-policy-integrity | p34 | required | vaayvu://enterprise/3 | Browser user | S-600 |
+| s-603 | Kiosk mode review | managed-deployment-policy-integrity | p34 | required | vaayvu://enterprise/4 | Browser user | S-600 |
+| s-604 | Policy conflict recovery | managed-deployment-policy-integrity | p34 | required | vaayvu://enterprise/5 | Browser user | S-600 |
+| s-605 | Enterprise deployment evidence | managed-deployment-policy-integrity | p34 | required | vaayvu://enterprise/6 | Browser user | S-600 |
+| s-606 | Shared device profile chooser | family-shared-devices-personal-control | p34 | required | vaayvu://family/1 | Browser user | S-237 |
+| s-607 | Supervised browsing setup | family-shared-devices-personal-control | p34 | required | vaayvu://family/2 | Browser user | S-606 |
+| s-608 | Allowed and limited site editor | family-shared-devices-personal-control | p34 | required | vaayvu://family/3 | Browser user | S-606 |
+| s-609 | Restriction explanation state | family-shared-devices-personal-control | p34 | required | vaayvu://family/4 | Browser user | S-606 |
+| s-610 | Family activity privacy review | family-shared-devices-personal-control | p34 | required | vaayvu://family/5 | Browser user | S-606 |
+| s-611 | Supervision change and recovery | family-shared-devices-personal-control | p34 | required | vaayvu://family/6 | Browser user | S-606 |
+| s-612 | Help and capability center | support-diagnostics-privacy-safe-reporting | p35 | required | vaayvu://operations/1 | Browser user | S-236 |
+| s-613 | Problem report builder | support-diagnostics-privacy-safe-reporting | p35 | required | vaayvu://operations/2 | Browser user | S-612 |
+| s-614 | Diagnostic bundle review | support-diagnostics-privacy-safe-reporting | p35 | required | vaayvu://operations/3 | Browser user | S-612 |
+| s-615 | Known issue status | support-diagnostics-privacy-safe-reporting | p35 | required | vaayvu://operations/4 | Browser user | S-612 |
+| s-616 | Feedback receipt and follow-up | support-diagnostics-privacy-safe-reporting | p35 | required | vaayvu://operations/5 | Browser user | S-612 |
+| s-617 | Support recovery workflow | support-diagnostics-privacy-safe-reporting | p35 | required | vaayvu://operations/6 | Browser user | S-612 |
+| s-618 | Requirement traceability board | automated-quality-security-release-evidence | p35 | required | vaayvu://quality/1 | Browser user | S-197 |
+| s-619 | Automated test run explorer | automated-quality-security-release-evidence | p35 | required | vaayvu://quality/2 | Browser user | S-618 |
+| s-620 | Security verification board | automated-quality-security-release-evidence | p35 | required | vaayvu://quality/3 | Browser user | S-618 |
+| s-621 | Platform parity checkpoint | automated-quality-security-release-evidence | p35 | required | vaayvu://quality/4 | Browser user | S-618 |
+| s-622 | Release candidate review | automated-quality-security-release-evidence | p35 | required | vaayvu://quality/5 | Browser user | S-618 |
+| s-623 | Regression rollback gate | automated-quality-security-release-evidence | p35 | required | vaayvu://quality/6 | Browser user | S-618 |
+| a-001 | Ads and rewards home | ads-and-rewards | p36 | required | vaayvu://revenue/a-001 | Browser user | S-186 |
+| a-002 | Sponsored cards consent | ads-and-rewards | p36 | required | vaayvu://revenue/a-002 | Browser user | A-001 |
+| a-003 | Reward program terms | ads-and-rewards | p36 | required | vaayvu://revenue/a-003 | Browser user | A-001 |
+| a-004 | Reward eligibility check | ads-and-rewards | p36 | required | vaayvu://revenue/a-004 | Browser user | A-003 |
+| a-005 | Sponsored card on start page | ads-and-rewards | p37 | required | vaayvu://revenue/a-005 | Browser user | S-051 |
+| a-006 | Why this advertisement | ads-and-rewards | p37 | required | vaayvu://revenue/a-006 | Browser user | A-005 |
+| a-007 | Advertisement report | ads-and-rewards | p37 | required | vaayvu://revenue/a-007 | Browser user | A-005 |
+| a-008 | Advertiser preferences | ads-and-rewards | p37 | required | vaayvu://revenue/a-008 | Browser user | A-001 |
+| a-009 | Reward dashboard | ads-and-rewards | p38 | required | vaayvu://revenue/a-009 | Browser user | A-001 |
+| a-010 | Earning receipt details | ads-and-rewards | p38 | required | vaayvu://revenue/a-010 | Browser user | A-009 |
+| a-011 | Pending earnings | ads-and-rewards | p38 | required | vaayvu://revenue/a-011 | Browser user | A-009 |
+| a-012 | Reward payout method | ads-and-rewards | p38 | required | vaayvu://revenue/a-012 | Browser user | A-009 |
+| a-013 | Payout identity verification | ads-and-rewards | p38 | required | vaayvu://revenue/a-013 | Browser user | A-012 |
+| a-014 | Payout review | ads-and-rewards | p38 | required | vaayvu://revenue/a-014 | Browser user | A-009 |
+| a-015 | Payout pending | ads-and-rewards | p38 | required | vaayvu://revenue/a-015 | Browser user | A-014 |
+| a-016 | Payout result and retry | ads-and-rewards | p38 | required | vaayvu://revenue/a-016 | Browser user | A-015 |
+| a-017 | Reward adjustment appeal | ads-and-rewards | p38 | required | vaayvu://revenue/a-017 | Browser user | A-010 |
+| a-018 | Reward tax and statements | ads-and-rewards | p38 | required | vaayvu://revenue/a-018 | Browser user | A-009 |
+| a-019 | Reward privacy and exit | ads-and-rewards | p38 | required | vaayvu://revenue/a-019 | Browser user | A-001 |
+| a-020 | Advertiser account | campaigns | p36 | required | vaayvu://campaigns/a-020 | Operator | S-237 |
+| a-021 | Campaign brief | revenue-operations | p37 | required | vaayvu://revenue/a-021 | Operator | A-020 |
+| a-022 | Creative submission | revenue-operations | p37 | required | vaayvu://revenue/a-022 | Operator | A-021 |
+| a-023 | Creative review queue | revenue-operations | p37 | required | vaayvu://revenue/a-023 | Operator | A-022 |
+| a-024 | Campaign budget and pacing | revenue-operations | p37 | required | vaayvu://revenue/a-024 | Operator | A-021 |
+| a-025 | Inventory and publisher authorization | revenue-operations | p36 | required | vaayvu://revenue/a-025 | Operator | A-020 |
+| a-026 | Delivery and frequency diagnostics | revenue-operations | p37 | required | vaayvu://revenue/a-026 | Operator | A-024 |
+| a-027 | Fraud review workbench | revenue-operations | p39 | required | vaayvu://revenue/a-027 | Operator | A-026 |
+| a-028 | Revenue settlement reconciliation | revenue-operations | p38 | required | vaayvu://revenue/a-028 | Operator | A-024 |
+| a-029 | Reward pool approval | revenue-operations | p38 | required | vaayvu://revenue/a-029 | Operator | A-028 |
+| a-030 | Payout operations | revenue-operations | p38 | required | vaayvu://revenue/a-030 | Operator | A-029 |
+| a-031 | Campaign incident and kill switch | revenue-operations | p37 | required | vaayvu://revenue/a-031 | Operator | A-023 |
+| a-032 | Monetization release evidence | revenue-operations | p39 | required | vaayvu://revenue/a-032 | Operator | A-031 |

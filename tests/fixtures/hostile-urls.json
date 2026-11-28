@@ -1,0 +1,25 @@
+{
+  "reject": [
+    "javascript:alert(1)",
+    "JavaScript:alert(1)",
+    "java\tscript:alert(1)",
+    "vbscript:msgbox(1)",
+    "data:text/html,<script>alert(1)</script>",
+    "file:///etc/passwd",
+    "ftp://example.com/file",
+    "chrome://settings",
+    "https://user:pass@example.com/",
+    "https://example.com:badport/",
+    "https://",
+    "http://",
+    "https://exa mple.com/",
+    "https://example.com\\@evil.example/",
+    "https://example.com/\u0000",
+    "https://example.com/\r\nHeader: value"
+  ],
+  "accept": [
+    "https://example.com/",
+    "http://127.0.0.1:8080/x",
+    "https://例え.テスト/"
+  ]
+}

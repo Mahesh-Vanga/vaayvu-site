@@ -1,0 +1,350 @@
+{
+  "generatedAt": "2026-11-28T06:27:37.823Z",
+  "product": "Vaayvu",
+  "version": "0.0.23",
+  "decision": "no-go",
+  "reason": "Unresolved critical blockers remain; a signed build alone is not a release.",
+  "signedArtifacts": {
+    "manifest": "docs/releases/0.0.23.json",
+    "macSigned": true,
+    "windowsBuilt": true,
+    "androidBuilt": true,
+    "iosDevelopment": true
+  },
+  "phases": [
+    {
+      "id": "P00",
+      "title": "Product charter and audit",
+      "status": "Verified — owner-signed 2026-11-28",
+      "verification": "Verified; owner attestation recorded"
+    },
+    {
+      "id": "P01",
+      "title": "Engineering workstation and repository",
+      "status": "Implemented / local checks green; remote CI pending",
+      "verification": "Verified locally; remote GitHub Actions run not observed"
+    },
+    {
+      "id": "P02",
+      "title": "Engine feasibility lab",
+      "status": "Implemented / verified locally",
+      "verification": "Verified locally; three engine spikes executed"
+    },
+    {
+      "id": "P03",
+      "title": "Design tokens and navigation prototypes",
+      "status": "Implemented / verified locally",
+      "verification": "Verified locally; token guard and interactive probes green"
+    },
+    {
+      "id": "P04",
+      "title": "Browser domain model and durable data",
+      "status": "Implemented / verified locally",
+      "verification": "Verified locally; four domain-store tests and the shared suite pass"
+    },
+    {
+      "id": "P05",
+      "title": "Desktop minimum viable browser",
+      "status": "Implemented / verified locally",
+      "verification": "Verified locally; mac and Windows build verifiers pass against current source"
+    },
+    {
+      "id": "P06",
+      "title": "Apple mobile browser",
+      "status": "Implemented / platform acceptance green; TestFlight pending",
+      "verification": "Platform acceptance green on simulator (18/18); TestFlight build not uploaded"
+    },
+    {
+      "id": "P07",
+      "title": "Android phone/tablet browser",
+      "status": "Implemented / verified locally",
+      "verification": "Verified locally; unit tests, APK builds, signatures and phone/tablet adaptive checks pass"
+    },
+    {
+      "id": "P08",
+      "title": "Privacy, security and protection depth",
+      "status": "Security gate green / external hostile-site testing pending",
+      "verification": "Security gate green locally; external hostile-site testing unverified"
+    },
+    {
+      "id": "P09",
+      "title": "Content, downloads and productivity",
+      "status": "Implemented / core workflows verified locally",
+      "verification": "Verified locally for reader PDF capture history and bookmarks; translation and download-file assertion open"
+    },
+    {
+      "id": "P10",
+      "title": "Credentials, synchronization and backup",
+      "status": "Implemented / recovery and chaos tests green",
+      "verification": "Verified locally for recovery and chaos; E2E encryption and independent passkey verification open"
+    },
+    {
+      "id": "P11",
+      "title": "Advanced tab and workflow power tools",
+      "status": "Implemented / power tools verified locally",
+      "verification": "Verified locally for spaces triage vertical tabs split contract notes and restore; recipe engine and split pane probe open"
+    },
+    {
+      "id": "P12",
+      "title": "Extensions and managed deployments",
+      "status": "Implemented / matrix and security review green",
+      "verification": "Verified locally for extension matrix and security review; enterprise enforcement gap open"
+    },
+    {
+      "id": "P13",
+      "title": "AI-assisted browser, opt-in",
+      "status": "Implemented / injection privacy and cost gates green",
+      "verification": "Verified locally for prompt injection privacy and cost; summaries compare and agent runtime gaps open"
+    },
+    {
+      "id": "P14",
+      "title": "Performance and low-memory program",
+      "status": "Implemented / published benchmarks green",
+      "verification": "Verified locally; published baseline and regression comparator pass"
+    },
+    {
+      "id": "P15",
+      "title": "Accessibility, languages and inclusive UX",
+      "status": "Implemented / accessible journeys green; localization gap",
+      "verification": "Verified locally for accessible journeys and RTL/CJK primitives; localized release and screen-reader devices open"
+    },
+    {
+      "id": "P16",
+      "title": "Packaging, distribution, release operations",
+      "status": "Implemented / signed release and rollback drill green",
+      "verification": "Verified locally for signed release and rollback dry run; notarization and store review gaps open"
+    },
+    {
+      "id": "P17",
+      "title": "Beta, staged launch and maintenance",
+      "status": "Blocked / governance drafted",
+      "verification": "Unverified; real users and measured SLOs absent"
+    },
+    {
+      "id": "P18",
+      "title": "Adaptive performance and tab lifecycle",
+      "status": "Implemented / lifecycle trace green",
+      "verification": "Verified locally for pressure leases and trace; teardown cost and joule energy open"
+    },
+    {
+      "id": "P19",
+      "title": "Efficient networking and storage",
+      "status": "Implemented / transport and storage recovery green",
+      "verification": "Verified locally for transport cache recovery logic and no data loss; OS disk-full and DoH open"
+    },
+    {
+      "id": "P20",
+      "title": "Rasha and advanced privacy",
+      "status": "Implemented / ownership and enforcement audit green",
+      "verification": "Verified locally for ownership rules enforcement and isolation; external fingerprint lab open"
+    },
+    {
+      "id": "P21",
+      "title": "Security, credentials and update integrity",
+      "status": "Implemented / isolation vault and signing evidence green",
+      "verification": "Verified locally for isolation vault permissions and signed updates; vault integration and external lab open"
+    },
+    {
+      "id": "P22",
+      "title": "Advanced tabs, workspaces and containers",
+      "status": "Implemented / tab and partition contracts green",
+      "verification": "Verified locally for stable IDs four layouts protected work and partitions; desktop container runtime open"
+    },
+    {
+      "id": "P23",
+      "title": "Continuity, migrations and recovery",
+      "status": "Implemented / fault backup sentinel green; E2E sync gap",
+      "verification": "Verified locally for faults backup sentinel; E2E encrypted sync open"
+    },
+    {
+      "id": "P24",
+      "title": "Research, reading, feeds and Focus",
+      "status": "Implemented / collection reader timer green; feeds gap",
+      "verification": "Verified locally for collection/reader/timer/offline; feed engine and research UI open"
+    },
+    {
+      "id": "P25",
+      "title": "Guarded automation and intelligent assistance",
+      "status": "Implemented / automation contract green; executor gap",
+      "verification": "Verified locally for dry-run approval receipts consent and injection; executor open"
+    },
+    {
+      "id": "P26",
+      "title": "Document, capture and download studio",
+      "status": "Implemented / save-copy and native documents green; download recovery gap",
+      "verification": "Verified locally for native documents and save-copy; download quarantine/resume open"
+    },
+    {
+      "id": "P27",
+      "title": "Media and real-time work",
+      "status": "Blocked / no real-device media or call verification",
+      "verification": "Unverified; playback quality and call protections not measured"
+    },
+    {
+      "id": "P28",
+      "title": "Extensions and web applications",
+      "status": "Implemented / extension trust green; PWA gap",
+      "verification": "Verified locally for extension trust and Rasha independence; PWA runtime open"
+    },
+    {
+      "id": "P29",
+      "title": "Developer tools and standards compatibility",
+      "status": "Implemented / native tooling and standards corpus green; official WPT gap",
+      "verification": "Verified locally for native tooling and standards corpus; official WPT open"
+    },
+    {
+      "id": "P30",
+      "title": "Comparative performance laboratory",
+      "status": "Implemented / matched-device lab green",
+      "verification": "Verified locally for matched-device coverage stability and scope"
+    },
+    {
+      "id": "P31",
+      "title": "Design, accessibility and localization",
+      "status": "Implemented / presets a11y and responsive chrome green",
+      "verification": "Verified locally for presets accessible journeys and responsive chrome; translated release and screen-reader devices open"
+    },
+    {
+      "id": "P32",
+      "title": "Native desktop and mobile parity",
+      "status": "Blocked / physical mobile devices missing",
+      "verification": "Partial; physical iPhone iPad and Android not available"
+    },
+    {
+      "id": "P33",
+      "title": "Migration, library and external search",
+      "status": "Implemented / import export and search validation green",
+      "verification": "Verified locally for import/export search validation and private isolation; account data export open"
+    },
+    {
+      "id": "P34",
+      "title": "Managed and supervised browsing",
+      "status": "Implemented / policy isolation and safe exit contract green",
+      "verification": "Verified locally for policy isolation and safe exit; managed runtime open"
+    },
+    {
+      "id": "P35",
+      "title": "Operational quality and release assurance",
+      "status": "Blocked / release decision no-go",
+      "verification": "Unverified; release decision no-go with 3 critical blockers"
+    },
+    {
+      "id": "P36",
+      "title": "Own inventory and rewards policy contracts",
+      "status": "Blocked / contracts drafted; approvals and jurisdiction pending",
+      "verification": "Unverified; approvals and jurisdiction missing"
+    },
+    {
+      "id": "P37",
+      "title": "First party campaign and consent implementation",
+      "status": "Blocked by P36 / technical fixtures green",
+      "verification": "Unverified for production; P36 approvals and jurisdiction missing"
+    },
+    {
+      "id": "P38",
+      "title": "Reward ledger and payout integration",
+      "status": "Blocked by P36/P37 / ledger contract green",
+      "verification": "Unverified for production; provider approval and P36/P37 missing"
+    },
+    {
+      "id": "P39",
+      "title": "Monetization pilot and continuing assurance",
+      "status": "Blocked / no approved rollout or measured economics",
+      "verification": "Unverified; no approved rollout or measured economics"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "B-00",
+      "phase": "P00",
+      "severity": "high",
+      "reason": "Charter and exit artifacts are unsigned by the responsible owner."
+    },
+    {
+      "id": "B-01",
+      "phase": "P17",
+      "severity": "critical",
+      "reason": "No real beta cohort, measured SLOs or live security-update channel; P35 dependency also unresolved."
+    },
+    {
+      "id": "B-02",
+      "phase": "P27",
+      "severity": "critical",
+      "reason": "No real-device playback quality or call-protection verification; no WebRTC call path."
+    },
+    {
+      "id": "B-03",
+      "phase": "P32",
+      "severity": "critical",
+      "reason": "Physical iPhone, iPad and Android runs are missing; only simulators/emulators were exercised."
+    },
+    {
+      "id": "B-04",
+      "phase": "P23",
+      "severity": "high",
+      "reason": "Sync payloads are TLS-only and not end-to-end encrypted."
+    },
+    {
+      "id": "B-05",
+      "phase": "P28",
+      "severity": "high",
+      "reason": "PWA install/window/offline runtime is missing."
+    },
+    {
+      "id": "B-06",
+      "phase": "P29",
+      "severity": "medium",
+      "reason": "Official WPT suite was not run; only a WPT-style corpus exists."
+    },
+    {
+      "id": "B-07",
+      "phase": "P26",
+      "severity": "medium",
+      "reason": "Download quarantine, resume and integrity checks are screens only."
+    },
+    {
+      "id": "B-08",
+      "phase": "P01",
+      "severity": "medium",
+      "reason": "Remote CI has not been observed green for the current tree."
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "Vaayvu-0.0.23-Android.apk",
+      "present": true,
+      "hashMatches": true,
+      "signed": true
+    },
+    {
+      "name": "Vaayvu-0.0.23-Windows-x64.zip",
+      "present": true,
+      "hashMatches": true,
+      "signed": false
+    },
+    {
+      "name": "Vaayvu-0.0.23-iOS.ipa",
+      "present": true,
+      "hashMatches": true,
+      "signed": true
+    },
+    {
+      "name": "Vaayvu-0.0.23-iPhoneSimulator.zip",
+      "present": true,
+      "hashMatches": true,
+      "signed": false
+    },
+    {
+      "name": "Vaayvu-0.0.23-macOS.dmg",
+      "present": true,
+      "hashMatches": true,
+      "signed": true
+    },
+    {
+      "name": "Vaayvu-0.0.23-macOS.pkg",
+      "present": true,
+      "hashMatches": true,
+      "signed": true
+    }
+  ]
+}

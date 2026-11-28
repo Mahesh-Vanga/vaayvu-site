@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "status": "unmeasured",
+  "measuredAt": null,
+  "source": "local CI, opt-in crash reports and release manifests",
+  "note": "Targets are defined; no real-user cohort has reported against them.",
+  "slos": [
+    { "id": "crash-free-sessions", "target": 0.995, "unit": "ratio", "window": "28d", "measured": null, "status": "unmeasured" },
+    { "id": "cold-start-p95", "target": 2500, "unit": "ms", "window": "28d", "measured": null, "status": "unmeasured" },
+    { "id": "update-success", "target": 0.99, "unit": "ratio", "window": "28d", "measured": null, "status": "unmeasured" },
+    { "id": "rollback-time", "target": 60, "unit": "minutes", "window": "incident", "measured": null, "status": "unmeasured" },
+    { "id": "critical-security-response", "target": 24, "unit": "hours", "window": "incident", "measured": null, "status": "unmeasured" }
+  ]
+}

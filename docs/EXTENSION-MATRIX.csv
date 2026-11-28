@@ -1,0 +1,11 @@
+feature,desktop,android,ios,status,evidence
+CSS-only Manifest V3 style extension,Supported,Supported,Supported,supported,chrome/extensions.js; tests/extensions.test.cjs
+Exact HTTPS site matching,Required,Required,Required,supported,chrome/extensions.js
+Wildcard or all-urls match,Rejected,Rejected,Rejected,unsupported,tests/extensions.test.cjs
+Content-script JavaScript,Rejected,Rejected,Rejected,unsupported,tests/extensions.test.cjs
+Network-capable CSS (url import var escape),Rejected,Rejected,Rejected,unsupported,tests/extensions.test.cjs
+Chrome Web Store install,Not implemented,Not implemented,Not implemented,unsupported,docs/EXTENSIONS-MANAGED.md
+Native messaging / background service worker,Not implemented,Not implemented,Not implemented,unsupported,docs/EXTENSIONS-MANAGED.md
+Private-window application,Never,Never,Never,blocked,chrome/extensions.js
+Safe-mode bulk disable,Supported,Supported,Supported,supported,chrome/extensions.js; tests/extensions.test.cjs
+Enterprise policy enforcement (MDM/GPO/plist),Screen contracts only,Screen contracts only,Screen contracts only,gap,docs/EXTENSIONS-MANAGED.md
