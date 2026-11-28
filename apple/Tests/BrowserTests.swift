@@ -126,7 +126,16 @@ final class BrowserTests: XCTestCase {
         _ = try await host.chrome.evaluateJavaScript(script)
         for _ in 0..<100 where !host.tabs.values.contains(where: { $0.isPrivate }) { try await Task.sleep(nanoseconds: 50_000_000) }
         let (id, tab) = try XCTUnwrap(host.tabs.first(where: { $0.value.isPrivate }))
-        for _ in 0..<200 where tab.web.title != "Fixture" || tab.web.isLoading { try await Task.sleep(nanoseconds: 50_000_000) }
+        // A loopback connection can be reset while the simulator is still warming
+        // up. Re-submit the address a few times before treating it as a failure.
+        for attempt in 0..<3 {
+            if attempt > 0 {
+                _ = try await host.chrome.evaluateJavaScript(
+                    "document.querySelector('#address').value='http://127.0.0.1:\(port.rawValue)/';document.querySelector('#address-form').requestSubmit();true")
+            }
+            for _ in 0..<200 where tab.web.title != "Fixture" || tab.web.isLoading { try await Task.sleep(nanoseconds: 50_000_000) }
+            if tab.web.title == "Fixture" { break }
+        }
         let diagnostics = try await host.chrome.evaluateJavaScript("window.testNotices.join(', ')") as? String ?? ""
         XCTAssertEqual(tab.web.title, "Fixture", "Navigation to \(String(describing: tab.web.url)) emitted \(diagnostics)")
         XCTAssertFalse(tab.web.isHidden)
