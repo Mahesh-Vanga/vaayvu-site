@@ -100,6 +100,8 @@ The checks job is the minimal CI gate. Platform jobs depend on it.
 | Reproducible developer setup | this document, `scripts/doctor.cjs`, `README.md` | Implemented |
 | Green CI observed | Build Vaayvu run 46121708263 on `ac642dc` | **Green remotely** (checks, Windows, Apple, Android) |
 
-The Apple job caches Xcode DerivedData under `$RUNNER_TEMP/DerivedData` and
-Electron under `$RUNNER_TEMP/electron`, and boots the iPhone simulator while the
-build runs. A cold run still compiles from scratch; later runs reuse the cache.
+The Apple job caches the built test products under
+`$RUNNER_TEMP/DerivedData/Build/Products` and runs
+`xcodebuild test-without-building`, so a warm run skips compilation entirely.
+It also caches Electron under `$RUNNER_TEMP/electron` and boots the iPhone
+simulator in parallel. A cold run still compiles from scratch.
