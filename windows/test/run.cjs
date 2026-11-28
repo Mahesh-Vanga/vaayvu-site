@@ -3,7 +3,7 @@ const { spawnSync } = require('node:child_process');
 const fs = require('node:fs'),
   os = require('node:os'),
   path = require('node:path');
-const suites = ['smoke', 'vfd', 'desktop-windows', 'content-workflow', 'lifecycle-pressure', 'hostile-isolation'];
+const suites = ['smoke', 'vfd', 'desktop-windows', 'content-workflow', 'downloads', 'domain-store', 'lifecycle-pressure', 'hostile-isolation'];
 function run(suite) {
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'vaayvu-smoke-'));
   try {

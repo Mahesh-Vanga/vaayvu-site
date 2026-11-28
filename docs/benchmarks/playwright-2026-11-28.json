@@ -1,0 +1,58 @@
+{
+  "phase": "P03",
+  "generatedAt": "2026-11-28T09:00:20.332Z",
+  "playwright": "1.65.1",
+  "chromium": "chromium-1255",
+  "probes": [
+    {
+      "name": "browser shell",
+      "file": "tests/browser-ui.cjs",
+      "status": "passed",
+      "durationMs": 34571
+    },
+    {
+      "name": "responsive mobile controls",
+      "file": "tests/responsive-mobile-ui.cjs",
+      "status": "passed",
+      "durationMs": 3791
+    },
+    {
+      "name": "mobile pages",
+      "file": "tests/mobile-pages-ui.cjs",
+      "status": "passed",
+      "durationMs": 17625
+    },
+    {
+      "name": "mobile overview",
+      "file": "tests/mobile-overview-ui.cjs",
+      "status": "passed",
+      "durationMs": 4694
+    },
+    {
+      "name": "desktop tab strip",
+      "file": "tests/desktop-tab-strip-ui.cjs",
+      "status": "passed",
+      "durationMs": 2018
+    },
+    {
+      "name": "Observatory/start page",
+      "file": "tests/observatory-ui.cjs",
+      "status": "passed",
+      "durationMs": 978
+    },
+    {
+      "name": "inspector routing",
+      "file": "tests/inspector-ui.cjs",
+      "status": "passed",
+      "durationMs": 929
+    },
+    {
+      "name": "account switch",
+      "file": "tests/account-switch-ui.cjs",
+      "status": "passed",
+      "durationMs": 485
+    }
+  ],
+  "passed": 8,
+  "failed": 0
+}

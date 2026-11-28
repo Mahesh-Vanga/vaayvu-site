@@ -11,7 +11,7 @@ and downloads, with a signed internal macOS build and a Windows build.
 | Tabs | Native tab menu, placement, search, independent windows | `windows/test/desktop-windows.cjs` |
 | Omnibox | `#address` form, input events, navigation | `windows/test/smoke.cjs` |
 | Bookmarks | Save, list and restore bookmarks | `windows/test/desktop-windows.cjs`, `windows/test/smoke.cjs` |
-| Downloads | `will-download` handling, save dialog, cancel/cleanup | `windows/host.cjs` (no native-suite assertion) |
+| Downloads | `will-download` handling, save dialog, cancel/cleanup | `windows/test/downloads.cjs` |
 | Windows build | Portable x64 archive | `tests/test/0.0.23/Vaayvu-0.0.23-Windows-x64.zip` |
 
 Local execution on 2026-11-28:
@@ -22,11 +22,11 @@ npm --prefix windows test
 
 Result: 8 policy tests passed, shared UI checks passed, and the native suite
 verified tab menu, placement, bookmarking, tab search, Task Manager,
-independent windows and private-safe window restore.
+independent windows, private-safe window restore and the download lifecycle.
 
 ## Signed macOS build
 
-The current source was packaged and signed on 2026-11-28:
+The current source was rebuilt and signed on 2026-11-28 (14:19 local):
 
 ```sh
 npm --prefix windows run package:mac
@@ -62,18 +62,26 @@ Verified Windows x64 PE, Vaayvu product resources, ASAR digest, hardened
 Electron fuses, desktop sources and 43 shared assets.
 ```
 
-## Downloads gap
+## Downloads
 
-The download lifecycle is implemented in `windows/host.cjs`:
+The download lifecycle is implemented in `windows/host.cjs` and asserted by a
+real Electron `DownloadItem` in `windows/test/downloads.cjs`:
 
 - `will-download` prevents default navigation;
-- the save dialog is titled;
-- completed, interrupted and cancelled states emit browser events;
-- private-session teardown cancels active downloads.
+- the save dialog is titled and its options are read back from the live item;
+- a deterministic destination writes the expected bytes, emits one completed
+  `download` event and clears the in-flight set;
+- cancel leaves no final or `.crdownload` file and never reports completion;
+- `restrict()` cancels a lingering download during teardown.
 
-The screen contract is tested (`s-233`, `s-510`–`s-515`), but the Electron
-native suite does not yet assert a real file download. That is a coverage gap,
-not a fabricated pass.
+Run:
+
+```sh
+windows/node_modules/.bin/electron windows/test/downloads.cjs
+```
+
+Result: 3 real downloads — 1 completed, 2 cancelled — save dialog
+`Save download`, destination `ok.txt`.
 
 ## Exit gate
 
@@ -84,11 +92,12 @@ not a fabricated pass.
 | Tabs | Implemented and native-tested |
 | Omnibox | Implemented and native-tested |
 | Bookmarks | Implemented and native-tested |
-| Downloads | Implemented; native assertion missing |
-| Signed internal macOS build | **Current source signed and verified** |
+| Downloads | Implemented and native-tested |
+| Signed internal macOS build | **Current source rebuilt, signed and verified** |
 | Windows build | **Current source packaged and verified** |
-| Downloads native assertion | Follow-up gap |
+| Downloads native assertion | `windows/test/downloads.cjs` — 3 real downloads |
 | Gate met | **Yes, locally** |
 
-P05's exit gate is met locally. The download native assertion remains a test
-coverage follow-up, not a build gate.
+P05's exit gate is met locally: the native suite now asserts real downloads, and
+the macOS DMG/PKG were rebuilt from the current source with the Developer ID
+Application and Installer identities.

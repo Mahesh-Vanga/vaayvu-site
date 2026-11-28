@@ -78,12 +78,12 @@ test('the phase inventory has 40 rows and does not invent unsubmitted phases', (
   assert.equal(p04[1], 'Browser domain model and durable data');
   assert.equal(p04[2], '4');
   assert.equal(p04[5], 'P03');
-  assert.match(p04[7], /shipping renderer still uses localStorage/);
+  assert.match(p04[7], /Electron renderer persists through the SQLite key-value bridge/);
   const p05 = rows.find((r) => r[0] === 'P05');
   assert.equal(p05[1], 'Desktop minimum viable browser');
   assert.equal(p05[2], '5');
   assert.equal(p05[5], 'P04');
-  assert.match(p05[7], /current macOS DMG\/PKG signed and verified/);
+  assert.match(p05[7], /current macOS DMG\/PKG rebuilt signed and verified/);
   const p06 = rows.find((r) => r[0] === 'P06');
   assert.equal(p06[1], 'Apple mobile browser');
   assert.equal(p06[2], '6');

@@ -99,3 +99,18 @@ module.exports = async function checkResponsiveMobile(browser) {
     await desktop.close();
   }
 };
+
+if (require.main === module) {
+  const { chromium } = require('playwright');
+  (async () => {
+    const browser = await chromium.launch({ executablePath: process.env.VAAYVU_TEST_CHROME, headless: true });
+    try {
+      await module.exports(browser);
+    } finally {
+      await browser.close();
+    }
+  })().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}

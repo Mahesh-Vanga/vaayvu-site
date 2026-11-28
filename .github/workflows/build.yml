@@ -33,13 +33,18 @@ jobs:
         run: |
           for script in chrome/*.js; do node --check "$script"; done
           node --test tests/*.test.cjs sync/*.test.mjs
-      - name: Exercise tab controls, extensions and settings at desktop and phone sizes
+      - name: Run the eight interactive prototypes
         run: |
           npm install --prefix "$RUNNER_TEMP/vaayvu-ui" --no-save --no-package-lock playwright@1.62.1
           "$RUNNER_TEMP/vaayvu-ui/node_modules/.bin/playwright" install --with-deps chromium
-          NODE_PATH="$RUNNER_TEMP/vaayvu-ui/node_modules" node tests/browser-ui.cjs
-          NODE_PATH="$RUNNER_TEMP/vaayvu-ui/node_modules" node tests/desktop-tab-strip-ui.cjs
-          NODE_PATH="$RUNNER_TEMP/vaayvu-ui/node_modules" node tests/inspector-ui.cjs
+          NODE_PATH="$RUNNER_TEMP/vaayvu-ui/node_modules" node scripts/run-prototypes.cjs --json "$RUNNER_TEMP/prototypes.json"
+          cat "$RUNNER_TEMP/prototypes.json"
+      - name: Upload prototype evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: prototype-evidence
+          path: ${{ runner.temp }}/prototypes.json
       - name: Validate the personal server configuration
         env:
           VAAYVU_DOMAIN: sync.example.com

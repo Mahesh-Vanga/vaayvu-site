@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T08:32:39.173Z",
+  "generatedAt": "2026-11-28T09:02:33.881Z",
   "product": "Vaayvu",
   "version": "0.0.23",
   "decision": "no-go",
@@ -34,19 +34,19 @@
       "id": "P03",
       "title": "Design tokens and navigation prototypes",
       "status": "Implemented / verified locally",
-      "verification": "Verified locally on 2026-11-28; token check passes and CI checks job reproduces the probes"
+      "verification": "Verified locally on 2026-11-28: token check passes and all 8 Playwright probes passed (Playwright 1.65.1"
     },
     {
       "id": "P04",
       "title": "Browser domain model and durable data",
       "status": "Implemented / verified locally",
-      "verification": "Verified locally; domain-store and shared suites pass"
+      "verification": "Verified locally; domain-store native-store and bridge tests pass and an Electron smoke run wrote renderer keys to vaayvu.sqlite"
     },
     {
       "id": "P05",
       "title": "Desktop minimum viable browser",
       "status": "Implemented / verified locally",
-      "verification": "Verified locally; mac and Windows build verifiers pass against current source"
+      "verification": "Verified locally; native download suite passed 3 real downloads and mac and Windows build verifiers pass against current source"
     },
     {
       "id": "P06",

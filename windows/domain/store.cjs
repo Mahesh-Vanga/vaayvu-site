@@ -1,11 +1,12 @@
 'use strict';
 
-// Reference browser domain store for P04.
+// Browser domain store for P04.
 //
-// SQLite schema, state machines, migrations and crash recovery live here so the
-// contracts can be tested independently of a renderer. The shipping desktop
-// browser currently persists settings/history in localStorage (chrome/core.js);
-// wiring this store into Electron is a separate step and is not claimed.
+// SQLite schema, state machines, migrations and crash recovery live here. The
+// shipping Electron renderer reaches this store through a synchronous
+// key-value bridge (windows/preload.cjs + chrome/native-store.js), so durable
+// renderer state no longer lives in localStorage. Tab/window tables remain the
+// contract-tested domain model and are not yet populated by the renderer.
 
 const { DatabaseSync } = require('node:sqlite');
 const { randomUUID } = require('node:crypto');
@@ -88,6 +89,18 @@ const MIGRATIONS = [
       db.exec('ALTER TABLE sessions ADD COLUMN recovered INTEGER NOT NULL DEFAULT 0');
     },
   },
+  {
+    version: 3,
+    up(db) {
+      db.exec(`
+        CREATE TABLE key_values (
+          key TEXT PRIMARY KEY,
+          value TEXT NOT NULL,
+          updated_at TEXT NOT NULL
+        );
+      `);
+    },
+  },
 ];
 
 function migrate(db, { to = MIGRATIONS[MIGRATIONS.length - 1].version } = {}) {
@@ -118,8 +131,64 @@ class BrowserStore {
   constructor(file) {
     this.db = new DatabaseSync(file);
     this.db.exec('PRAGMA foreign_keys = ON');
+    try {
+      this.db.exec('PRAGMA busy_timeout = 2000');
+      if (file && file !== ':memory:') this.db.exec('PRAGMA journal_mode = WAL');
+    } catch (error) {}
     this.migrations = migrate(this.db);
     this.sessionId = null;
+  }
+
+  // Durable renderer key-value state. Values are stored exactly as the Web
+  // Storage API would hold them (JSON strings), so the renderer keeps its
+  // existing read/write paths while SQLite owns the bytes.
+  getValue(key) {
+    const row = this.db.prepare('SELECT value FROM key_values WHERE key = ?').get(String(key));
+    return row ? row.value : null;
+  }
+
+  setValue(key, value) {
+    this.db
+      .prepare(
+        'INSERT INTO key_values (key, value, updated_at) VALUES (?, ?, ?) ' +
+          'ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at'
+      )
+      .run(String(key), String(value), now());
+    return true;
+  }
+
+  removeValue(key) {
+    return this.db.prepare('DELETE FROM key_values WHERE key = ?').run(String(key)).changes > 0;
+  }
+
+  listValues() {
+    return this.db.prepare('SELECT key FROM key_values ORDER BY key').all().map((row) => row.key);
+  }
+
+  // One-time import from the pre-SQLite renderer. Existing keys win, so a
+  // second launch can never overwrite newer SQLite state with old localStorage.
+  importValues(entries) {
+    if (!Array.isArray(entries) || !entries.length) return 0;
+    const insert = this.db.prepare(
+      'INSERT OR IGNORE INTO key_values (key, value, updated_at) VALUES (?, ?, ?)'
+    );
+    let imported = 0;
+    this.db.exec('BEGIN');
+    try {
+      for (const entry of entries) {
+        if (!Array.isArray(entry) || entry.length !== 2) continue;
+        const key = entry[0];
+        const value = entry[1];
+        if (typeof key !== 'string' || !key || key.length > 512 || typeof value !== 'string') continue;
+        if (value.length > 4 * 1024 * 1024) continue;
+        imported += insert.run(key, value, now()).changes;
+      }
+      this.db.exec('COMMIT');
+    } catch (error) {
+      this.db.exec('ROLLBACK');
+      throw error;
+    }
+    return imported;
   }
 
   _journal(event, tabId = null, detail = null) {

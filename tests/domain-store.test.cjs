@@ -18,7 +18,7 @@ test('migrations run in order and preserve existing data', () => {
     const db = new DatabaseSync(file);
     assert.deepEqual(migrate(db, { to: 1 }), [1]);
     db.prepare('INSERT INTO profiles (id, name, created_at) VALUES (?, ?, ?)').run('p-1', 'Meera', '2026-11-28T00:00:00.000Z');
-    assert.deepEqual(migrate(db), [1, 2]);
+    assert.deepEqual(migrate(db), [1, 2, 3]);
     const columns = db.prepare("PRAGMA table_info('tabs')").all().map((row) => row.name);
     assert.ok(columns.includes('pinned'));
     assert.equal(db.prepare('SELECT name FROM profiles WHERE id = ?').get('p-1').name, 'Meera');
@@ -32,7 +32,7 @@ test('tab and window state machines reject illegal transitions', () => {
   const { dir, file } = tempDb();
   try {
     const store = new BrowserStore(file);
-    assert.deepEqual(store.migrationVersions(), [1, 2]);
+    assert.deepEqual(store.migrationVersions(), [1, 2, 3]);
     store.beginSession();
     const profile = store.createProfile('Meera');
     const windowId = store.createWindow(profile);
@@ -82,6 +82,34 @@ test('an unclean session recovers tabs as suspended without data loss', () => {
     assert.deepEqual(third.recoverPreviousSessions(), []);
     third.endSession();
     third.close();
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('renderer key-values persist in SQLite and legacy import never overwrites newer state', () => {
+  const { dir, file } = tempDb();
+  try {
+    const store = new BrowserStore(file);
+    assert.equal(store.getValue('vaayvu.settings'), null);
+    store.setValue('vaayvu.settings', JSON.stringify({ theme: 'light' }));
+    store.setValue('vaayvu.tabs', JSON.stringify([{ id: 'one' }]));
+    assert.deepEqual(store.listValues(), ['vaayvu.settings', 'vaayvu.tabs']);
+    assert.equal(store.removeValue('vaayvu.tabs'), true);
+    assert.equal(store.removeValue('vaayvu.tabs'), false);
+    const imported = store.importValues([
+      ['vaayvu.settings', JSON.stringify({ theme: 'dark' })],
+      ['vaayvu.history', JSON.stringify([{ url: 'https://example.com' }])],
+      ['bad'],
+    ]);
+    assert.equal(imported, 1);
+    assert.equal(store.getValue('vaayvu.settings'), JSON.stringify({ theme: 'light' }));
+    assert.deepEqual(JSON.parse(store.getValue('vaayvu.history')), [{ url: 'https://example.com' }]);
+    store.close();
+
+    const reopened = new BrowserStore(file);
+    assert.deepEqual(JSON.parse(reopened.getValue('vaayvu.settings')), { theme: 'light' });
+    reopened.close();
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

@@ -18,6 +18,79 @@ const path = require('node:path');
 const { randomUUID } = require('node:crypto');
 const { UI_ORIGIN, HOME, website, syncDestination, domains, blockedHost, bounds, isInspectorFrontend, siteOf, vfdMatch } = require('./policy.cjs');
 const { tabBarMenu } = require('./desktop-windows.cjs');
+const { BrowserStore } = require('./domain/store.cjs');
+
+// Durable renderer state (P04). One SQLite file per install holds the
+// key-value table plus the crash journal. The renderer reaches it through the
+// synchronous VaayvuStore bridge in windows/preload.cjs, so UI keys no longer
+// persist in Chromium localStorage.
+let domainStore = null;
+function durableStore() {
+  if (domainStore) return domainStore;
+  domainStore = new BrowserStore(path.join(app.getPath('userData'), 'vaayvu.sqlite'));
+  domainStore.beginSession();
+  try {
+    domainStore.recoverPreviousSessions();
+  } catch (error) {}
+  return domainStore;
+}
+const trustedStoreFrame = (event) => !!event.senderFrame && event.senderFrame.url === HOME;
+const storeKey = (key) => typeof key === 'string' && key.length > 0 && key.length <= 512;
+const storeValue = (value) => typeof value === 'string' && value.length <= 4 * 1024 * 1024;
+
+ipcMain.on('vaayvu:store-get', (event, key) => {
+  if (!trustedStoreFrame(event) || !storeKey(key)) { event.returnValue = null; return; }
+  try {
+    event.returnValue = durableStore().getValue(key);
+  } catch (error) {
+    event.returnValue = null;
+  }
+});
+ipcMain.on('vaayvu:store-set', (event, key, value) => {
+  if (!trustedStoreFrame(event) || !storeKey(key) || !storeValue(value)) { event.returnValue = false; return; }
+  try {
+    event.returnValue = durableStore().setValue(key, value);
+  } catch (error) {
+    event.returnValue = false;
+  }
+});
+ipcMain.on('vaayvu:store-remove', (event, key) => {
+  if (!trustedStoreFrame(event) || !storeKey(key)) { event.returnValue = false; return; }
+  try {
+    event.returnValue = durableStore().removeValue(key);
+  } catch (error) {
+    event.returnValue = false;
+  }
+});
+ipcMain.on('vaayvu:store-keys', (event) => {
+  if (!trustedStoreFrame(event)) { event.returnValue = []; return; }
+  try {
+    event.returnValue = durableStore().listValues();
+  } catch (error) {
+    event.returnValue = [];
+  }
+});
+ipcMain.on('vaayvu:store-import', (event, entries) => {
+  if (!trustedStoreFrame(event) || !Array.isArray(entries) || entries.length > 5000) {
+    event.returnValue = 0;
+    return;
+  }
+  try {
+    event.returnValue = durableStore().importValues(entries);
+  } catch (error) {
+    event.returnValue = 0;
+  }
+});
+app.on('will-quit', () => {
+  if (!domainStore) return;
+  try {
+    domainStore.endSession();
+  } catch (error) {}
+  try {
+    domainStore.close();
+  } catch (error) {}
+  domainStore = null;
+});
 
 // Electron allows one request handler per session. Route shared-profile traffic
 // to the window that owns the request before applying its policy.
@@ -251,6 +324,13 @@ class BrowserHost {
     this.zones = [];
     this.enabled = false;
     this.downloads = new Set();
+    // Deterministic destination for tests and headless runs; the normal path
+    // keeps the native save dialog. onDownload/onDownloadDone are test hooks.
+    this.downloadDir = typeof options.downloadDir === 'string' && options.downloadDir
+      ? path.resolve(options.downloadDir)
+      : '';
+    this.onDownload = typeof options.onDownload === 'function' ? options.onDownload : null;
+    this.onDownloadDone = typeof options.onDownloadDone === 'function' ? options.onDownloadDone : null;
     this.protect = true;
     this.custom = new Set();
     this.blocklist = new Set();
@@ -544,8 +624,29 @@ class BrowserHost {
       const { host, tab } = entry;
       host.downloads.add(item);
       item.setSaveDialogOptions({ title: 'Save download' });
+      if (host.downloadDir) {
+        let name = 'download';
+        try {
+          name = path.basename(new URL(item.getURL()).pathname) || name;
+        } catch (error) {}
+        item.setSavePath(path.join(host.downloadDir, name));
+      }
+      if (host.onDownload) {
+        try {
+          host.onDownload(item, tab);
+        } catch (error) {}
+      }
       item.once('done', (_event, state) => {
         host.downloads.delete(item);
+        if (state !== 'completed' && host.downloadDir) {
+          const savePath = item.getSavePath();
+          for (const file of [savePath, savePath + '.crdownload']) {
+            if (!file) continue;
+            try {
+              fs.rmSync(file, { force: true });
+            } catch (error) {}
+          }
+        }
         if (state === 'completed' && host.enabled)
           host.event('download', {
             id: tab.id,
@@ -553,6 +654,11 @@ class BrowserHost {
             name: path.basename(item.getSavePath()),
             private: tab.secret,
           });
+        if (host.onDownloadDone) {
+          try {
+            host.onDownloadDone(item, state, tab);
+          } catch (error) {}
+        }
       });
     });
     return ses;

@@ -111,6 +111,18 @@ PASS desktop tab strips for Mac and Windows
 PASS native Inspect routing on mac, windows, android and ios
 ```
 
+Re-run on 2026-11-28 with Playwright 1.65.1 and Chromium 1255: **8 of 8 probes
+passed locally**. The run is reproducible through one command:
+
+```sh
+node scripts/run-prototypes.cjs --json docs/benchmarks/playwright-2026-11-28.json
+```
+
+`scripts/run-prototypes.cjs` executes each probe explicitly and writes the
+result; the committed evidence is
+`docs/benchmarks/playwright-2026-11-28.json`. CI runs the same script and
+uploads `prototype-evidence`.
+
 ## Exit gate
 
 | Gate item | State |

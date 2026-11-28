@@ -12,7 +12,7 @@ one at a time; unsubmitted rows stay explicitly blank rather than invented.
 | P01 | Engineering workstation and repository | 1 | **Verified** — remote CI green 2026-11-28 |
 | P02 | Engine feasibility lab | 2 | **Verified locally** — three engine spikes executed |
 | P03 | Design tokens and navigation prototypes | 3 | **Verified locally** — token guard and probes green |
-| P04 | Browser domain model and durable data | 4 | **Verified locally** — contracts tested; shipping uses localStorage |
+| P04 | Browser domain model and durable data | 4 | **Verified locally** — contracts tested; Electron storage on SQLite |
 | P05 | Desktop minimum viable browser | 5 | **Verified locally** — current mac build signed; Windows build verified |
 | P06 | Apple mobile browser | 6 | Unverified — simulator acceptance green, TestFlight upload blocked |
 | P07 | Android phone/tablet browser | 7 | **Verified locally** — signed APKs and adaptive launches pass |
@@ -144,8 +144,9 @@ until blocker parity and media/DRM are measured.
 - **Implementation status:** Implemented; token package and all interactive probes pass locally
 - **Owner:** Mahesh Vanga
 - **Origin:** V25 baseline (22 Nov 2026)
-- **Verification:** Verified locally on 2026-11-28
+- **Verification:** Verified locally on 2026-11-28; all eight interactive probes pass through `scripts/run-prototypes.cjs` (evidence: `docs/benchmarks/playwright-2026-11-28.json`)
 - **Evidence:** `design/tokens.json`, `scripts/check-tokens.cjs`,
+  `scripts/run-prototypes.cjs`, `docs/benchmarks/playwright-2026-11-28.json`,
   `docs/DESIGN-SYSTEM.md`, `branding/`, `chrome/liquid.css`
 
 ### Exit gate audit
@@ -158,11 +159,11 @@ until blocker parity and media/DRM are measured.
 | Glass guidance | Documented from `chrome/liquid.css` |
 | Responsive layouts | Breakpoints and mobile stylesheet documented |
 | A11y foundations | focus-visible, reduced motion, dark and high-contrast paths |
-| Tested interactive prototypes | **All Playwright probes passed locally** |
+| Tested interactive prototypes | **All 8 probes passed locally via `scripts/run-prototypes.cjs`; CI uploads the JSON** |
 | Gate met | **Yes, locally** |
 
-P03's local gate is met, and the `checks` job of Build Vaayvu reproduces the
-token guard and probe results remotely.
+P03's local gate is met. Build Vaayvu runs the same explicit probe runner in
+its `checks` job and uploads `prototype-evidence`.
 
 ## P04 — Browser domain model and durable data
 
@@ -172,12 +173,14 @@ token guard and probe results remotely.
 - **Exit gate:** State machines, migrations and tested recovery
 - **Dependency:** P03
 - **Status:** **Verified locally** — contracts tested
-- **Implementation status:** Implemented; SQLite contracts tested (shipping renderer still uses `localStorage`)
+- **Implementation status:** Implemented; SQLite contracts tested and the Electron renderer persists through the SQLite key-value bridge
 - **Owner:** Mahesh Vanga
 - **Origin:** V25 baseline (22 Nov 2026)
-- **Verification:** Verified locally on 2026-11-28; `tests/domain-store.test.cjs` passes 4/4 (migrations 1→2, illegal transitions, unclean recovery, container isolation)
-- **Evidence:** `windows/domain/store.cjs`, `tests/domain-store.test.cjs`,
-  `docs/DOMAIN-MODEL.md`
+- **Verification:** Verified locally on 2026-11-28; `tests/domain-store.test.cjs` passes 5/5 (migrations 1→3, illegal transitions, unclean recovery, container isolation, key-value persistence), plus `tests/native-store.test.cjs` and `tests/domain-bridge.test.cjs`; `windows/test/domain-store.cjs` asserts the Electron UI’s `localStorage` is the SQLite shim and its key exists in `key_values`
+- **Evidence:** `windows/domain/store.cjs`, `windows/preload.cjs`,
+  `windows/host.cjs`, `chrome/native-store.js`, `windows/test/domain-store.cjs`,
+  `tests/domain-store.test.cjs`, `tests/native-store.test.cjs`,
+  `tests/domain-bridge.test.cjs`, `docs/DOMAIN-MODEL.md`
 
 ### Exit gate audit
 
@@ -189,11 +192,11 @@ token guard and probe results remotely.
 | Migrations | Versioned `1 → 2`, tested |
 | State machines | Tab and window transitions tested |
 | Tested recovery | Unclean-session recovery tested, no repeat recovery |
-| Shipping integration | Follow-up — renderer still persists in `localStorage` |
+| Shipping integration | Electron renderer persists through the SQLite `key_values` bridge; legacy localStorage imported once |
 | Gate met | **Yes, locally** |
 
-P04's gate is met locally by the tested contracts; shipping integration is a
-separate follow-up.
+P04's gate is met locally by the tested contracts and the wired Electron storage
+bridge.
 
 ## P05 — Desktop minimum viable browser
 
@@ -206,8 +209,8 @@ separate follow-up.
 - **Implementation status:** Implemented; current macOS and Windows builds verified
 - **Owner:** —
 - **Origin:** V25 baseline (22 Nov 2026)
-- **Verification:** Verified locally on 2026-11-28
-- **Evidence:** `docs/DESKTOP-MVP.md`, `windows/test/`, `tests/test/0.0.23/`
+- **Verification:** Verified locally on 2026-11-28; macOS DMG/PKG rebuilt at 14:19 with Developer ID Application and Installer identities; `windows/test/downloads.cjs` asserted 3 real downloads (1 completed, 2 cancelled)
+- **Evidence:** `docs/DESKTOP-MVP.md`, `windows/test/`, `windows/test/downloads.cjs`, `tests/test/0.0.23/`
 
 ### Exit gate audit
 
@@ -215,13 +218,14 @@ separate follow-up.
 |---|---|
 | Chromium integration | Electron 45.4.1, sandboxed |
 | Tabs / omnibox / bookmarks | Implemented and native-tested |
-| Downloads | Implemented; **no native assertion** |
+| Downloads | Implemented; **native assertion** in `windows/test/downloads.cjs` |
 | Signed internal macOS build | **Current source signed and verified** |
 | Windows build | **Current source packaged and verified** |
 | Gate met | **Yes, locally** |
 
-Local `npm --prefix windows test` passed. `package:mac` + `verify:mac` and
-`package` + `verify` both pass against the current source.
+Local `npm --prefix windows test` passed, including the native download suite.
+`package:mac` + `verify:mac` and `package` + `verify` both pass against the
+current source.
 
 ## P06 — Apple mobile browser
 

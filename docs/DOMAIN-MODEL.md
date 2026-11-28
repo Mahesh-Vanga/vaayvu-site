@@ -1,24 +1,29 @@
 # Browser domain model and durable data (P04)
 
 P04 asks for tabs/windows/profiles/containers, SQLite, crash journals and
-migration, with tested state machines and recovery. This document separates the
-**shipping storage** from the **tested reference store** added here.
+migration, with tested state machines and recovery. This document records the
+**shipping storage** and the **tested domain store** behind it.
 
 ## Shipping storage today
 
 | Platform | Durable data | Evidence |
 |---|---|---|
-| Desktop renderer | `localStorage` keys under `vaayvu.*` | `chrome/core.js` |
+| Desktop renderer | SQLite `key_values` table in `vaayvu.sqlite`, through the synchronous `VaayvuStore` bridge | `windows/host.cjs`, `windows/preload.cjs`, `chrome/native-store.js` |
 | iPhone / macOS | `WKWebsiteDataStore`; legacy store copied forward once with a marker | `apple/Sources/ChromeStorage.swift` |
 | Android | `SharedPreferences` plus WebView storage | `android/.../BrowserActivity.java` |
 
-Result: profiles, history, settings and recently closed tabs are durable, but
-they are **not stored in SQLite**. There is no tab/window/container state machine
-in the shipping path, only renderer state and screen-level recovery helpers.
+The Electron UI keeps the Web Storage API, but `chrome/native-store.js` swaps
+`window.localStorage` for a shim before `boot.js` runs. Reads and writes go to
+SQLite through `ipcRenderer.sendSync`; values that existed before the bridge are
+imported once and never overwrite newer SQLite state. Outside Electron the
+bridge is absent and the normal localStorage path remains for tests and web
+preview. Aggregate renderer keys (`vaayvu.tabs`, `vaayvu.history`,
+`vaayvu.settings`, …) are therefore durable in SQLite. The tab/window/container
+tables are still contract-tested rather than populated by the renderer.
 
-## Tested reference store
+## Domain store
 
-`windows/domain/store.cjs` adds a real SQLite domain core using `node:sqlite`:
+`windows/domain/store.cjs` provides the SQLite domain core using `node:sqlite`:
 
 - tables: `profiles`, `containers`, `windows`, `tabs`, `sessions`,
   `crash_journal`, `schema_migrations`;
@@ -32,8 +37,9 @@ in the shipping path, only renderer state and screen-level recovery helpers.
   returned; recovered sessions are marked so recovery is not repeated;
 - durable reopen test: title, URL, pinned flag and container survive.
 
-This is a reference layer, **not yet wired into Electron**. The shipping app
-continues to use `localStorage`.
+The Electron storage bridge writes renderer state into the `key_values` table
+of the same database, so app data now lives in SQLite rather than Chromium
+localStorage.
 
 ## Schema
 
@@ -46,6 +52,7 @@ continues to use `localStorage`.
 | `sessions` | Clean/ended and recovered markers |
 | `crash_journal` | Append-only events with session and tab references |
 | `schema_migrations` | Applied migration versions |
+| `key_values` | Durable renderer state, keyed exactly as the Web Storage API |
 
 Migration history:
 
@@ -53,6 +60,7 @@ Migration history:
 |---|---|
 | 1 | Base tables, checks, indexes |
 | 2 | `tabs.pinned`, `sessions.recovered` |
+| 3 | `key_values` for the shipping renderer bridge |
 
 ## Tested recovery
 
@@ -64,6 +72,11 @@ Migration history:
 3. A simulated crash (close without `endSession`) recovers live tabs as
    `suspended`; a later launch does not recover the same session twice.
 4. Containers cannot be attached to another profile; data survives reopen.
+5. Key-value writes persist across reopen; legacy import only fills missing keys
+   and never overwrites newer SQLite state (`tests/domain-store.test.cjs`).
+6. The renderer shim imports legacy keys once, then reads, writes, enumerates and
+   clears through the bridge, and stays a no-op outside Electron
+   (`tests/native-store.test.cjs`, `tests/domain-bridge.test.cjs`).
 
 ## Exit gate
 
@@ -75,9 +88,9 @@ Migration history:
 | Migrations | Versioned and tested (`1 → 2`) |
 | State machines | Tab and window transitions tested |
 | Tested recovery | Unclean-session recovery tested |
-| Integrated into shipping browser | **No** — renderer still uses `localStorage` |
-| Gate met | **Yes, locally** — all four gate contracts are tested |
+| Integrated into shipping browser | **Yes** — Electron renderer state is written to SQLite `key_values`; pre-bridge localStorage is imported once |
+| Native shipping assertion | **Yes** — `windows/test/domain-store.cjs` proves `localStorage` is the SQLite shim (`instanceof Storage` is false), the key lands in `key_values`, and removal deletes it |
+| Gate met | **Yes, locally** — domain contracts and shipping bridge are tested |
 
-P04's gate is met locally by the tested contracts. Product integration remains a
-separate engineering change and is tracked as a follow-up, not as phase
-evidence.
+P04's gate is met locally: the domain contracts are tested and the Electron
+renderer now persists through SQLite rather than Chromium localStorage.

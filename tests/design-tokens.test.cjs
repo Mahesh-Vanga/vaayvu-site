@@ -50,7 +50,8 @@ test('the interactive prototype probes are real and wired to CI', () => {
   }
   const workflow = read('.github/workflows/build.yml');
   assert.match(workflow, /node scripts\/check-tokens\.cjs/);
-  assert.match(workflow, /tests\/browser-ui\.cjs/);
+  assert.match(workflow, /node scripts\/run-prototypes\.cjs/);
+  assert.match(read('scripts/run-prototypes.cjs'), /tests\/browser-ui\.cjs/);
   const doc = read('docs/DESIGN-SYSTEM.md');
   assert.match(doc, /all Playwright probes passed/);
   assert.match(doc, /Gate met \| \*\*Yes, locally\*\*/);

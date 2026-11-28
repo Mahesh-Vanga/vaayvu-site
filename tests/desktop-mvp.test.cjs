@@ -12,6 +12,10 @@ test('the desktop MVP features have implementation and native evidence', () => {
   assert.match(host, /will-download/);
   assert.match(host, /setSaveDialogOptions/);
   assert.match(read('windows/test/desktop-windows.cjs'), /bookmark all tabs/);
+  const downloads = read('windows/test/downloads.cjs');
+  assert.match(downloads, /getSaveDialogOptions/);
+  assert.match(downloads, /cancel\(\)/);
+  assert.match(read('windows/test/run.cjs'), /'downloads'/);
   assert.match(read('windows/test/smoke.cjs'), /#address-form/);
   assert.equal(JSON.parse(read('windows/package.json')).devDependencies.electron, '45.4.1');
 });
@@ -33,7 +37,7 @@ test('signed macOS and Windows artifacts are current and verified', () => {
   assert.match(doc, /Gate met \| \*\*Yes, locally\*\*/);
   const phases = read('docs/PHASES.csv');
   assert.match(phases, /P05,Desktop minimum viable browser/);
-  assert.match(phases, /current macOS DMG\/PKG signed and verified/);
+  assert.match(phases, /current macOS DMG\/PKG rebuilt signed and verified/);
   assert.ok(doc.includes('signed') && doc.includes('verified'));
 });
 

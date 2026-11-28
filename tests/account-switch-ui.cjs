@@ -58,8 +58,19 @@ module.exports = async function checkAccountSwitch(browser) {
         VaayvuSync.session?.origin === origin && VaayvuSync.session?.username === username, [origin, username]);
     };
     const showReader = async origin => {
-      await reader.evaluate(() => command('tools'));
-      await reader.locator('#ask').waitFor();
+      // A storage event from the previous account can close the tools dialog
+      // just after it opens. Re-open it instead of racing that event.
+      let opened = false;
+      for (let attempt = 0; attempt < 3 && !opened; attempt += 1) {
+        await reader.evaluate(() => command('tools'));
+        try {
+          await reader.locator('#ask').waitFor({ state: 'visible', timeout: 8000 });
+          opened = true;
+        } catch (error) {
+          await reader.locator('#dialog').waitFor({ state: 'hidden' }).catch(() => {});
+        }
+      }
+      assert.ok(opened, 'Page tools stayed open');
       assert.ok((await reader.locator('#ask .dialognote').textContent()).includes(origin));
       await reader.locator('#ask textarea').fill('What does this say?');
     };
@@ -109,3 +120,18 @@ module.exports = async function checkAccountSwitch(browser) {
     console.log('PASS account-bound reader consent, device selection and bookmark editor');
   } finally { await context.close(); }
 };
+
+if (require.main === module) {
+  const { chromium } = require('playwright');
+  (async () => {
+    const browser = await chromium.launch({ executablePath: process.env.VAAYVU_TEST_CHROME, headless: true });
+    try {
+      await module.exports(browser);
+    } finally {
+      await browser.close();
+    }
+  })().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}

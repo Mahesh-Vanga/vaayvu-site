@@ -94,3 +94,18 @@ module.exports = async function testObservatory(browser) {
     console.log('PASS Observatory offline reading, reduced motion, focus timer, explicit forecast and headlines, and strict-mode reset');
   } finally { await page.close(); }
 };
+
+if (require.main === module) {
+  const { chromium } = require('playwright');
+  (async () => {
+    const browser = await chromium.launch({ executablePath: process.env.VAAYVU_TEST_CHROME, headless: true });
+    try {
+      await module.exports(browser);
+    } finally {
+      await browser.close();
+    }
+  })().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}
