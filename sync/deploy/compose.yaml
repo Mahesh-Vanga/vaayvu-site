@@ -27,10 +27,7 @@ services:
       PORT: "8787"
       SYNC_DB: /home/node/vaayvu/vaayvu.sqlite
       VAAYVU_REGISTRATION: ${VAAYVU_REGISTRATION:-open}
-      VAAYVU_REGISTRATION: ${VAAYVU_REGISTRATION:-}
       VAAYVU_OLLAMA_URL: ${VAAYVU_OLLAMA_URL:-}
-      VAAYVU_OLLAMA_URL: ${VAAYVU_OLLAMA_URL:-}
-      VAAYVU_OLLAMA_MODEL: ${VAAYVU_OLLAMA_MODEL:-}
       VAAYVU_OLLAMA_MODEL: ${VAAYVU_OLLAMA_MODEL:-}
     volumes:
       - ../server.mjs:/opt/vaayvu/server.mjs:ro
