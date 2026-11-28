@@ -107,6 +107,7 @@ const out = process.env.VAAYVU_TEST_SCREENSHOTS;
       await page.locator('[data-landscape="dusk"]').click();
       await page.waitForFunction(() => JSON.parse(localStorage.getItem('vaayvu.settings') || '{}').wallpaper === 'dusk');
       await page.reload();
+      await page.waitForFunction(() => typeof settings !== 'undefined' && settings.wallpaper === 'dusk');
       assert.equal(await page.locator('[data-landscape="dusk"]').getAttribute('aria-pressed'), 'true');
       await page.locator('[data-landscape="ridge"]').click();
       assert.equal(await buttonNew().isVisible(), true);
