@@ -71,6 +71,7 @@ module.exports = async function checkAccountSwitch(browser) {
     await showReader(first);
 
     await signIn(other, second, 'owner');
+    await switchSession();
     await hidden();
     await waitAccount(second, 'owner');
     assert.equal(await reader.evaluate(() => sent.some(r => r.command === 'ask')), false);
@@ -94,6 +95,7 @@ module.exports = async function checkAccountSwitch(browser) {
     await reader.evaluate(async () => { await runSync(); command('sendDevice'); });
     await reader.locator('[data-send-device]').waitFor();
     await signIn(other, first, 'someoneelse');
+    await switchSession();
     await hidden();
     await waitAccount(first, 'someoneelse');
     assert.equal(await reader.evaluate(() => sent.some(r => r.command === 'send')), false);
